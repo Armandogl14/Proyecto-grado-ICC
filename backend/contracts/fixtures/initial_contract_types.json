@@ -1,0 +1,74 @@
+[
+  {
+    "model": "contracts.contracttype",
+    "pk": 1,
+    "fields": {
+      "name": "Contrato de Alquiler",
+      "code": "ALC",
+      "description": "Contratos de arrendamiento de locales comerciales y viviendas"
+    }
+  },
+  {
+    "model": "contracts.contracttype",
+    "pk": 2,
+    "fields": {
+      "name": "Venta de Vehículo",
+      "code": "VM",
+      "description": "Contratos de compraventa de vehículos de motor"
+    }
+  },
+  {
+    "model": "contracts.contracttype",
+    "pk": 3,
+    "fields": {
+      "name": "Hipoteca",
+      "code": "HIP",
+      "description": "Contratos de hipoteca convencional en primer rango"
+    }
+  },
+  {
+    "model": "contracts.contracttype",
+    "pk": 4,
+    "fields": {
+      "name": "Sociedad en Participación",
+      "code": "CSP",
+      "description": "Contratos de sociedad en participación"
+    }
+  },
+  {
+    "model": "contracts.contracttype",
+    "pk": 5,
+    "fields": {
+      "name": "Rescisión de Contrato",
+      "code": "RC",
+      "description": "Contratos de rescisión"
+    }
+  },
+  {
+    "model": "contracts.contracttype",
+    "pk": 6,
+    "fields": {
+      "name": "Venta y Traspaso de Arma de Fuego",
+      "code": "VTAF",
+      "description": "Contratos de venta y traspaso de armas de fuego"
+    }
+  },
+  {
+    "model": "contracts.contracttype",
+    "pk": 7,
+    "fields": {
+      "name": "Venta de Vivienda",
+      "code": "VV",
+      "description": "Contratos de compraventa de inmuebles residenciales"
+    }
+  },
+  {
+    "model": "contracts.contracttype",
+    "pk": 8,
+    "fields": {
+      "name": "Otro",
+      "code": "OTR",
+      "description": "Otros tipos de contratos no especificados"
+    }
+  }
+] 

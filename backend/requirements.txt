@@ -1,0 +1,33 @@
+# Django Core
+Django==5.2.3
+djangorestframework==3.15.2
+django-cors-headers==4.3.1
+
+# Database
+psycopg2-binary==2.9.7  # Para PostgreSQL en producción
+
+# Machine Learning
+scikit-learn==1.6.1
+pandas==2.2.2
+numpy==2.0.2
+joblib==1.5.1
+
+# NLP
+spacy==3.8.7
+nltk==3.9
+
+# File handling
+python-multipart==0.0.9
+Pillow==11.2.1
+
+# Environment
+python-decouple==3.8
+celery==5.3.4  # Para tareas asíncronas
+redis==5.0.8   # Cache y message broker
+
+# API Documentation
+drf-spectacular==0.27.2
+
+# Testing
+pytest-django==4.8.0
+factory-boy==3.3.0 

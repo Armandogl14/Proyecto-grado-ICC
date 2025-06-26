@@ -3,11 +3,11 @@ from django.utils import timezone
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q
-from celery import shared_task
+# from celery import shared_task  # Commented out to avoid Redis dependency
 
 from .models import Contract, ContractType, Clause, AnalysisResult
 from .serializers import (
@@ -22,14 +22,14 @@ class ContractTypeViewSet(viewsets.ReadOnlyModelViewSet):
     """ViewSet para tipos de contratos (solo lectura)"""
     queryset = ContractType.objects.all()
     serializer_class = ContractTypeSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]  # Permitir acceso sin autenticación
 
 
 class ContractViewSet(viewsets.ModelViewSet):
     """ViewSet principal para contratos con funcionalidades completas"""
     
     permission_classes = [IsAuthenticated]
-    parser_classes = [MultiPartParser, FormParser]
+    parser_classes = [JSONParser, MultiPartParser, FormParser]
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['status', 'contract_type', 'risk_score']
     
@@ -50,9 +50,9 @@ class ContractViewSet(viewsets.ModelViewSet):
         """Asignar usuario al crear contrato"""
         contract = serializer.save(uploaded_by=self.request.user)
         
-        # Iniciar análisis automáticamente si es texto
+        # Iniciar análisis automáticamente si es texto (modo síncrono para desarrollo)
         if contract.original_text:
-            self.trigger_analysis(contract.id)
+            self.trigger_analysis_sync(contract.id)
     
     @action(detail=True, methods=['post'])
     def analyze(self, request, pk=None):
@@ -71,19 +71,18 @@ class ContractViewSet(viewsets.ModelViewSet):
                     'status': contract.status
                 }, status=status.HTTP_200_OK)
             
-            # Iniciar análisis
-            task_result = analyze_contract_task.delay(str(contract.id))
+            # Iniciar análisis (modo síncrono para desarrollo)
+            self.trigger_analysis_sync(contract.id)
             
-            # Actualizar estado
-            contract.status = 'analyzing'
-            contract.save()
+            # Refrescar el contrato para obtener el estado actualizado
+            contract.refresh_from_db()
             
             return Response({
-                'message': 'Análisis iniciado',
+                'message': 'Análisis completado',
                 'contract_id': contract.id,
-                'task_id': task_result.id,
-                'status': 'analyzing'
-            }, status=status.HTTP_202_ACCEPTED)
+                'status': contract.status,
+                'risk_score': contract.risk_score
+            }, status=status.HTTP_200_OK)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
@@ -107,18 +106,16 @@ class ContractViewSet(viewsets.ModelViewSet):
                     'error': 'Algunos contratos no fueron encontrados o no tienes permisos'
                 }, status=status.HTTP_400_BAD_REQUEST)
             
-            # Iniciar análisis para cada contrato
+            # Iniciar análisis para cada contrato (modo síncrono)
             task_results = []
             for contract in contracts:
                 if contract.status != 'completed' or force_reanalysis:
-                    task_result = analyze_contract_task.delay(str(contract.id))
+                    # Usar análisis síncrono en lugar de Celery
+                    self.trigger_analysis_sync(contract.id)
                     task_results.append({
                         'contract_id': contract.id,
-                        'task_id': task_result.id
+                        'task_id': 'sync_analysis'
                     })
-                    
-                    contract.status = 'analyzing'
-                    contract.save()
             
             return Response({
                 'message': f'Análisis iniciado para {len(task_results)} contratos',
@@ -174,8 +171,46 @@ class ContractViewSet(viewsets.ModelViewSet):
         return Response(report_data)
     
     def trigger_analysis(self, contract_id):
-        """Método auxiliar para iniciar análisis"""
-        analyze_contract_task.delay(str(contract_id))
+        """Método auxiliar para iniciar análisis (modo síncrono por ahora)"""
+        # analyze_contract_task.delay(str(contract_id))  # Commented out due to Redis dependency
+        self.trigger_analysis_sync(contract_id)
+    
+    def trigger_analysis_sync(self, contract_id):
+        """Método auxiliar para iniciar análisis (síncrono)"""
+        # Importar aquí para evitar dependencias circulares
+        from ml_analysis.ml_service import ml_service
+        from django.utils import timezone
+        
+        try:
+            contract = Contract.objects.get(id=contract_id)
+            contract.status = 'analyzing'
+            contract.save()
+            
+            # Realizar análisis usando el servicio ML
+            analysis_result = ml_service.analyze_contract(contract.original_text)
+            
+            # Actualizar el contrato con los resultados
+            contract.total_clauses = analysis_result['total_clauses']
+            contract.abusive_clauses_count = analysis_result['abusive_clauses_count']
+            contract.risk_score = analysis_result['risk_score']
+            contract.status = 'completed'
+            contract.analyzed_at = timezone.now()
+            contract.save()
+            
+            # Guardar cláusulas y entidades (simplificado)
+            for clause_result in analysis_result['clause_results']:
+                Clause.objects.create(
+                    contract=contract,
+                    text=clause_result['text'],
+                    is_abusive=clause_result['is_abusive'],
+                    confidence_score=clause_result['confidence_score'],
+                    clause_type='general'
+                )
+                
+        except Exception as e:
+            contract.status = 'error'
+            contract.save()
+            print(f"Error en análisis síncrono: {e}")
 
 
 class ClauseViewSet(viewsets.ReadOnlyModelViewSet):
@@ -216,8 +251,8 @@ class ClauseViewSet(viewsets.ReadOnlyModelViewSet):
         return Response(patterns)
 
 
-# Tareas asíncronas con Celery
-@shared_task
+# Tareas asíncronas con Celery (temporalmente deshabilitado)
+# @shared_task
 def analyze_contract_task(contract_id: str):
     """Tarea asíncrona para analizar contratos"""
     try:

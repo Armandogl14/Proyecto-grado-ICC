@@ -1,9 +1,9 @@
 name: contract-analysis
 channels:
-  - conda-forge
+  - conda-forge  # Prioridad a conda-forge para versiones más nuevas
   - defaults
 dependencies:
-  - python=3.9
+  - python=3.11  # 3.11 or 3.12 for spaCy compatibility
   - pandas=2.2.2
   - scikit-learn=1.6.1
   - numpy=2.0.2

@@ -5,7 +5,8 @@
     "fields": {
       "name": "Contrato de Alquiler",
       "code": "ALC",
-      "description": "Contratos de arrendamiento de locales comerciales y viviendas"
+      "description": "Contratos de arrendamiento de locales comerciales y viviendas",
+      "created_at": "2024-06-24T00:00:00Z"
     }
   },
   {
@@ -14,7 +15,8 @@
     "fields": {
       "name": "Venta de Vehículo",
       "code": "VM",
-      "description": "Contratos de compraventa de vehículos de motor"
+      "description": "Contratos de compraventa de vehículos de motor",
+      "created_at": "2024-06-24T00:00:00Z"
     }
   },
   {
@@ -23,7 +25,8 @@
     "fields": {
       "name": "Hipoteca",
       "code": "HIP",
-      "description": "Contratos de hipoteca convencional en primer rango"
+      "description": "Contratos de hipoteca convencional en primer rango",
+      "created_at": "2024-06-24T00:00:00Z"
     }
   },
   {
@@ -32,7 +35,8 @@
     "fields": {
       "name": "Sociedad en Participación",
       "code": "CSP",
-      "description": "Contratos de sociedad en participación"
+      "description": "Contratos de sociedad en participación",
+      "created_at": "2024-06-24T00:00:00Z"
     }
   },
   {
@@ -41,7 +45,8 @@
     "fields": {
       "name": "Rescisión de Contrato",
       "code": "RC",
-      "description": "Contratos de rescisión"
+      "description": "Contratos de rescisión",
+      "created_at": "2024-06-24T00:00:00Z"
     }
   },
   {
@@ -50,7 +55,8 @@
     "fields": {
       "name": "Venta y Traspaso de Arma de Fuego",
       "code": "VTAF",
-      "description": "Contratos de venta y traspaso de armas de fuego"
+      "description": "Contratos de venta y traspaso de armas de fuego",
+      "created_at": "2024-06-24T00:00:00Z"
     }
   },
   {
@@ -59,7 +65,8 @@
     "fields": {
       "name": "Venta de Vivienda",
       "code": "VV",
-      "description": "Contratos de compraventa de inmuebles residenciales"
+      "description": "Contratos de compraventa de inmuebles residenciales",
+      "created_at": "2024-06-24T00:00:00Z"
     }
   },
   {
@@ -68,7 +75,8 @@
     "fields": {
       "name": "Otro",
       "code": "OTR",
-      "description": "Otros tipos de contratos no especificados"
+      "description": "Otros tipos de contratos no especificados",
+      "created_at": "2024-06-24T00:00:00Z"
     }
   }
 ] 

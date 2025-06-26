@@ -72,8 +72,9 @@ class ContractCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contract
         fields = [
-            'title', 'contract_type', 'original_text', 'file_upload'
+            'id', 'title', 'contract_type', 'original_text', 'file_upload'
         ]
+        read_only_fields = ['id']
     
     def create(self, validated_data):
         # El usuario se asigna automáticamente desde la vista

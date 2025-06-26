@@ -35,14 +35,20 @@ source venv/bin/activate
 
 #### Opción B: Usando Anaconda/Conda (Recomendado para ML) 🐍
 ```bash
+# ⚠️ IMPORTANTE: Usar Python 3.11 o 3.12 (spaCy no soporta 3.13 aún)
+
 # Método 1: Crear entorno desde archivo environment.yml (Recomendado)
 conda env create -f environment.yml
 conda activate contract-analysis
 
-# Método 2: Crear entorno manualmente
-conda create -n contract-analysis python=3.9
+# Método 2: Crear entorno manualmente con Python 3.11
+conda create -n contract-analysis python=3.11
 conda activate contract-analysis
 conda install pandas scikit-learn numpy matplotlib seaborn spacy nltk
+
+# Método 3: Si tienes Python 3.13, crear entorno con versión específica
+conda create -n contract-analysis python=3.11
+conda activate contract-analysis
 ```
 
 ### 3. Instalar Dependencias
@@ -52,16 +58,25 @@ conda install pandas scikit-learn numpy matplotlib seaborn spacy nltk
 pip install -r requirements.txt
 ```
 
-#### Si usas Conda:
+#### Si usas Conda (RECOMENDADO para evitar errores de compilación):
 ```bash
-# Opción 1: Usar pip dentro del entorno conda
-pip install -r requirements.txt
+# PASO 1: Instalar dependencias ML/científicas con conda (evita errores de compilación)
+conda install pandas scikit-learn numpy matplotlib seaborn spacy nltk pillow joblib
 
-# Opción 2: Instalar con conda cuando sea posible
-conda install django djangorestframework psycopg2
-conda install pandas scikit-learn numpy spacy nltk
-conda install redis-py celery
-pip install django-cors-headers drf-spectacular python-decouple
+# PASO 2: Instalar dependencias Django con pip
+pip install Django==5.2.3 djangorestframework==3.15.2 django-cors-headers==4.3.1
+pip install drf-spectacular==0.27.2 python-decouple==3.8 celery==5.3.4
+pip install python-multipart==0.0.9 pytest-django==4.8.0 factory-boy==3.3.0
+
+# PASO 3: Solo si necesitas PostgreSQL en producción
+# conda install psycopg2  # O skip si usas SQLite
+```
+
+#### ⚠️ Si insistes en usar solo pip (NO recomendado en Windows):
+```bash
+# Instalar Visual Studio Build Tools primero:
+# Descargar desde: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+pip install -r requirements.txt
 ```
 
 ### 4. Descargar Modelo de spaCy
@@ -257,6 +272,60 @@ conda clean --all
 # Usar pip dentro del entorno conda
 conda activate contract-analysis
 pip install -r requirements.txt
+```
+
+#### Error: "Could not find vswhere.exe" o errores de compilación
+```bash
+# CAUSA: pip está intentando compilar pandas/numpy desde source code
+# SOLUCIÓN: Usar conda para paquetes científicos
+
+conda activate contract-analysis
+
+# Instalar con conda (paquetes precompilados)
+conda install pandas scikit-learn numpy matplotlib seaborn spacy
+
+# Solo usar pip para paquetes específicos de Django
+pip install Django djangorestframework django-cors-headers drf-spectacular
+```
+
+#### Error: "Microsoft Visual C++ 14.0 is required"
+```bash
+# Opción 1: Usar conda (RECOMENDADO)
+conda install pandas scikit-learn numpy
+
+# Opción 2: Instalar Build Tools (NO recomendado)
+# Descargar Visual Studio Build Tools from:
+# https://visualstudio.microsoft.com/visual-cpp-build-tools/
+```
+
+#### Error: "spacy =* * is not installable" o conflictos con Python 3.13
+```bash
+# CAUSA: Python 3.13 "pinned" + canal defaults con versiones muy viejas
+
+# SOLUCIÓN 1: Crear entorno con conda-forge y Python 3.11 (RECOMENDADO)
+conda create -n contract-analysis python=3.11 -c conda-forge
+conda activate contract-analysis
+conda install -c conda-forge spacy pandas scikit-learn numpy
+
+# SOLUCIÓN 2: Usar pip para spaCy (alternativa rápida)
+conda create -n contract-analysis python=3.11
+conda activate contract-analysis
+conda install pandas scikit-learn numpy matplotlib seaborn
+pip install spacy
+
+# SOLUCIÓN 3: Forzar canales específicos
+conda create -n contract-analysis python=3.11
+conda activate contract-analysis
+conda install -c conda-forge -c defaults spacy pandas scikit-learn
+
+# SOLUCIÓN 4: Si nada funciona, usar solo pip
+conda create -n contract-analysis python=3.11
+conda activate contract-analysis
+pip install spacy pandas scikit-learn numpy matplotlib seaborn django
+
+# VERIFICAR: Qué canales estás usando
+conda config --show channels
+conda search spacy -c conda-forge  # Ver versiones en conda-forge
 ```
 
 #### Listar entornos disponibles

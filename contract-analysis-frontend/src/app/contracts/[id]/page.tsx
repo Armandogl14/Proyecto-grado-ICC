@@ -23,13 +23,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 
-interface ContractDetailPageProps {
-  params: {
-    id: string
-  }
-}
-
-export default function ContractDetailPage({ params }: ContractDetailPageProps) {
+export default function ContractDetailPage({ params }: { params: { id: string } }) {
   const { data: contract, isLoading: isLoadingContract } = useRealTimeAnalysis(params.id)
   const { data: clausesData, isLoading: isLoadingClauses } = useClausesByContract(params.id)
   const analyzeContractMutation = useAnalyzeContract()
@@ -73,13 +67,13 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
   const getStatusIcon = () => {
     switch (contract.status) {
       case 'pending':
-        return <Clock className="w-5 h-5 text-yellow-600" />
+        return <Clock className="w-5 h-5 text-amber-500" />
       case 'analyzing':
-        return <Loader2 className="w-5 h-5 text-blue-600 animate-spin" />
+        return <Loader2 className="w-5 h-5 text-primary animate-spin" />
       case 'completed':
-        return <CheckCircle className="w-5 h-5 text-green-600" />
+        return <CheckCircle className="w-5 h-5 text-emerald-500" />
       case 'error':
-        return <AlertTriangle className="w-5 h-5 text-red-600" />
+        return <AlertTriangle className="w-5 h-5 text-destructive" />
       default:
         return null
     }
@@ -101,7 +95,7 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
   }
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-background">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -113,10 +107,10 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
               </Button>
             </Link>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">
+              <h1 className="text-3xl font-bold text-foreground">
                 {contract.title}
               </h1>
-              <p className="text-gray-600 mt-1">
+              <p className="text-muted-foreground mt-1">
                 {contract.contract_type.name} • Creado el {formatDate(contract.created_at)}
               </p>
             </div>
@@ -164,7 +158,7 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
           <div className="grid gap-6 md:grid-cols-4">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">
+                <CardTitle className="text-sm font-medium text-muted-foreground">
                   Total Cláusulas
                 </CardTitle>
               </CardHeader>
@@ -175,12 +169,12 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">
+                <CardTitle className="text-sm font-medium text-muted-foreground">
                   Cláusulas Abusivas
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-red-600">
+                <div className="text-2xl font-bold text-destructive">
                   {contract.abusive_clauses_count}
                 </div>
               </CardContent>
@@ -188,7 +182,7 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">
+                <CardTitle className="text-sm font-medium text-muted-foreground">
                   Nivel de Riesgo
                 </CardTitle>
               </CardHeader>
@@ -199,14 +193,14 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
                     showIcon={false}
                   />
                 ) : (
-                  <div className="text-2xl font-bold text-gray-400">N/A</div>
+                  <div className="text-2xl font-bold text-muted-foreground/50">N/A</div>
                 )}
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">
+                <CardTitle className="text-sm font-medium text-muted-foreground">
                   Fecha Análisis
                 </CardTitle>
               </CardHeader>
@@ -227,8 +221,8 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
               <CardTitle>Texto Original</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="max-h-96 overflow-y-auto">
-                <pre className="text-sm whitespace-pre-wrap leading-relaxed">
+              <div className="max-h-96 overflow-y-auto rounded-md border bg-secondary/30 p-4">
+                <pre className="text-sm whitespace-pre-wrap leading-relaxed text-foreground">
                   {contract.original_text}
                 </pre>
               </div>
@@ -244,15 +238,15 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
               <CardContent>
                 {contract.status === 'analyzing' && (
                   <div className="text-center py-8">
-                    <Loader2 className="w-8 h-8 text-blue-600 animate-spin mx-auto mb-4" />
-                    <p className="text-gray-600">Analizando cláusulas...</p>
+                    <Loader2 className="w-8 h-8 text-primary animate-spin mx-auto mb-4" />
+                    <p className="text-muted-foreground">Analizando cláusulas...</p>
                   </div>
                 )}
 
                 {contract.status === 'pending' && (
                   <div className="text-center py-8">
-                    <Clock className="w-8 h-8 text-yellow-600 mx-auto mb-4" />
-                    <p className="text-gray-600">
+                    <Clock className="w-8 h-8 text-amber-500 mx-auto mb-4" />
+                    <p className="text-muted-foreground">
                       Haga clic en "Analizar" para comenzar el análisis
                     </p>
                   </div>
@@ -260,8 +254,8 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
 
                 {contract.status === 'error' && (
                   <div className="text-center py-8">
-                    <AlertTriangle className="w-8 h-8 text-red-600 mx-auto mb-4" />
-                    <p className="text-gray-600">
+                    <AlertTriangle className="w-8 h-8 text-destructive mx-auto mb-4" />
+                    <p className="text-muted-foreground">
                       Error en el análisis. Intente nuevamente.
                     </p>
                   </div>
@@ -272,6 +266,15 @@ export default function ContractDetailPage({ params }: ContractDetailPageProps) 
                     {clausesData.results.map((clause) => (
                       <ClauseCard key={clause.id} clause={clause} />
                     ))}
+                  </div>
+                )}
+
+                {!isLoadingClauses && !clausesData?.results.length && contract.status === 'completed' && (
+                  <div className="text-center py-8">
+                    <CheckCircle className="w-8 h-8 text-emerald-500 mx-auto mb-4" />
+                    <p className="text-muted-foreground">
+                      El análisis se completó, pero no se encontraron cláusulas para mostrar.
+                    </p>
                   </div>
                 )}
               </CardContent>

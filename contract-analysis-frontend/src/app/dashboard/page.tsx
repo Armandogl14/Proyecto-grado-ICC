@@ -47,37 +47,47 @@ export default function DashboardPage() {
       title: "Total Contratos",
       value: stats?.total_contracts || 0,
       icon: FileText,
-      color: "text-blue-600"
+      color: "text-primary"
     },
     {
       title: "Pendientes",
       value: stats?.pending_analysis || 0,
       icon: Clock,
-      color: "text-yellow-600"
+      color: "text-amber-500"
     },
     {
       title: "Completados",
       value: stats?.completed || 0,
       icon: CheckCircle,
-      color: "text-green-600"
+      color: "text-emerald-500"
     },
     {
       title: "Alto Riesgo",
       value: stats?.high_risk || 0,
       icon: AlertTriangle,
-      color: "text-red-600"
+      color: "text-destructive"
     }
   ]
 
+  const GlassCard = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+    <div className={`
+      bg-card/50 backdrop-blur-xl border border-white/10 rounded-2xl
+      dark:bg-slate-800/20 dark:border-slate-700/50
+      ${className}
+    `}>
+      {children}
+    </div>
+  )
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-900">
       <Header />
-      <div className="p-6 space-y-6">
+      <div className="p-6 space-y-8">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-gray-600">
+          <h1 className="text-4xl font-bold text-foreground">Dashboard</h1>
+          <p className="text-muted-foreground mt-1">
             Resumen de análisis de contratos y cláusulas abusivas
           </p>
         </div>
@@ -92,129 +102,126 @@ export default function DashboardPage() {
       {/* Stats Cards */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {statsCards.map((stat, index) => (
-          <Card key={index}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
-                {stat.title}
-              </CardTitle>
-              <stat.icon className={`w-4 h-4 ${stat.color}`} />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{stat.value}</div>
-            </CardContent>
-          </Card>
+          <GlassCard key={index}>
+            <div className="p-5">
+              <div className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <h3 className="text-sm font-medium text-muted-foreground">
+                  {stat.title}
+                </h3>
+                <stat.icon className={`w-5 h-5 ${stat.color}`} />
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-foreground">{stat.value}</div>
+              </div>
+            </div>
+          </GlassCard>
         ))}
       </div>
 
       {/* Risk Distribution */}
       <div className="grid gap-6 md:grid-cols-3">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-sm font-medium text-gray-600 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-green-600" />
+        <GlassCard>
+          <div className="p-5">
+            <h3 className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-emerald-500" />
               Bajo Riesgo
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-green-600">
+            </h3>
+            <div className="mt-2 text-2xl font-bold text-emerald-500">
               {stats?.low_risk || 0}
             </div>
-            <p className="text-xs text-gray-500">contratos</p>
-          </CardContent>
-        </Card>
+            <p className="text-xs text-muted-foreground">contratos</p>
+          </div>
+        </GlassCard>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-sm font-medium text-gray-600 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-yellow-600" />
+        <GlassCard>
+          <div className="p-5">
+            <h3 className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-amber-500" />
               Riesgo Medio
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-yellow-600">
+            </h3>
+            <div className="mt-2 text-2xl font-bold text-amber-500">
               {stats?.medium_risk || 0}
             </div>
-            <p className="text-xs text-gray-500">contratos</p>
-          </CardContent>
-        </Card>
+            <p className="text-xs text-muted-foreground">contratos</p>
+          </div>
+        </GlassCard>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-sm font-medium text-gray-600 flex items-center gap-2">
-              <AlertTriangle className="w-4 h-4 text-red-600" />
+        <GlassCard>
+          <div className="p-5">
+            <h3 className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+              <AlertTriangle className="w-4 h-4 text-destructive" />
               Alto Riesgo
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-red-600">
+            </h3>
+            <div className="mt-2 text-2xl font-bold text-destructive">
               {stats?.high_risk || 0}
             </div>
-            <p className="text-xs text-gray-500">contratos</p>
-          </CardContent>
-        </Card>
+            <p className="text-xs text-muted-foreground">contratos</p>
+          </div>
+        </GlassCard>
       </div>
 
       {/* Recent Contracts */}
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <CardTitle>Contratos Recientes</CardTitle>
+      <GlassCard>
+        <div className="p-5">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-foreground">Contratos Recientes</h3>
             <Link href="/contracts">
-              <Button variant="outline" size="sm">
+              <Button variant="ghost" size="sm">
                 Ver todos
               </Button>
             </Link>
           </div>
-        </CardHeader>
-        <CardContent>
-          {contractsData?.results && contractsData.results.length > 0 ? (
-            <div className="space-y-4">
-              {contractsData.results.map((contract) => (
-                <div 
-                  key={contract.id}
-                  className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50"
-                >
-                  <div className="flex-1">
-                    <h3 className="font-medium">{contract.title}</h3>
-                    <p className="text-sm text-gray-500">
-                      {contract.contract_type.name} • {formatDate(contract.created_at)}
-                    </p>
-                  </div>
-                  
-                  <div className="flex items-center gap-4">
-                    {contract.risk_score !== undefined && (
-                      <RiskIndicator 
-                        riskScore={contract.risk_score} 
-                        showIcon={false}
-                      />
-                    )}
-                    
-                    <div className="text-sm text-gray-500">
-                      {contract.total_clauses} cláusulas
+          <div>
+            {contractsData?.results && contractsData.results.length > 0 ? (
+              <div className="space-y-2">
+                {contractsData.results.map((contract) => (
+                  <div 
+                    key={contract.id}
+                    className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-700/50"
+                  >
+                    <div className="flex-1">
+                      <h4 className="font-medium text-foreground">{contract.title}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {contract.contract_type.name} • {formatDate(contract.created_at)}
+                      </p>
                     </div>
                     
-                    <Link href={`/contracts/${contract.id}`}>
-                      <Button size="sm" variant="outline">
-                        <Eye className="w-4 h-4" />
-                      </Button>
-                    </Link>
+                    <div className="flex items-center gap-4">
+                      {contract.risk_score !== undefined && (
+                        <RiskIndicator 
+                          riskScore={contract.risk_score} 
+                          showIcon={false}
+                          showPercentage={true}
+                        />
+                      )}
+                      
+                      <div className="text-sm text-muted-foreground hidden md:block">
+                        {contract.total_clauses} cláusulas
+                      </div>
+                      
+                      <Link href={`/contracts/${contract.id}`}>
+                        <Button size="icon" variant="ghost">
+                          <Eye className="w-5 h-5" />
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-8">
-              <FileText className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-500">No hay contratos aún</p>
-              <Link href="/contracts/new">
-                <Button className="mt-4">
-                  Crear primer contrato
-                </Button>
-              </Link>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8">
+                <FileText className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
+                <p className="text-muted-foreground">No hay contratos aún</p>
+                <Link href="/contracts/new">
+                  <Button variant="outline" className="mt-4">
+                    Crear primer contrato
+                  </Button>
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
+      </GlassCard>
       </div>
     </div>
   )

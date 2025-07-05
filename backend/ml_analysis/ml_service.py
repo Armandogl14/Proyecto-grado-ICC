@@ -57,16 +57,15 @@ class ContractMLService:
         """Configura patrones personalizados para el matcher"""
         patterns = [
             # Partes del contrato
-            [[{"LOWER": "el"}, {"LOWER": {"IN": ["vendedor", "comprador", "arrendador", "inquilino", "propietario"]}}]],
-            [[{"LOWER": "la"}, {"LOWER": {"IN": ["vendedora", "compradora", "arrendadora", "inquilina", "propietaria"]}}]],
+            [{"LOWER": "el"}, {"LOWER": {"IN": ["vendedor", "comprador", "arrendador", "inquilino", "propietario"]}}],
+            [{"LOWER": "la"}, {"LOWER": {"IN": ["vendedora", "compradora", "arrendadora", "inquilina", "propietaria"]}}],
             
             # Términos monetarios
-            [[{"LOWER": "rd"}, {"TEXT": "$"}, {"LIKE_NUM": True}]],
-            [[{"TEXT": "RD$"}, {"LIKE_NUM": True}]],
+            [{"LOWER": "rd"}, {"TEXT": "$"}, {"LIKE_NUM": True}],
+            [{"TEXT": "RD$"}, {"LIKE_NUM": True}],
             
             # Fechas
-            [[{"LIKE_NUM": True}, {"LOWER": "de"}, {"LOWER": {"IN": ["enero", "febrero", "marzo", "abril", "mayo", "junio", 
-                                                                    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]}}]],
+            [{"LIKE_NUM": True}, {"LOWER": "de"}, {"LOWER": {"IN": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]}}],
         ]
         
         self.matcher.add("PARTES_CONTRATO", patterns[:2])

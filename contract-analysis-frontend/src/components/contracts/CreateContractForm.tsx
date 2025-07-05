@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { useCreateContract, useContractTypes } from "@/hooks/useContracts"
 import { Loader2, FileText, Upload } from "lucide-react"
 import type { CreateContractData } from "@/types/contracts"
+import pdfToText from 'react-pdftotext'
 
 const contractSchema = z.object({
   title: z.string().min(1, 'El título es requerido'),
@@ -25,6 +26,7 @@ interface CreateContractFormProps {
 
 export function CreateContractForm({ onSuccess, className = "" }: CreateContractFormProps) {
   const [isAnalyzing, setIsAnalyzing] = useState(false)
+  const [isParsingPdf, setIsParsingPdf] = useState(false)
   const { data: contractTypesData, isLoading: isLoadingTypes, error: typesError } = useContractTypes()
   const createContractMutation = useCreateContract()
 
@@ -79,18 +81,34 @@ export function CreateContractForm({ onSuccess, className = "" }: CreateContract
     }
   }
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
-    if (file && file.type === 'text/plain') {
+    if (!file) return
+
+    if (!watch('title')) {
+      setValue('title', file.name.replace(/\.(txt|pdf)$/i, ''))
+    }
+
+    if (file.type === 'application/pdf') {
+      setIsParsingPdf(true)
+      try {
+        const text = await pdfToText(file)
+        setValue('original_text', text)
+      } catch (error) {
+        console.error("Failed to extract text from pdf", error)
+        alert("No se pudo extraer el texto del PDF.")
+      } finally {
+        setIsParsingPdf(false)
+      }
+    } else if (file.type === 'text/plain') {
       const reader = new FileReader()
       reader.onload = (e) => {
         const text = e.target?.result as string
         setValue('original_text', text)
-        if (!watch('title')) {
-          setValue('title', file.name.replace('.txt', ''))
-        }
       }
       reader.readAsText(file)
+    } else {
+      alert("Por favor, sube un archivo .txt o .pdf")
     }
   }
 
@@ -171,17 +189,27 @@ export function CreateContractForm({ onSuccess, className = "" }: CreateContract
             <div className="flex items-center gap-4">
               <input
                 type="file"
-                accept=".txt"
+                accept=".txt,.pdf"
                 onChange={handleFileUpload}
                 className="hidden"
                 id="file-upload"
+                disabled={isParsingPdf}
               />
               <label
                 htmlFor="file-upload"
-                className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50"
+                className={`flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 ${isParsingPdf ? 'bg-gray-200 cursor-not-allowed' : ''}`}
               >
-                <Upload className="w-4 h-4" />
-                Seleccionar archivo .txt
+                {isParsingPdf ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Procesando PDF...
+                  </>
+                ) : (
+                  <>
+                    <Upload className="w-4 h-4" />
+                    Seleccionar archivo .txt o .pdf
+                  </>
+                )}
               </label>
             </div>
           </div>

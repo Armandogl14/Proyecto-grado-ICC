@@ -6,13 +6,13 @@ django-cors-headers==4.3.1
 # Database
 psycopg2-binary==2.9.7  # Para PostgreSQL en producción
 
-# Machine Learning
+# Machine Learning & NLP
+# Nota: pandas y lightgbm se instalan por separado con Conda para evitar errores de compilación en Windows.
+# conda install pandas
+# conda install -c conda-forge lightgbm
 scikit-learn==1.6.1
-pandas==2.2.2
 numpy==2.0.2
 joblib==1.5.1
-
-# NLP
 spacy==3.8.7
 nltk==3.9
 
@@ -24,6 +24,7 @@ Pillow==11.2.1
 python-decouple==3.8
 celery==5.3.4  # Para tareas asíncronas
 redis==4.6.0   # Cache y message broker. Pinned a <5.0 para compatibilidad con Celery 5.3
+openai==1.35.13 # Para análisis con GPT
 
 # API Documentation
 drf-spectacular==0.27.2

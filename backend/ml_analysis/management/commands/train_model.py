@@ -8,9 +8,9 @@ from django.conf import settings
 
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, classification_report
+import lightgbm as lgb
 
 # Se moverán las importaciones de NLTK para evitar errores de importación circular
 # import nltk
@@ -90,16 +90,19 @@ class Command(BaseCommand):
         
         self.stdout.write(self.style.NOTICE('Creando y entrenando el pipeline del modelo...'))
 
-        # Crear pipeline de Scikit-learn
+        # Crear pipeline de Scikit-learn con LightGBM
         pipeline = Pipeline([
             ('tfidf', TfidfVectorizer(
                 stop_words=stopwords_es, 
                 max_features=2000, 
                 ngram_range=(1, 2)
             )),
-            ('classifier', LogisticRegression(
-                max_iter=1000, 
+            ('classifier', lgb.LGBMClassifier(
+                objective='binary',
                 class_weight='balanced',
+                n_estimators=200,
+                learning_rate=0.05,
+                num_leaves=31,
                 random_state=42
             ))
         ])

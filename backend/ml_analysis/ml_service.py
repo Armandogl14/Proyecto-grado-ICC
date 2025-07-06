@@ -7,11 +7,13 @@ from datetime import datetime
 from typing import List, Dict, Tuple, Optional
 from django.conf import settings
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from spacy.matcher import Matcher
+import lightgbm as lgb
 import nltk
 from nltk.corpus import stopwords
+import openai
+from decouple import config
 
 
 class ContractMLService:
@@ -26,7 +28,16 @@ class ContractMLService:
         self.vectorizer = None
         self.matcher = None
         self.stopwords_es = None
+        self.openai_client = None
         self._load_models()
+
+        # Inicializar cliente de OpenAI
+        try:
+            self.openai_client = openai.OpenAI(api_key=config('OPENAI_API_KEY'))
+            print("✅ OpenAI client initialized.")
+        except Exception as e:
+            self.openai_client = None
+            print(f"⚠️ OpenAI client could not be initialized: {e}")
     
     def _load_models(self):
         """Carga todos los modelos necesarios"""
@@ -115,10 +126,14 @@ class ContractMLService:
         
         df = pd.DataFrame(training_data)
         
-        # Crear pipeline
+        # Crear pipeline con LightGBM
         self.classifier_pipeline = Pipeline([
             ('tfidf', TfidfVectorizer(stop_words=self.stopwords_es, max_features=1000)),
-            ('classifier', LogisticRegression(max_iter=1000))
+            ('classifier', lgb.LGBMClassifier(
+                objective='binary',
+                class_weight='balanced',
+                random_state=42
+            ))
         ])
         
         # Entrenar
@@ -141,6 +156,57 @@ class ContractMLService:
             
             print(f"✅ Modelo guardado en: {model_path}")
     
+    def _get_openai_analysis(self, abusive_clauses: List[str]) -> Dict[str, str]:
+        """
+        Usa la API de OpenAI para generar un resumen y recomendaciones.
+        """
+        if not self.openai_client or not abusive_clauses:
+            return {
+                'summary': 'El análisis de IA externa no está disponible o no se encontraron cláusulas para analizar.',
+                'recommendations': 'No hay recomendaciones adicionales disponibles.'
+            }
+
+        # Construir el prompt
+        clauses_text = "\n".join([f"- {clause}" for clause in abusive_clauses])
+        prompt = f"""
+        Actúa como un asistente legal experto en la legislación de República Dominicana. He analizado un contrato y he identificado las siguientes cláusulas como potencialmente abusivas:
+        ---
+        {clauses_text}
+        ---
+
+        Basado SOLAMENTE en estas cláusulas, por favor proporciona una respuesta en formato JSON con dos claves: "resumen" y "recomendaciones".
+        1.  **resumen**: Redacta un resumen ejecutivo claro y conciso (máximo 3 frases) para un no-abogado, explicando los principales riesgos que estas cláusulas representan en conjunto.
+        2.  **recomendaciones**: Proporciona una lista de 2 a 3 recomendaciones prácticas y accionables que el usuario debería considerar.
+        """
+
+        try:
+            response = self.openai_client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "Eres un asistente legal experto que analiza cláusulas de contratos en español, específicamente para el marco legal de República Dominicana. Tu respuesta debe ser siempre un objeto JSON válido."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.4,
+                max_tokens=500,
+                response_format={"type": "json_object"}
+            )
+            
+            content = response.choices[0].message.content
+            import json
+            analysis = json.loads(content)
+            
+            return {
+                'summary': analysis.get('resumen', 'No se pudo generar el resumen.'),
+                'recommendations': analysis.get('recomendaciones', 'No se pudieron generar las recomendaciones.')
+            }
+
+        except Exception as e:
+            print(f"Error calling OpenAI API: {e}")
+            return {
+                'summary': 'Error al conectar con el servicio de análisis de IA externa.',
+                'recommendations': 'No se pudieron generar recomendaciones adicionales en este momento.'
+            }
+
     def analyze_contract(self, contract_text: str) -> Dict:
         """
         Analiza un contrato completo
@@ -175,6 +241,18 @@ class ContractMLService:
         # Extraer entidades del texto completo
         entities = self._extract_entities(contract_text)
         
+        # Obtener análisis de OpenAI si hay cláusulas abusivas
+        abusive_clauses_text = [res['text'] for res in clause_results if res['is_abusive']]
+        
+        if self.openai_client and abusive_clauses_text:
+            openai_analysis = self._get_openai_analysis(abusive_clauses_text)
+            summary = openai_analysis['summary']
+            recommendations = openai_analysis['recommendations']
+        else:
+            # Fallback a los métodos originales si OpenAI no está disponible o no hay cláusulas abusivas
+            summary = self._generate_summary(clause_results, risk_score)
+            recommendations = self._generate_recommendations(clause_results)
+
         return {
             'total_clauses': len(clauses),
             'abusive_clauses_count': total_abusive,
@@ -182,8 +260,8 @@ class ContractMLService:
             'processing_time': processing_time,
             'clause_results': clause_results,
             'entities': entities,
-            'executive_summary': self._generate_summary(clause_results, risk_score),
-            'recommendations': self._generate_recommendations(clause_results)
+            'executive_summary': summary,
+            'recommendations': recommendations
         }
     
     def _extract_clauses(self, text: str) -> List[str]:

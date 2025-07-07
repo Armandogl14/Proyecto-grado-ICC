@@ -10,6 +10,7 @@ import {
   useAnalyzeContract, 
   useClausesByContract 
 } from "@/hooks/useContracts"
+import type { Clause } from "@/types/contracts"
 import { formatDate } from "@/lib/utils"
 import { 
   ArrowLeft, 
@@ -19,7 +20,9 @@ import {
   Clock,
   CheckCircle,
   AlertTriangle,
-  Loader2
+  Loader2,
+  Brain,
+  Bot
 } from "lucide-react"
 import Link from "next/link"
 
@@ -164,6 +167,9 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{contract.total_clauses}</div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {contract.valid_clauses} válidas
+                </p>
               </CardContent>
             </Card>
 
@@ -176,6 +182,14 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
               <CardContent>
                 <div className="text-2xl font-bold text-destructive">
                   {contract.abusive_clauses_count}
+                </div>
+                <div className="flex items-center gap-4 mt-1">
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <Brain className="w-3 h-3" /> ML
+                  </div>
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <Bot className="w-3 h-3" /> GPT
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -208,6 +222,9 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
                 <div className="text-sm">
                   {contract.analyzed_at ? formatDate(contract.analyzed_at) : 'N/A'}
                 </div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Tiempo: {contract.processing_time?.toFixed(1)}s
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -229,8 +246,33 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
             </CardContent>
           </Card>
 
-          {/* Clauses Analysis */}
+          {/* Analysis Results */}
           <div className="space-y-6">
+            {/* Executive Summary */}
+            {contract.status === 'completed' && (
+              <Card>
+                <CardHeader>
+                  <CardTitle>Resumen Ejecutivo</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="prose prose-sm max-w-none">
+                    <p className="text-muted-foreground">
+                      {contract.executive_summary}
+                    </p>
+                    {contract.recommendations && (
+                      <>
+                        <h4 className="text-sm font-medium mt-4 mb-2">Recomendaciones:</h4>
+                        <p className="text-muted-foreground">
+                          {contract.recommendations}
+                        </p>
+                      </>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Clauses Analysis */}
             <Card>
               <CardHeader>
                 <CardTitle>Análisis de Cláusulas</CardTitle>
@@ -263,7 +305,7 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
 
                 {contract.status === 'completed' && clausesData?.results && (
                   <div className="space-y-4">
-                    {clausesData.results.map((clause) => (
+                    {clausesData.results.map((clause: Clause) => (
                       <ClauseCard key={clause.id} clause={clause} />
                     ))}
                   </div>

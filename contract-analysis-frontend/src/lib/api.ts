@@ -52,7 +52,7 @@ export const contractsApi = {
   getContracts: async (filters?: ContractFilters): Promise<ApiResponse<Contract>> => {
     const params = new URLSearchParams()
     if (filters?.status) params.append('status', filters.status)
-    if (filters?.contract_type) params.append('contract_type', filters.contract_type)
+    if (filters?.contract_type) params.append('contract_type', filters.contract_type.toString())
     if (filters?.search) params.append('search', filters.search)
     if (filters?.page) params.append('page', filters.page.toString())
     if (filters?.page_size) params.append('page_size', filters.page_size.toString())

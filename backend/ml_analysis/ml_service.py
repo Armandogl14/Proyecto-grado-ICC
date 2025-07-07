@@ -12,9 +12,13 @@ from spacy.matcher import Matcher
 import lightgbm as lgb
 import nltk
 from nltk.corpus import stopwords
-import openai
 from decouple import config
+import json
+import requests
+import logging
 
+# Configurar logger
+logger = logging.getLogger('ml_analysis')
 
 class ContractMLService:
     """
@@ -28,16 +32,7 @@ class ContractMLService:
         self.vectorizer = None
         self.matcher = None
         self.stopwords_es = None
-        self.openai_client = None
         self._load_models()
-
-        # Inicializar cliente de OpenAI
-        try:
-            self.openai_client = openai.OpenAI(api_key=config('OPENAI_API_KEY'))
-            print("✅ OpenAI client initialized.")
-        except Exception as e:
-            self.openai_client = None
-            print(f"⚠️ OpenAI client could not be initialized: {e}")
     
     def _load_models(self):
         """Carga todos los modelos necesarios"""
@@ -89,20 +84,24 @@ class ContractMLService:
         if models_path and os.path.exists(models_path):
             try:
                 # Buscar archivos de modelo más recientes
-                model_files = [f for f in os.listdir(models_path) if f.startswith('modelo_clausulas_')]
-                vectorizer_files = [f for f in os.listdir(models_path) if f.startswith('vectorizer_clausulas_')]
+                model_files = [f for f in os.listdir(models_path) if f.startswith('modelo_clausulas_') and f.endswith('.joblib')]
                 
-                if model_files and vectorizer_files:
+                if model_files:
+                    # Usar el modelo más reciente
                     latest_model = sorted(model_files)[-1]
-                    latest_vectorizer = sorted(vectorizer_files)[-1]
+                    model_path = os.path.join(models_path, latest_model)
                     
-                    self.classifier_pipeline = joblib.load(os.path.join(models_path, latest_model))
-                    self.vectorizer = joblib.load(os.path.join(models_path, latest_vectorizer))
+                    # Cargar el pipeline completo (incluye vectorizador)
+                    self.classifier_pipeline = joblib.load(model_path)
                     
-                    print(f"✅ Modelos cargados: {latest_model}, {latest_vectorizer}")
+                    print(f"✅ Modelo cargado: {latest_model}")
                     return True
+                else:
+                    print(f"⚠️ No se encontraron modelos en {models_path}")
             except Exception as e:
                 print(f"⚠️ Error cargando modelos preentrenados: {e}")
+        else:
+            print(f"⚠️ Ruta de modelos no existe: {models_path}")
         
         return False
     
@@ -160,11 +159,14 @@ class ContractMLService:
         """
         Usa la API de OpenAI para generar un resumen y recomendaciones.
         """
-        if not self.openai_client or not abusive_clauses:
+        if not abusive_clauses:
+            logger.info("No hay cláusulas para analizar")
             return {
-                'summary': 'El análisis de IA externa no está disponible o no se encontraron cláusulas para analizar.',
+                'summary': 'No se encontraron cláusulas para analizar.',
                 'recommendations': 'No hay recomendaciones adicionales disponibles.'
             }
+
+        logger.info(f"Iniciando análisis OpenAI para {len(abusive_clauses)} cláusulas")
 
         # Construir el prompt
         clauses_text = "\n".join([f"- {clause}" for clause in abusive_clauses])
@@ -180,147 +182,165 @@ class ContractMLService:
         """
 
         try:
-            response = self.openai_client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "Eres un asistente legal experto que analiza cláusulas de contratos en español, específicamente para el marco legal de República Dominicana. Tu respuesta debe ser siempre un objeto JSON válido."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.4,
-                max_tokens=500,
-                response_format={"type": "json_object"}
-            )
+            logger.debug("Enviando solicitud a OpenAI API para análisis general")
             
-            content = response.choices[0].message.content
-            import json
-            analysis = json.loads(content)
-            
-            return {
-                'summary': analysis.get('resumen', 'No se pudo generar el resumen.'),
-                'recommendations': analysis.get('recomendaciones', 'No se pudieron generar las recomendaciones.')
+            # Configurar headers y URL (como en test_gpt.py)
+            api_key = config('OPENAI_API_KEY')
+            headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json"
             }
+            url = "https://api.openai.com/v1/chat/completions"
+
+            # Datos de la solicitud
+            data = {
+                "model": "gpt-3.5-turbo",
+                "messages": [
+                    {
+                        "role": "system", 
+                        "content": "Eres un asistente legal experto que analiza cláusulas de contratos en español, específicamente para el marco legal de República Dominicana. Tu respuesta debe ser siempre un objeto JSON válido."
+                    },
+                    {
+                        "role": "user", 
+                        "content": prompt
+                    }
+                ],
+                "temperature": 0.4,
+                "max_tokens": 500,
+                "response_format": {"type": "json_object"}
+            }
+
+            # Hacer la solicitud
+            response = requests.post(
+                url,
+                headers=headers,
+                json=data,
+                timeout=30
+            )
+
+            if response.status_code == 200:
+                result = response.json()
+                content = result['choices'][0]['message']['content']
+                analysis = json.loads(content)
+                logger.debug(f"Análisis recibido: {analysis}")
+                return {
+                    'summary': analysis.get('resumen', ''),
+                    'recommendations': analysis.get('recomendaciones', '')
+                }
+            else:
+                logger.error(f"Error en API OpenAI: {response.status_code} - {response.text}")
+                raise Exception(f"API Error: {response.status_code}")
 
         except Exception as e:
-            print(f"Error calling OpenAI API: {e}")
+            logger.exception(f"Error en el análisis de OpenAI: {e}")
             return {
-                'summary': 'Error al conectar con el servicio de análisis de IA externa.',
-                'recommendations': 'No se pudieron generar recomendaciones adicionales en este momento.'
+                'summary': 'Error en el análisis de IA externa.',
+                'recommendations': 'No hay recomendaciones disponibles debido a un error técnico.'
             }
 
-    def analyze_contract(self, contract_text: str) -> Dict:
+    def _validate_clause_with_gpt(self, clause_text: str) -> Dict[str, any]:
         """
-        Analiza un contrato completo
-        
-        Args:
-            contract_text: Texto completo del contrato
-            
-        Returns:
-            Dict con resultados del análisis
+        Utiliza GPT para validar si el texto es una cláusula válida y si es abusiva.
         """
-        start_time = datetime.now()
-        
-        # Dividir en cláusulas
-        clauses = self._extract_clauses(contract_text)
-        
-        # Analizar cada cláusula
-        clause_results = []
-        total_abusive = 0
-        
-        for i, clause_text in enumerate(clauses):
-            clause_analysis = self._analyze_clause(clause_text)
-            clause_analysis['clause_number'] = i + 1
-            clause_results.append(clause_analysis)
-            
-            if clause_analysis['is_abusive']:
-                total_abusive += 1
-        
-        # Calcular métricas generales
-        processing_time = (datetime.now() - start_time).total_seconds()
-        risk_score = total_abusive / len(clauses) if clauses else 0
-        
-        # Extraer entidades del texto completo
-        entities = self._extract_entities(contract_text)
-        
-        # Obtener análisis de OpenAI si hay cláusulas abusivas
-        abusive_clauses_text = [res['text'] for res in clause_results if res['is_abusive']]
-        
-        if self.openai_client and abusive_clauses_text:
-            openai_analysis = self._get_openai_analysis(abusive_clauses_text)
-            summary = openai_analysis['summary']
-            recommendations = openai_analysis['recommendations']
-        else:
-            # Fallback a los métodos originales si OpenAI no está disponible o no hay cláusulas abusivas
-            summary = self._generate_summary(clause_results, risk_score)
-            recommendations = self._generate_recommendations(clause_results)
-
-        return {
-            'total_clauses': len(clauses),
-            'abusive_clauses_count': total_abusive,
-            'risk_score': risk_score,
-            'processing_time': processing_time,
-            'clause_results': clause_results,
-            'entities': entities,
-            'executive_summary': summary,
-            'recommendations': recommendations
-        }
-    
-    def _extract_clauses(self, text: str) -> List[str]:
-        """Extrae cláusulas individuales del texto"""
-        # Patterns para identificar cláusulas
-        patterns = [
-            r'(PRIMER[OA]?:.*?)(?=SEGUND[OA]?:|$)',
-            r'(SEGUND[OA]?:.*?)(?=TERCER[OA]?:|$)',
-            r'(TERCER[OA]?:.*?)(?=CUART[OA]?:|$)',
-            r'(CUART[OA]?:.*?)(?=QUINT[OA]?:|$)',
-            r'(QUINT[OA]?:.*?)(?=SEXT[OA]?:|$)',
-            r'(SEXT[OA]?:.*?)(?=S[EÉ]PTIM[OA]?:|$)',
-            r'(S[EÉ]PTIM[OA]?:.*?)(?=OCTAV[OA]?:|$)',
-            r'(POR CUANTO:.*?)(?=POR CUANTO:|POR TANTO:|$)',
-            r'(POR TANTO:.*?)(?=POR CUANTO:|POR TANTO:|$)',
-        ]
-        
-        clauses = []
-        for pattern in patterns:
-            matches = re.finditer(pattern, text, re.IGNORECASE | re.DOTALL)
-            for match in matches:
-                clause = match.group(1).strip()
-                if len(clause) > 10:  # Filtrar cláusulas muy cortas
-                    clauses.append(clause)
-        
-        # Si no se encuentran patrones, dividir por puntos
-        if not clauses:
-            clauses = [c.strip() for c in text.split('.') if len(c.strip()) > 20]
-        
-        return clauses
-    
-    def _analyze_clause(self, clause_text: str) -> Dict:
-        """Analiza una cláusula individual"""
-        if not self.classifier_pipeline:
-            return {
-                'text': clause_text,
-                'is_abusive': False,
-                'confidence_score': 0.0,
-                'entities': []
-            }
-        
-        # Predicción
-        prediction = self.classifier_pipeline.predict([clause_text])[0]
-        
-        # Probabilidad (confianza)
         try:
-            probabilities = self.classifier_pipeline.predict_proba([clause_text])[0]
-            confidence = max(probabilities)
-        except:
-            confidence = 0.5
+            logger.info("Iniciando validación GPT para cláusula")
+            
+            prompt = f"""
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las siguientes claves:
+            1. "is_valid_clause": booleano que indica si el texto es una cláusula contractual válida (y no un párrafo sin sentido legal)
+            2. "is_abusive": booleano que indica si la cláusula es abusiva según la legislación dominicana
+            3. "explanation": explicación detallada de por qué se considera válida/inválida y abusiva/no abusiva
+            4. "suggested_fix": si es abusiva, sugerir cómo podría reescribirse de forma no abusiva
+
+            Texto a analizar:
+            ---
+            {clause_text}
+            ---
+
+            Considera una cláusula como abusiva si:
+            - Crea un desequilibrio significativo entre las partes
+            - Limita derechos fundamentales
+            - Impone condiciones desproporcionadas
+            - Viola principios de buena fe o equidad
+            """
+
+            logger.debug(f"Enviando solicitud a OpenAI API con prompt: {prompt[:100]}...")
+
+            # Configurar headers y URL (como en test_gpt.py)
+            api_key = config('OPENAI_API_KEY')
+            headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json"
+            }
+            url = "https://api.openai.com/v1/chat/completions"
+
+            # Datos de la solicitud
+            data = {
+                "model": "gpt-3.5-turbo",
+                "messages": [
+                    {
+                        "role": "system", 
+                        "content": "Eres un experto legal especializado en análisis de contratos y legislación dominicana."
+                    },
+                    {
+                        "role": "user", 
+                        "content": prompt
+                    }
+                ],
+                "temperature": 0.3,
+                "max_tokens": 800,
+                "response_format": {"type": "json_object"}
+            }
+
+            # Hacer la solicitud
+            response = requests.post(
+                url,
+                headers=headers,
+                json=data,
+                timeout=30
+            )
+
+            if response.status_code == 200:
+                result = response.json()
+                content = result['choices'][0]['message']['content']
+                analysis = json.loads(content)
+                logger.debug(f"Resultado del análisis GPT: {analysis}")
+                return analysis
+            else:
+                logger.error(f"Error en API OpenAI: {response.status_code} - {response.text}")
+                raise Exception(f"API Error: {response.status_code}")
+
+        except Exception as e:
+            logger.exception(f"Error en validación GPT: {e}")
+            return {
+                'is_valid_clause': True,  # fallback conservador
+                'is_abusive': None,
+                'explanation': f'Error en validación GPT: {str(e)}',
+                'suggested_fix': None
+            }
+
+    def _analyze_clause(self, clause_text: str) -> Dict:
+        """Analiza una cláusula individual y retorna resultados."""
+        # Análisis inicial con el modelo ML
+        features = self.classifier_pipeline.named_steps['tfidf'].transform([clause_text])
+        prediction = self.classifier_pipeline.named_steps['classifier'].predict_proba(features)[0]
+        ml_score = prediction[1]  # Probabilidad de ser abusiva
+
+        # Validación secundaria con GPT
+        gpt_validation = self._validate_clause_with_gpt(clause_text)
         
-        # Extraer entidades de la cláusula
+        # Extraer entidades
         entities = self._extract_entities(clause_text)
         
         return {
             'text': clause_text,
-            'is_abusive': bool(prediction),
-            'confidence_score': float(confidence),
-            'entities': entities
+            'ml_analysis': {
+                'is_abusive': ml_score > 0.5,
+                'abuse_probability': float(ml_score)
+            },
+            'gpt_analysis': gpt_validation,
+            'entities': entities,
+            'risk_score': (ml_score + (1 if gpt_validation.get('is_abusive', False) else 0)) / 2
         }
     
     def _extract_entities(self, text: str) -> List[Dict]:
@@ -404,6 +424,106 @@ class ContractMLService:
         ])
         
         return "\n".join(recommendations)
+
+    def analyze_contract(self, contract_text: str) -> Dict:
+        """
+        Analiza un contrato completo
+        
+        Args:
+            contract_text: Texto completo del contrato
+            
+        Returns:
+            Dict con resultados del análisis
+        """
+        start_time = datetime.now()
+        
+        # Dividir en cláusulas
+        clauses = self._extract_clauses(contract_text)
+        
+        # Analizar cada cláusula
+        clause_results = []
+        total_abusive = 0
+        total_valid_clauses = 0
+        
+        for i, clause_text in enumerate(clauses):
+            clause_analysis = self._analyze_clause(clause_text)
+            clause_analysis['clause_number'] = i + 1
+            clause_results.append(clause_analysis)
+            
+            # Contar cláusulas abusivas basado en ambos análisis
+            ml_is_abusive = clause_analysis['ml_analysis']['is_abusive']
+            gpt_is_abusive = clause_analysis['gpt_analysis'].get('is_abusive', False)
+            
+            # Si ambos modelos están de acuerdo o GPT no está disponible
+            if ml_is_abusive and (gpt_is_abusive or gpt_is_abusive is None):
+                total_abusive += 1
+                
+            # Contar cláusulas válidas según GPT
+            if clause_analysis['gpt_analysis'].get('is_valid_clause', True):
+                total_valid_clauses += 1
+        
+        # Calcular métricas generales
+        processing_time = (datetime.now() - start_time).total_seconds()
+        risk_score = total_abusive / len(clauses) if clauses else 0
+        
+        # Extraer entidades del texto completo
+        entities = self._extract_entities(contract_text)
+        
+        # Obtener análisis de OpenAI para las cláusulas abusivas
+        abusive_clauses = [
+            res for res in clause_results 
+            if res['ml_analysis']['is_abusive'] or res['gpt_analysis'].get('is_abusive', False)
+        ]
+        
+        if abusive_clauses:
+            abusive_texts = [c['text'] for c in abusive_clauses]
+            openai_analysis = self._get_openai_analysis(abusive_texts)
+            summary = openai_analysis['summary']
+            recommendations = openai_analysis['recommendations']
+        else:
+            summary = self._generate_summary(clause_results, risk_score)
+            recommendations = self._generate_recommendations(clause_results)
+
+        return {
+            'total_clauses': len(clauses),
+            'valid_clauses': total_valid_clauses,
+            'abusive_clauses_count': total_abusive,
+            'risk_score': risk_score,
+            'processing_time': processing_time,
+            'clause_results': clause_results,
+            'entities': entities,
+            'executive_summary': summary,
+            'recommendations': recommendations
+        }
+
+    def _extract_clauses(self, text: str) -> List[str]:
+        """Extrae cláusulas individuales del texto"""
+        # Patterns para identificar cláusulas
+        patterns = [
+            r'(PRIMER[OA]?:.*?)(?=SEGUND[OA]?:|$)',
+            r'(SEGUND[OA]?:.*?)(?=TERCER[OA]?:|$)',
+            r'(TERCER[OA]?:.*?)(?=CUART[OA]?:|$)',
+            r'(CUART[OA]?:.*?)(?=QUINT[OA]?:|$)',
+            r'(QUINT[OA]?:.*?)(?=SEXT[OA]?:|$)',
+            r'(SEXT[OA]?:.*?)(?=S[EÉ]PTIM[OA]?:|$)',
+            r'(S[EÉ]PTIM[OA]?:.*?)(?=OCTAV[OA]?:|$)',
+            r'(POR CUANTO:.*?)(?=POR CUANTO:|POR TANTO:|$)',
+            r'(POR TANTO:.*?)(?=POR CUANTO:|POR TANTO:|$)',
+        ]
+        
+        clauses = []
+        for pattern in patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE | re.DOTALL)
+            for match in matches:
+                clause = match.group(1).strip()
+                if len(clause) > 10:  # Filtrar cláusulas muy cortas
+                    clauses.append(clause)
+        
+        # Si no se encuentran patrones, dividir por puntos
+        if not clauses:
+            clauses = [c.strip() for c in text.split('.') if len(c.strip()) > 20]
+        
+        return clauses
 
 
 # Instancia global del servicio

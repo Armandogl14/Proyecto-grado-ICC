@@ -48,15 +48,23 @@ export function useAnalyzeContract() {
   const queryClient = useQueryClient()
   
   return useMutation({
-    mutationFn: ({ id, forceReanalysis = false }: { id: string, forceReanalysis?: boolean }) => 
-      contractsApi.analyzeContract(id, forceReanalysis),
+    mutationFn: ({ id, forceReanalysis = false }: { id: string, forceReanalysis?: boolean }) => {
+      console.log('Starting contract analysis for:', id, 'forceReanalysis:', forceReanalysis)
+      return contractsApi.analyzeContract(id, forceReanalysis)
+    },
     onSuccess: (data, variables) => {
+      console.log('Analysis request successful:', data)
       queryClient.invalidateQueries({ queryKey: ['contract', variables.id] })
       queryClient.invalidateQueries({ queryKey: ['contracts'] })
       toast.success('Análisis iniciado correctamente')
     },
     onError: (error: any) => {
       console.error('Error analyzing contract:', error)
+      console.error('Error details:', {
+        status: error.response?.status,
+        data: error.response?.data,
+        message: error.message
+      })
       toast.error('Error al iniciar análisis: ' + (error.response?.data?.detail || error.message))
     }
   })
@@ -114,7 +122,8 @@ export function useRealTimeAnalysis(contractId: string) {
       queryClient.invalidateQueries({ queryKey: ['dashboard-stats'] })
       toast.success('¡Análisis completado!')
     } else if (query.data?.status === 'error') {
-      toast.error('Error en el análisis del contrato')
+      console.error('Contract analysis failed for contract:', contractId, query.data)
+      toast.error('Error en el análisis del contrato. Revisa la consola para más detalles.')
     }
   }, [query.data?.status, contractId, queryClient])
 

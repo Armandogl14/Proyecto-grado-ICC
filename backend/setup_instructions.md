@@ -61,7 +61,7 @@ pip install -r requirements.txt
 #### Si usas Conda (RECOMENDADO para evitar errores de compilación):
 ```bash
 # PASO 1: Instalar dependencias ML/científicas con conda (evita errores de compilación)
-conda install pandas scikit-learn numpy matplotlib seaborn spacy nltk pillow joblib
+conda install pandas scikit-learn numpy matplotlib seaborn spacy nltk pillow joblib lightgbm
 
 # PASO 2: Instalar dependencias Django con pip
 pip install Django==5.2.3 djangorestframework==3.15.2 django-cors-headers==4.3.1
@@ -76,6 +76,7 @@ pip install python-multipart==0.0.9 pytest-django==4.8.0 factory-boy==3.3.0
 ```bash
 # Instalar Visual Studio Build Tools primero:
 # Descargar desde: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+pip install pandas scikit-learn numpy matplotlib seaborn spacy nltk pillow joblib lightgbm
 pip install -r requirements.txt
 ```
 
@@ -405,5 +406,4 @@ LOGGING = {
         },
     },
 }
-``` 
 ``` 

@@ -1,0 +1,262 @@
+INFO 2025-07-05 22:42:05,701 autoreload 9316 19868 Watching for file changes with StatReloader
+INFO 2025-07-05 22:43:09,199 autoreload 22588 8672 Watching for file changes with StatReloader
+INFO 2025-07-05 22:48:15,046 basehttp 22588 11056 "GET /api/contracts/289f2163-62f9-4ae2-b2a6-c7fceeaf6924/ HTTP/1.1" 200 3983
+INFO 2025-07-05 22:48:15,101 basehttp 22588 7300 "GET /api/clauses/?contract=289f2163-62f9-4ae2-b2a6-c7fceeaf6924 HTTP/1.1" 200 14410
+INFO 2025-07-06 02:15:37,004 autoreload 22588 8672 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py changed, reloading.
+INFO 2025-07-06 02:15:38,777 autoreload 6152 9500 Watching for file changes with StatReloader
+INFO 2025-07-06 02:17:14,066 autoreload 7704 29968 Watching for file changes with StatReloader
+INFO 2025-07-06 02:17:22,800 basehttp 7704 30340 "OPTIONS /api/contracts/289f2163-62f9-4ae2-b2a6-c7fceeaf6924/ HTTP/1.1" 200 0
+INFO 2025-07-06 02:17:22,803 basehttp 7704 17568 "OPTIONS /api/clauses/?contract=289f2163-62f9-4ae2-b2a6-c7fceeaf6924 HTTP/1.1" 200 0
+INFO 2025-07-06 02:17:23,894 basehttp 7704 3604 "GET /api/contracts/289f2163-62f9-4ae2-b2a6-c7fceeaf6924/ HTTP/1.1" 200 3983
+INFO 2025-07-06 02:17:23,913 basehttp 7704 29552 "GET /api/clauses/?contract=289f2163-62f9-4ae2-b2a6-c7fceeaf6924 HTTP/1.1" 200 14410
+INFO 2025-07-06 02:17:26,298 basehttp 7704 17568 "OPTIONS /api/contracts/dashboard_stats/ HTTP/1.1" 200 0
+INFO 2025-07-06 02:17:26,298 basehttp 7704 30340 "OPTIONS /api/contracts/?page_size=5 HTTP/1.1" 200 0
+INFO 2025-07-06 02:17:26,955 basehttp 7704 29552 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1948
+INFO 2025-07-06 02:17:26,994 basehttp 7704 3604 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 5129
+INFO 2025-07-06 02:17:35,617 basehttp 7704 30340 "OPTIONS /api/contract-types/ HTTP/1.1" 200 0
+INFO 2025-07-06 02:17:36,301 basehttp 7704 3604 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-07-06 02:17:41,189 basehttp 7704 17568 "OPTIONS /api/clauses/?contract=aba55a5c-3044-48de-b9f0-a39ea59c63c1 HTTP/1.1" 200 0
+INFO 2025-07-06 02:17:41,189 basehttp 7704 30340 "OPTIONS /api/contracts/aba55a5c-3044-48de-b9f0-a39ea59c63c1/ HTTP/1.1" 200 0
+INFO 2025-07-06 02:17:42,076 basehttp 7704 29552 "GET /api/contracts/aba55a5c-3044-48de-b9f0-a39ea59c63c1/ HTTP/1.1" 200 7205
+INFO 2025-07-06 02:17:42,085 basehttp 7704 3604 "GET /api/clauses/?contract=aba55a5c-3044-48de-b9f0-a39ea59c63c1 HTTP/1.1" 200 14410
+INFO 2025-07-06 02:17:48,959 basehttp 7704 3604 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1948
+INFO 2025-07-06 02:17:57,461 basehttp 7704 3604 "GET /api/clauses/?contract=aba55a5c-3044-48de-b9f0-a39ea59c63c1 HTTP/1.1" 200 14410
+INFO 2025-07-06 17:59:39,497 basehttp 7704 25328 "OPTIONS /api/clauses/?contract=aba55a5c-3044-48de-b9f0-a39ea59c63c1 HTTP/1.1" 200 0
+INFO 2025-07-06 17:59:39,609 basehttp 7704 17436 "OPTIONS /api/contracts/aba55a5c-3044-48de-b9f0-a39ea59c63c1/ HTTP/1.1" 200 0
+INFO 2025-07-06 20:34:44,458 autoreload 17040 13300 Watching for file changes with StatReloader
+INFO 2025-07-06 20:44:32,221 basehttp 17040 25588 "OPTIONS /api/contracts/dashboard_stats/ HTTP/1.1" 200 0
+INFO 2025-07-06 20:44:32,225 basehttp 17040 13004 "OPTIONS /api/contracts/?page_size=5 HTTP/1.1" 200 0
+INFO 2025-07-06 20:44:33,444 basehttp 17040 7660 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1948
+INFO 2025-07-06 20:44:33,456 basehttp 17040 17196 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 5129
+INFO 2025-07-06 20:49:42,964 basehttp 17040 24476 "OPTIONS /api/contract-types/ HTTP/1.1" 200 0
+INFO 2025-07-06 20:49:43,854 basehttp 17040 21976 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-07-06 20:49:51,556 basehttp 17040 24476 "OPTIONS /api/contracts/ HTTP/1.1" 200 0
+INFO 2025-07-06 20:49:52,321 basehttp 17040 21976 "POST /api/contracts/ HTTP/1.1" 201 3559
+INFO 2025-07-06 20:49:52,407 basehttp 17040 24476 "OPTIONS /api/contracts/693acb26-77a1-44fd-a303-2d4b793cb69b/ HTTP/1.1" 200 0
+INFO 2025-07-06 20:49:52,407 basehttp 17040 20468 "OPTIONS /api/clauses/?contract=693acb26-77a1-44fd-a303-2d4b793cb69b HTTP/1.1" 200 0
+INFO 2025-07-06 20:49:53,291 basehttp 17040 21976 "GET /api/contracts/693acb26-77a1-44fd-a303-2d4b793cb69b/ HTTP/1.1" 200 3983
+INFO 2025-07-06 20:49:53,300 basehttp 17040 8568 "GET /api/clauses/?contract=693acb26-77a1-44fd-a303-2d4b793cb69b HTTP/1.1" 200 14410
+INFO 2025-07-06 20:53:50,214 basehttp 17040 8568 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1941
+INFO 2025-07-06 20:53:50,223 basehttp 17040 21976 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 5482
+INFO 2025-07-06 20:53:53,711 basehttp 17040 8568 "GET /api/clauses/?contract=693acb26-77a1-44fd-a303-2d4b793cb69b HTTP/1.1" 200 14410
+INFO 2025-07-06 20:53:53,748 basehttp 17040 21976 "GET /api/contracts/693acb26-77a1-44fd-a303-2d4b793cb69b/ HTTP/1.1" 200 3983
+INFO 2025-07-06 20:54:45,924 basehttp 17040 21976 "GET /api/contracts/693acb26-77a1-44fd-a303-2d4b793cb69b/ HTTP/1.1" 200 3983
+INFO 2025-07-06 20:54:45,950 basehttp 17040 8568 "GET /api/clauses/?contract=693acb26-77a1-44fd-a303-2d4b793cb69b HTTP/1.1" 200 14410
+INFO 2025-07-06 20:56:51,478 autoreload 17040 13300 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py changed, reloading.
+INFO 2025-07-06 20:56:53,477 autoreload 3572 28876 Watching for file changes with StatReloader
+INFO 2025-07-06 20:57:18,979 autoreload 3572 28876 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py changed, reloading.
+INFO 2025-07-06 20:57:20,605 autoreload 12200 28428 Watching for file changes with StatReloader
+INFO 2025-07-06 21:01:08,163 ml_service 9776 21296 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:01:08,164 ml_service 9776 21296 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:01:11,729 ml_service 9776 21296 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece claramente los términos del contrato de alquiler de un local comercial entre la Propietaria y el Inquilino. No se observa ninguna característica abusiva en la cláusula, ya que simplemente establece el uso del local y la posibilidad de la Propietaria de cambiar su uso sin previo aviso, lo cual es una prerrogativa razonable en un contrato de arrendamiento.', 'suggested_fix': ''}
+INFO 2025-07-06 21:01:11,768 ml_service 9776 21296 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:01:11,769 ml_service 9776 21296 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:01:16,578 ml_service 9776 21296 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'El texto es una cláusula contractual válida, ya que establece una obligación clara para el Inquilino. Sin embargo, se considera abusiva porque impone al Inquilino la responsabilidad de multas impuestas por incumplimientos ajenos a su operación, lo que crea un desequilibrio significativo entre las partes al cargar al Inquilino con responsabilidades que no le corresponden directamente.', 'suggested_fix': "Para hacer esta cláusula no abusiva, se podría reescribir de la siguiente manera: 'El Inquilino acepta hacerse responsable de cualquier multa impuesta por el incumplimiento de regulaciones que sean consecuencia directa de su operación en el local arrendado.' De esta forma, se limita la responsabilidad del Inquilino a situaciones directamente relacionadas con su operación."}
+INFO 2025-07-06 21:01:16,599 ml_service 9776 21296 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:01:16,599 ml_service 9776 21296 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:01:18,926 ml_service 9776 21296 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula es válida en el sentido de que establece una condición clara y específica sobre la prórroga automática del contrato con un aumento del 25% en el alquiler. Sin embargo, es considerada abusiva según la legislación dominicana por crear un desequilibrio significativo entre las partes al imponer un aumento anual sin opción de renegociación, lo cual limita los derechos del inquilino y viola principios de equidad.', 'suggested_fix': 'Para hacer esta cláusula no abusiva, se podría añadir una disposición que permita la renegociación del aumento del alquiler o establecer un mecanismo de revisión periódica de las condiciones del contrato para garantizar un equilibrio entre las partes.'}
+INFO 2025-07-06 21:01:18,966 ml_service 9776 21296 Iniciando análisis OpenAI para 3 cláusulas
+DEBUG 2025-07-06 21:01:18,966 ml_service 9776 21296 Enviando solicitud a OpenAI API para análisis general
+DEBUG 2025-07-06 21:01:21,408 ml_service 9776 21296 Análisis recibido: {'resumen': 'Las cláusulas abusivas en el contrato de alquiler del local comercial permiten a la propietaria cambiar el uso del local sin aviso, imponer multas por regulaciones ajenas y aumentar el alquiler automáticamente sin posibilidad de renegociación, lo que limita los derechos y flexibilidad del inquilino.', 'recomendaciones': ['Solicitar la eliminación de la cláusula que permite a la propietaria cambiar el uso del local sin previo aviso, para garantizar la estabilidad del negocio del inquilino.', 'Negociar la eliminación de la cláusula que responsabiliza al inquilino por multas ajenas a su operación, ya que puede resultar en costos injustos e imprevistos.', 'Buscar modificar la cláusula de prorroga automática con aumento de alquiler, para incluir la posibilidad de renegociación o término del contrato en caso de desacuerdo con el aumento propuesto.']}
+INFO 2025-07-06 21:03:38,769 autoreload 8160 2920 Watching for file changes with StatReloader
+INFO 2025-07-06 21:03:51,271 basehttp 8160 24968 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1941
+INFO 2025-07-06 21:03:51,311 basehttp 8160 18352 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 5482
+INFO 2025-07-06 21:03:54,195 basehttp 8160 24968 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 5482
+INFO 2025-07-06 21:03:54,196 basehttp 8160 18352 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1941
+INFO 2025-07-06 21:15:18,030 basehttp 8160 28996 "GET /api/contracts/693acb26-77a1-44fd-a303-2d4b793cb69b/ HTTP/1.1" 200 3983
+INFO 2025-07-06 21:15:18,045 basehttp 8160 24664 "GET /api/clauses/?contract=693acb26-77a1-44fd-a303-2d4b793cb69b HTTP/1.1" 200 14410
+INFO 2025-07-06 21:15:22,311 basehttp 8160 28996 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 5482
+INFO 2025-07-06 21:15:22,316 basehttp 8160 24664 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1941
+INFO 2025-07-06 21:15:23,859 basehttp 8160 18292 "OPTIONS /api/contracts/aba55a5c-3044-48de-b9f0-a39ea59c63c1/ HTTP/1.1" 200 0
+INFO 2025-07-06 21:15:23,860 basehttp 8160 12648 "OPTIONS /api/clauses/?contract=aba55a5c-3044-48de-b9f0-a39ea59c63c1 HTTP/1.1" 200 0
+INFO 2025-07-06 21:15:24,764 basehttp 8160 24664 "GET /api/contracts/aba55a5c-3044-48de-b9f0-a39ea59c63c1/ HTTP/1.1" 200 7205
+INFO 2025-07-06 21:15:24,807 basehttp 8160 28996 "GET /api/clauses/?contract=aba55a5c-3044-48de-b9f0-a39ea59c63c1 HTTP/1.1" 200 14410
+INFO 2025-07-06 21:15:34,438 basehttp 8160 28996 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1941
+INFO 2025-07-06 21:15:36,287 basehttp 8160 12648 "OPTIONS /api/contracts/babf6e44-8ffd-4e9a-a042-04a5b971e2d0/ HTTP/1.1" 200 0
+INFO 2025-07-06 21:15:36,288 basehttp 8160 18292 "OPTIONS /api/clauses/?contract=babf6e44-8ffd-4e9a-a042-04a5b971e2d0 HTTP/1.1" 200 0
+INFO 2025-07-06 21:15:37,210 basehttp 8160 24664 "GET /api/clauses/?contract=babf6e44-8ffd-4e9a-a042-04a5b971e2d0 HTTP/1.1" 200 14410
+INFO 2025-07-06 21:15:37,231 basehttp 8160 28996 "GET /api/contracts/babf6e44-8ffd-4e9a-a042-04a5b971e2d0/ HTTP/1.1" 200 8538
+INFO 2025-07-06 21:15:37,960 basehttp 8160 28996 "GET /api/clauses/?contract=babf6e44-8ffd-4e9a-a042-04a5b971e2d0 HTTP/1.1" 200 14410
+INFO 2025-07-06 21:15:40,184 basehttp 8160 28996 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1941
+INFO 2025-07-06 21:18:54,416 autoreload 8160 2920 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py changed, reloading.
+INFO 2025-07-06 21:18:56,245 autoreload 25408 16664 Watching for file changes with StatReloader
+INFO 2025-07-06 21:20:58,839 basehttp 25408 8056 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1941
+INFO 2025-07-06 21:20:58,925 basehttp 25408 7724 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 5482
+INFO 2025-07-06 21:21:12,535 basehttp 25408 7724 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-07-06 21:21:27,216 ml_service 25408 7724 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:21:27,217 ml_service 25408 7724 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:21:29,101 ml_service 25408 7724 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'El texto proporciona información clara y específica sobre el objeto del contrato (alquiler de un apartamento) y las obligaciones de las partes involucradas. No se observa ninguna condición abusiva que cree un desequilibrio significativo entre las partes, limite derechos fundamentales, imponga condiciones desproporcionadas o viole principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:21:29,127 ml_service 25408 7724 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:21:29,127 ml_service 25408 7724 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:21:31,308 ml_service 25408 7724 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'El texto es una cláusula contractual válida, ya que establece las consecuencias en caso de rescisión anticipada del contrato por parte del inquilino, especificando el pago de alquileres vencidos y una penalidad de tres meses de renta. Esta cláusula es común en contratos de arrendamiento y no presenta ninguna irregularidad que la invalide. No se considera abusiva, ya que no crea un desequilibrio significativo entre las partes, no limita derechos fundamentales, no impone condiciones desproporcionadas y no viola principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:21:31,334 ml_service 25408 7724 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:21:31,335 ml_service 25408 7724 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:21:33,801 ml_service 25408 7724 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'El texto analizado es una cláusula contractual válida, ya que establece el derecho de la PROPIETARIA a ingresar a la propiedad para inspeccionar el estado del inmueble, lo cual es una práctica común en contratos de arrendamiento. No se observa que genere un desequilibrio significativo entre las partes, limite derechos fundamentales, imponga condiciones desproporcionadas o viole principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:21:33,817 ml_service 25408 7724 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:21:33,817 ml_service 25408 7724 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:21:35,330 ml_service 25408 7724 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'El texto proporcionado es una cláusula contractual válida, ya que establece la posibilidad de modificación de las condiciones del contrato por parte de LA PROPIETARIA. No se observa que genere un desequilibrio significativo entre las partes, limite derechos fundamentales, imponga condiciones desproporcionadas o viole principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:21:35,354 ml_service 25408 7724 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:21:35,355 ml_service 25408 7724 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:21:38,656 ml_service 25408 7724 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece una obligación clara y específica para el inquilino en relación al pago de daños estructurales o de mantenimiento del inmueble, lo cual es común en contratos de arrendamiento. No crea un desequilibrio significativo entre las partes ni limita derechos fundamentales, simplemente establece una responsabilidad del inquilino en caso de daños. No se considera abusiva según la legislación dominicana.', 'suggested_fix': ''}
+INFO 2025-07-06 21:21:38,671 ml_service 25408 7724 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:21:38,671 ml_service 25408 7724 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:21:41,606 ml_service 25408 7724 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'El texto es una cláusula contractual válida ya que establece la renuncia expresa del inquilino a cualquier reclamación legal o disputa relacionada con el contrato. Sin embargo, es considerada abusiva según la legislación dominicana porque limita los derechos fundamentales del inquilino al renunciar a cualquier reclamación legal o disputa, creando un desequilibrio significativo entre las partes y violando el principio de equidad.', 'suggested_fix': 'Para reescribir de forma no abusiva, se podría modificar la cláusula para permitir que el inquilino renuncie a reclamaciones específicas y no de forma general, respetando así sus derechos fundamentales y evitando un desequilibrio injusto en la relación contractual.'}
+INFO 2025-07-06 21:21:41,628 ml_service 25408 7724 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:21:41,628 ml_service 25408 7724 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:21:42,911 ml_service 25408 7724 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece una restricción razonable en cuanto a las visitas del inquilino después de cierta hora, lo cual es común en contratos de arrendamiento. No crea un desequilibrio significativo entre las partes ni limita derechos fundamentales de manera desproporcionada. Además, al requerir autorización de la propietaria, se respeta el principio de buena fe y equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:21:42,941 ml_service 25408 7724 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:21:42,943 ml_service 25408 7724 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:21:44,610 ml_service 25408 7724 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula es válida porque establece claramente una obligación de pago por parte del inquilino y una consecuencia por retraso en el pago. Sin embargo, es considerada abusiva según la legislación dominicana porque otorga a la propietaria el derecho a cambiar las cerraduras sin previo aviso, lo cual crea un desequilibrio significativo entre las partes al limitar la seguridad y acceso a la vivienda del inquilino sin un procedimiento adecuado.', 'suggested_fix': 'Para reescribir de forma no abusiva, se podría modificar la cláusula para establecer un procedimiento claro y equitativo en caso de retraso en el pago, respetando los derechos fundamentales del inquilino y evitando medidas extremas como el cambio de cerraduras sin previo aviso.'}
+INFO 2025-07-06 21:21:44,629 ml_service 25408 7724 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:21:44,629 ml_service 25408 7724 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:21:46,616 ml_service 25408 7724 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece la duración del contrato y la posibilidad de cancelación unilateral por parte de LA PROPIETARIA. Sin embargo, no se considera abusiva según la legislación dominicana, ya que no crea un desequilibrio significativo entre las partes, no limita derechos fundamentales, no impone condiciones desproporcionadas y no viola principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:21:46,636 ml_service 25408 7724 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:21:46,649 ml_service 25408 7724 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:21:49,471 ml_service 25408 7724 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'El texto es una cláusula contractual válida, ya que establece una condición específica en caso de renovación del contrato de alquiler. Sin embargo, es considerada abusiva según la legislación dominicana, ya que impone un aumento automático del 30% en el alquiler sin previo aviso, lo cual crea un desequilibrio significativo entre las partes al imponer una condición desproporcionada sin posibilidad de negociación.', 'suggested_fix': 'Para que la cláusula sea considerada no abusiva, se podría reescribir de forma que el aumento en el alquiler sea negociado y acordado por ambas partes de manera transparente y equitativa, evitando imposiciones unilaterales.'}
+INFO 2025-07-06 21:21:49,607 ml_service 25408 7724 Iniciando análisis OpenAI para 9 cláusulas
+DEBUG 2025-07-06 21:21:49,608 ml_service 25408 7724 Enviando solicitud a OpenAI API para análisis general
+DEBUG 2025-07-06 21:21:51,352 ml_service 25408 7724 Análisis recibido: {'resumen': 'Las cláusulas identificadas en el contrato pueden dar lugar a una situación desfavorable para el inquilino, limitando sus derechos y exponiéndolo a posibles abusos por parte de la propietaria.', 'recomendaciones': ['Negociar la eliminación o modificación de las cláusulas abusivas para equilibrar los derechos y obligaciones de ambas partes.', 'Consultar con un abogado especializado en arrendamientos para revisar el contrato y recibir asesoramiento legal sobre cómo proteger los intereses del inquilino.', 'Buscar alternativas de vivienda que ofrezcan condiciones más equitativas y respetuosas de los derechos del inquilino.']}
+INFO 2025-07-06 21:21:51,496 basehttp 25408 7724 "POST /api/contracts/ HTTP/1.1" 201 3559
+INFO 2025-07-06 21:21:54,985 basehttp 25408 9288 "OPTIONS /api/contracts/eefa1816-0807-4b62-ab92-cdfe91fc75eb/ HTTP/1.1" 200 0
+INFO 2025-07-06 21:21:54,988 basehttp 25408 15656 "OPTIONS /api/clauses/?contract=eefa1816-0807-4b62-ab92-cdfe91fc75eb HTTP/1.1" 200 0
+INFO 2025-07-06 21:21:55,656 basehttp 25408 8056 "GET /api/clauses/?contract=eefa1816-0807-4b62-ab92-cdfe91fc75eb HTTP/1.1" 200 14620
+INFO 2025-07-06 21:21:55,668 basehttp 25408 7724 "GET /api/contracts/eefa1816-0807-4b62-ab92-cdfe91fc75eb/ HTTP/1.1" 200 8512
+INFO 2025-07-06 21:21:56,390 basehttp 25408 7724 "GET /api/clauses/?contract=eefa1816-0807-4b62-ab92-cdfe91fc75eb HTTP/1.1" 200 14620
+INFO 2025-07-06 21:24:03,951 basehttp 25408 7724 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1967
+INFO 2025-07-06 21:24:03,981 basehttp 25408 8056 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 5857
+INFO 2025-07-06 21:24:14,330 ml_service 25408 8056 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:24:14,331 ml_service 25408 8056 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:24:15,822 ml_service 25408 8056 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece claramente los términos del contrato de alquiler, especificando la ubicación y características del apartamento, así como la prohibición de ceder o subarrendar sin consentimiento. No presenta desequilibrio significativo entre las partes ni limita derechos fundamentales. No se considera abusiva según la legislación dominicana.', 'suggested_fix': ''}
+INFO 2025-07-06 21:24:15,878 ml_service 25408 8056 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:24:15,884 ml_service 25408 8056 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:24:18,070 ml_service 25408 8056 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece las consecuencias de rescindir el contrato antes de su vencimiento, especificando el pago de alquileres vencidos y una penalidad de un mes de renta. Esta cláusula es común en contratos de arrendamiento y establece las obligaciones del inquilino en caso de incumplimiento. No se observa un desequilibrio significativo entre las partes ni una imposición desproporcionada, ya que el pago de alquileres vencidos y una penalidad es una consecuencia razonable del incumplimiento contractual.', 'suggested_fix': ''}
+INFO 2025-07-06 21:24:18,090 ml_service 25408 8056 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:24:18,090 ml_service 25408 8056 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:24:20,408 ml_service 25408 8056 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'El texto es una cláusula contractual válida ya que establece un compromiso claro entre la propietaria y el inquilino respecto al uso y disfrute del inmueble arrendado durante la duración del contrato. No se observa ninguna característica abusiva en esta cláusula, ya que no crea un desequilibrio significativo entre las partes, no limita derechos fundamentales, no impone condiciones desproporcionadas y respeta los principios de buena fe y equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:24:20,439 ml_service 25408 8056 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:24:20,451 ml_service 25408 8056 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:24:21,971 ml_service 25408 8056 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'El texto proporcionado es una cláusula contractual válida, ya que establece que todas las condiciones del contrato son esenciales y su incumplimiento puede llevar a la resolución inmediata del mismo. Esta cláusula es común en contratos para resaltar la importancia de cumplir con todas las condiciones acordadas. No se considera abusiva, ya que no crea un desequilibrio significativo entre las partes, no limita derechos fundamentales, no impone condiciones desproporcionadas y no viola principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:24:21,975 ml_service 25408 8056 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:24:21,975 ml_service 25408 8056 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:24:23,152 ml_service 25408 8056 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'El texto es una cláusula contractual válida ya que establece las obligaciones del inquilino en relación al mantenimiento del inmueble y la entrega en buen estado al final del contrato, así como su responsabilidad por daños y reparaciones. No se observa que genere un desequilibrio significativo entre las partes, limite derechos fundamentales, imponga condiciones desproporcionadas o viole principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:24:23,175 ml_service 25408 8056 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:24:23,175 ml_service 25408 8056 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:24:24,683 ml_service 25408 8056 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'El texto es una cláusula contractual válida, ya que establece la jurisdicción de los tribunales de Santo Domingo para la resolución de disputas, lo cual es una práctica común en contratos. No se observa ninguna característica abusiva en la cláusula, ya que no crea un desequilibrio significativo entre las partes, no limita derechos fundamentales, no impone condiciones desproporcionadas y no viola principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:24:24,705 ml_service 25408 8056 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:24:24,705 ml_service 25408 8056 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:24:26,408 ml_service 25408 8056 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece una obligación clara y específica para el inquilino, que es obtener autorización previa por escrito de la propietaria antes de hacer modificaciones en el inmueble. Esta cláusula busca proteger los intereses de la propietaria y mantener la integridad del inmueble. No crea un desequilibrio significativo entre las partes ni limita derechos fundamentales, sino que establece una condición razonable para el uso del inmueble.', 'suggested_fix': ''}
+INFO 2025-07-06 21:24:26,421 ml_service 25408 8056 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:24:26,422 ml_service 25408 8056 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:24:28,843 ml_service 25408 8056 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'El texto es una cláusula contractual válida ya que establece claramente las obligaciones del inquilino en cuanto al pago del alquiler mensual y los recargos por mora. No se observa ninguna característica abusiva en la cláusula, ya que no crea un desequilibrio significativo entre las partes, no limita derechos fundamentales, no impone condiciones desproporcionadas y no viola principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:24:28,896 ml_service 25408 8056 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:24:28,897 ml_service 25408 8056 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:24:31,063 ml_service 25408 8056 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece claramente la duración del contrato, la posibilidad de renovación o rescisión y el plazo de aviso requerido. No se observa ninguna característica abusiva en la cláusula, ya que no crea un desequilibrio significativo entre las partes, no limita derechos fundamentales, no impone condiciones desproporcionadas y no viola principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:24:31,080 ml_service 25408 8056 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:24:31,080 ml_service 25408 8056 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:24:33,384 ml_service 25408 8056 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece de manera clara y precisa las condiciones de aumento del alquiler en caso de renovación, basándose en criterios objetivos como la tasa de inflación oficial del Banco Central de la República Dominicana o un aumento del 10%. No crea un desequilibrio significativo entre las partes ni limita derechos fundamentales. Además, al basarse en criterios objetivos, no impone condiciones desproporcionadas ni viola principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:24:33,552 ml_service 25408 8056 Iniciando análisis OpenAI para 7 cláusulas
+DEBUG 2025-07-06 21:24:33,552 ml_service 25408 8056 Enviando solicitud a OpenAI API para análisis general
+DEBUG 2025-07-06 21:24:34,748 ml_service 25408 8056 Análisis recibido: {'resumen': 'Las cláusulas identificadas en el contrato presentan riesgos para el inquilino, como penalidades por rescisión anticipada y obligaciones de mantenimiento y pago.', 'recomendaciones': ['Solicitar una revisión legal para negociar cláusulas más equitativas y claras.', 'Buscar asesoramiento sobre la legalidad de las penalidades por rescisión anticipada.', 'Asegurarse de entender las obligaciones de mantenimiento y reparación antes de firmar el contrato.']}
+INFO 2025-07-06 21:24:34,886 basehttp 25408 8056 "POST /api/contracts/ HTTP/1.1" 201 3956
+INFO 2025-07-06 21:24:34,995 basehttp 25408 9288 "OPTIONS /api/clauses/?contract=93f7141c-855b-4e1a-bced-3728d494e1b7 HTTP/1.1" 200 0
+INFO 2025-07-06 21:24:34,996 basehttp 25408 15656 "OPTIONS /api/contracts/93f7141c-855b-4e1a-bced-3728d494e1b7/ HTTP/1.1" 200 0
+INFO 2025-07-06 21:24:35,715 basehttp 25408 8056 "GET /api/clauses/?contract=93f7141c-855b-4e1a-bced-3728d494e1b7 HTTP/1.1" 200 9479
+INFO 2025-07-06 21:24:35,718 basehttp 25408 7724 "GET /api/contracts/93f7141c-855b-4e1a-bced-3728d494e1b7/ HTTP/1.1" 200 9234
+INFO 2025-07-06 21:24:36,373 basehttp 25408 7724 "GET /api/clauses/?contract=93f7141c-855b-4e1a-bced-3728d494e1b7 HTTP/1.1" 200 9479
+INFO 2025-07-06 21:24:44,843 basehttp 25408 7724 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1978
+INFO 2025-07-06 21:24:44,895 basehttp 25408 8056 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 6241
+INFO 2025-07-06 21:24:48,436 basehttp 25408 7724 "GET /api/clauses/?contract=eefa1816-0807-4b62-ab92-cdfe91fc75eb HTTP/1.1" 200 9479
+INFO 2025-07-06 21:24:48,438 basehttp 25408 8056 "GET /api/contracts/eefa1816-0807-4b62-ab92-cdfe91fc75eb/ HTTP/1.1" 200 8512
+INFO 2025-07-06 21:26:57,661 basehttp 25408 8056 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1978
+INFO 2025-07-06 21:27:40,555 basehttp 25408 7724 "GET /api/clauses/?contract=eefa1816-0807-4b62-ab92-cdfe91fc75eb HTTP/1.1" 200 9479
+INFO 2025-07-06 21:27:40,571 basehttp 25408 8056 "GET /api/contracts/eefa1816-0807-4b62-ab92-cdfe91fc75eb/ HTTP/1.1" 200 8512
+INFO 2025-07-06 21:30:09,917 autoreload 25408 16664 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\serializers.py changed, reloading.
+INFO 2025-07-06 21:30:11,805 autoreload 5888 23572 Watching for file changes with StatReloader
+INFO 2025-07-06 21:30:24,460 autoreload 5888 23572 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\models.py changed, reloading.
+INFO 2025-07-06 21:30:26,211 autoreload 2032 29348 Watching for file changes with StatReloader
+INFO 2025-07-06 21:30:34,367 autoreload 2032 29348 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\serializers.py changed, reloading.
+INFO 2025-07-06 21:30:35,785 autoreload 5416 19052 Watching for file changes with StatReloader
+INFO 2025-07-06 21:30:50,996 autoreload 5416 19052 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py changed, reloading.
+INFO 2025-07-06 21:30:52,584 autoreload 12668 3328 Watching for file changes with StatReloader
+INFO 2025-07-06 21:37:05,020 autoreload 17200 18300 Watching for file changes with StatReloader
+INFO 2025-07-06 21:38:57,844 basehttp 17200 13936 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1978
+INFO 2025-07-06 21:38:57,858 basehttp 17200 10208 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 6241
+INFO 2025-07-06 21:39:58,901 ml_service 17548 26576 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:39:58,902 ml_service 17548 26576 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:40:01,168 ml_service 17548 26576 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece de manera clara la renuncia del inquilino a cualquier reclamación legal o disputa relacionada con el contrato. Esta cláusula es común en contratos de arrendamiento y no presenta ambigüedades. No se observa un desequilibrio significativo entre las partes ni una limitación de derechos fundamentales. Tampoco impone condiciones desproporcionadas ni viola principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:40:01,181 ml_service 17548 26576 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:40:01,181 ml_service 17548 26576 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:40:02,697 ml_service 17548 26576 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece una restricción razonable en cuanto a las visitas del inquilino después de cierta hora, lo cual es común en contratos de arrendamiento. No crea un desequilibrio significativo entre las partes ni limita derechos fundamentales de manera desproporcionada. Además, al requerir autorización de la propietaria, se respeta el principio de buena fe y equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:40:02,709 ml_service 17548 26576 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:40:02,710 ml_service 17548 26576 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:40:05,023 ml_service 17548 26576 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece una consecuencia clara y directa en caso de retraso en el pago, lo cual es común en contratos de arrendamiento. No crea un desequilibrio significativo entre las partes, ni limita derechos fundamentales de manera desproporcionada. Además, al tratarse de un incumplimiento por parte del arrendatario, la medida de cambiar las cerraduras sin previo aviso parece razonable para proteger los intereses de la propietaria. No se observa una violación a los principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:40:05,034 ml_service 17548 26576 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:40:05,034 ml_service 17548 26576 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:40:08,008 ml_service 17548 26576 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula es válida en el sentido de que establece una condición clara y específica en caso de renovación del contrato, sin embargo, es considerada abusiva según la legislación dominicana por imponer un aumento automático del 30% en el alquiler sin posibilidad de negociación. Esta cláusula crea un desequilibrio significativo entre las partes al imponer una condición unilateralmente beneficiosa para el arrendador, limitando los derechos del arrendatario a negociar condiciones justas. Además, el aumento automático sin posibilidad de negociación puede considerarse desproporcionado y violatorio de los principios de buena fe y equidad en las relaciones contractuales.', 'suggested_fix': 'Para que la cláusula sea considerada no abusiva, se podría reescribir de forma que permita la negociación del aumento de alquiler en caso de renovación del contrato, garantizando la participación equitativa de ambas partes en la determinación de las nuevas condiciones económicas.'}
+INFO 2025-07-06 21:40:08,038 ml_service 17548 26576 Iniciando análisis OpenAI para 4 cláusulas
+DEBUG 2025-07-06 21:40:08,039 ml_service 17548 26576 Enviando solicitud a OpenAI API para análisis general
+DEBUG 2025-07-06 21:40:11,129 ml_service 17548 26576 Análisis recibido: {'resumen': 'Las cláusulas identificadas en el contrato limitan severamente los derechos del inquilino y favorecen en exceso a la propietaria, creando un desequilibrio significativo en la relación contractual.', 'recomendaciones': ['Solicitar una revisión legal detallada del contrato por un abogado especializado en arrendamientos para identificar posibles cláusulas abusivas y buscar su modificación o eliminación.', 'Negociar con la propietaria para modificar las cláusulas que imponen restricciones excesivas al inquilino y buscar un equilibrio justo en los derechos y obligaciones de ambas partes.', 'Explorar la posibilidad de buscar alternativas de vivienda si la propietaria no está dispuesta a negociar cláusulas más equitativas y respetuosas de los derechos del inquilino.']}
+INFO 2025-07-06 21:41:49,252 ml_service 25904 24084 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:41:49,252 ml_service 25904 24084 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:41:51,453 ml_service 25904 24084 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece de manera clara la renuncia del inquilino a cualquier reclamación legal o disputa con relación al contrato, lo cual es una práctica común en contratos de arrendamiento. No se observa que genere un desequilibrio significativo entre las partes, limite derechos fundamentales, imponga condiciones desproporcionadas ni viole principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:41:51,473 ml_service 25904 24084 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:41:51,474 ml_service 25904 24084 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:41:53,384 ml_service 25904 24084 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece una restricción razonable en cuanto a las visitas del inquilino, sujeto a la autorización de la propietaria. No crea un desequilibrio significativo entre las partes, no limita derechos fundamentales de forma desproporcionada, ni viola principios de buena fe o equidad.', 'suggested_fix': ''}
+INFO 2025-07-06 21:41:53,398 ml_service 25904 24084 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:41:53,398 ml_service 25904 24084 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:41:54,755 ml_service 25904 24084 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es válida ya que establece una consecuencia clara y directa en caso de retraso en el pago, lo cual es común en contratos de arrendamiento. No crea un desequilibrio significativo entre las partes, ni limita derechos fundamentales de forma desproporcionada. Tampoco viola principios de buena fe o equidad, ya que se refiere a una situación específica de incumplimiento contractual.', 'suggested_fix': ''}
+INFO 2025-07-06 21:41:54,772 ml_service 25904 24084 Iniciando validación GPT para cláusula
+DEBUG 2025-07-06 21:41:54,772 ml_service 25904 24084 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-06 21:41:56,738 ml_service 25904 24084 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula es válida en el sentido de que establece una condición clara y específica en caso de renovación del contrato. Sin embargo, es considerada abusiva según la legislación dominicana porque impone un aumento automático del 30% en el alquiler sin posibilidad de negociación, lo cual crea un desequilibrio significativo entre las partes al imponer una condición desproporcionada que limita la capacidad de negociación del inquilino.', 'suggested_fix': "Para que la cláusula sea considerada no abusiva, se podría reescribir de manera que se permita la negociación del aumento del alquiler en caso de renovación, respetando así la equidad entre las partes. Por ejemplo: 'En caso de renovación del contrato, el alquiler podrá aumentar hasta un máximo del 30%, sujeto a negociación entre ambas partes'."}
+INFO 2025-07-06 21:41:56,773 ml_service 25904 24084 Iniciando análisis OpenAI para 4 cláusulas
+DEBUG 2025-07-06 21:41:56,773 ml_service 25904 24084 Enviando solicitud a OpenAI API para análisis general
+DEBUG 2025-07-06 21:41:58,269 ml_service 25904 24084 Análisis recibido: {'resumen': 'Las cláusulas identificadas en el contrato limitan los derechos del inquilino de manera significativa y unilateral, generando desequilibrio en la relación contractual.', 'recomendaciones': ['Solicitar una revisión legal detallada del contrato por un abogado especializado en arrendamientos para identificar posibles cláusulas abusivas y negociar cambios favorables.', 'Negociar la eliminación o modificación de las cláusulas abusivas para garantizar un equilibrio justo entre las partes involucradas.', 'Mantener comunicación constante con la propietaria para aclarar dudas y evitar malentendidos que puedan derivar en conflictos legales.']}
+INFO 2025-07-06 21:43:29,306 autoreload 7964 21364 Watching for file changes with StatReloader
+INFO 2025-07-06 21:43:47,162 basehttp 7964 28288 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1978
+INFO 2025-07-06 21:43:47,217 basehttp 7964 26716 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 6241
+INFO 2025-07-06 21:44:13,722 basehttp 7964 26716 "GET /api/contracts/eefa1816-0807-4b62-ab92-cdfe91fc75eb/ HTTP/1.1" 200 10931
+INFO 2025-07-06 21:44:13,729 basehttp 7964 28288 "GET /api/clauses/?contract=eefa1816-0807-4b62-ab92-cdfe91fc75eb HTTP/1.1" 200 14321
+INFO 2025-07-06 21:44:53,500 basehttp 7964 28288 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1978
+INFO 2025-07-06 21:44:55,285 basehttp 7964 28288 "GET /api/contracts/93f7141c-855b-4e1a-bced-3728d494e1b7/ HTTP/1.1" 200 11657
+INFO 2025-07-06 21:44:55,298 basehttp 7964 26716 "GET /api/clauses/?contract=93f7141c-855b-4e1a-bced-3728d494e1b7 HTTP/1.1" 200 14321
+INFO 2025-07-06 21:54:33,378 basehttp 7964 13176 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1978
+INFO 2025-07-06 21:54:33,400 basehttp 7964 4388 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 6241
+INFO 2025-07-06 21:54:35,649 basehttp 7964 4388 "GET /api/contracts/693acb26-77a1-44fd-a303-2d4b793cb69b/ HTTP/1.1" 200 3983
+INFO 2025-07-06 21:54:35,668 basehttp 7964 13176 "GET /api/clauses/?contract=693acb26-77a1-44fd-a303-2d4b793cb69b HTTP/1.1" 200 14321
+INFO 2025-07-06 21:54:39,818 basehttp 7964 15368 "OPTIONS /api/contracts/289f2163-62f9-4ae2-b2a6-c7fceeaf6924/ HTTP/1.1" 200 0
+INFO 2025-07-06 21:54:39,824 basehttp 7964 3184 "OPTIONS /api/clauses/?contract=289f2163-62f9-4ae2-b2a6-c7fceeaf6924 HTTP/1.1" 200 0
+INFO 2025-07-06 21:54:40,454 basehttp 7964 13176 "GET /api/contracts/289f2163-62f9-4ae2-b2a6-c7fceeaf6924/ HTTP/1.1" 200 3983
+INFO 2025-07-06 21:54:40,461 basehttp 7964 4388 "GET /api/clauses/?contract=289f2163-62f9-4ae2-b2a6-c7fceeaf6924 HTTP/1.1" 200 14321
+INFO 2025-07-06 21:54:45,725 basehttp 7964 4388 "GET /api/contracts/aba55a5c-3044-48de-b9f0-a39ea59c63c1/ HTTP/1.1" 200 8057
+INFO 2025-07-06 21:54:45,760 basehttp 7964 13176 "GET /api/clauses/?contract=aba55a5c-3044-48de-b9f0-a39ea59c63c1 HTTP/1.1" 200 14321

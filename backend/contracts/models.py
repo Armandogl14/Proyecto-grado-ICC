@@ -120,6 +120,12 @@ class Clause(models.Model):
         help_text="Confianza del modelo ML (0-1)"
     )
     
+    # Análisis GPT
+    gpt_is_valid_clause = models.BooleanField(default=True)
+    gpt_is_abusive = models.BooleanField(default=False)
+    gpt_explanation = models.TextField(blank=True, help_text="Explicación del análisis GPT")
+    gpt_suggested_fix = models.TextField(blank=True, help_text="Sugerencia de corrección de GPT")
+    
     # Posición en el documento
     start_position = models.IntegerField(null=True, blank=True)
     end_position = models.IntegerField(null=True, blank=True)

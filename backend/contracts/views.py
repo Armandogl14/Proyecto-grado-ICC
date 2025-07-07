@@ -16,6 +16,9 @@ from .serializers import (
     BulkAnalysisSerializer
 )
 from ml_analysis.ml_service import ml_service
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class ContractTypeViewSet(viewsets.ReadOnlyModelViewSet):
@@ -58,7 +61,12 @@ class ContractViewSet(viewsets.ModelViewSet):
     def analyze(self, request, pk=None):
         """Endpoint para analizar un contrato específico"""
         contract = self.get_object()
-        serializer = ContractAnalysisSerializer(data={'contract_id': contract.id})
+        
+        # Combinar datos del request con el contract_id
+        request_data = request.data.copy()
+        request_data['contract_id'] = contract.id
+        
+        serializer = ContractAnalysisSerializer(data=request_data)
         
         if serializer.is_valid():
             force_reanalysis = serializer.validated_data.get('force_reanalysis', False)
@@ -189,28 +197,63 @@ class ContractViewSet(viewsets.ModelViewSet):
             # Realizar análisis usando el servicio ML
             analysis_result = ml_service.analyze_contract(contract.original_text)
             
-            # Actualizar el contrato con los resultados
-            contract.total_clauses = analysis_result['total_clauses']
-            contract.abusive_clauses_count = analysis_result['abusive_clauses_count']
-            contract.risk_score = analysis_result['risk_score']
-            contract.status = 'completed'
-            contract.analyzed_at = timezone.now()
-            contract.save()
+            # Contar cláusulas abusivas considerando ambos análisis
+            abusive_count = 0
+            total_risk_score = 0
             
-            # Guardar cláusulas y entidades (simplificado)
+            # Guardar cláusulas y entidades
             for clause_result in analysis_result['clause_results']:
+                # Determinar si es abusiva basado en ML Y GPT
+                ml_is_abusive = clause_result['ml_analysis']['is_abusive']
+                gpt_is_abusive = clause_result['gpt_analysis'].get('is_abusive', False)
+                is_abusive = ml_is_abusive or gpt_is_abusive  # Abusiva si cualquiera la detecta
+                
+                if is_abusive:
+                    abusive_count += 1
+                
+                # Usar la probabilidad de ML como confidence_score
+                confidence_score = clause_result['ml_analysis']['abuse_probability']
+                
+                # Calcular risk_score considerando ambos análisis
+                risk_score = confidence_score
+                if gpt_is_abusive:
+                    risk_score = max(risk_score, 0.8)  # Si GPT dice que es abusiva, mínimo 80%
+                
+                total_risk_score += risk_score
+                
+                # Extraer datos del análisis GPT
+                gpt_analysis = clause_result['gpt_analysis']
+                
                 Clause.objects.create(
                     contract=contract,
                     text=clause_result['text'],
-                    is_abusive=clause_result['is_abusive'],
-                    confidence_score=clause_result['confidence_score'],
-                    clause_type='general'
+                    clause_number=str(clause_result.get('clause_number', '')),
+                    is_abusive=is_abusive,
+                    confidence_score=confidence_score,
+                    clause_type='general',
+                    # Campos GPT
+                    gpt_is_valid_clause=gpt_analysis.get('is_valid_clause', True),
+                    gpt_is_abusive=gpt_is_abusive,
+                    gpt_explanation=gpt_analysis.get('explanation', ''),
+                    gpt_suggested_fix=gpt_analysis.get('suggested_fix', '')
                 )
+            
+            # Actualizar el contrato con los resultados corregidos
+            total_clauses = len(analysis_result['clause_results'])
+            contract.total_clauses = total_clauses
+            contract.abusive_clauses_count = abusive_count
+            contract.risk_score = total_risk_score / total_clauses if total_clauses > 0 else 0
+            contract.status = 'completed'
+            contract.analyzed_at = timezone.now()
+            contract.save()
                 
         except Exception as e:
+            import traceback
             contract.status = 'error'
             contract.save()
-            print(f"Error en análisis síncrono: {e}")
+            error_msg = f"Error en análisis síncrono: {e}\n{traceback.format_exc()}"
+            print(error_msg)
+            logger.error(error_msg)
 
 
 class ClauseViewSet(viewsets.ReadOnlyModelViewSet):

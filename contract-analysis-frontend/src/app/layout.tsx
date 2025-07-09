@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { Toaster } from 'sonner'
 import { QueryProvider } from "@/providers/QueryProvider";
 import { AuthWrapper } from "@/components/auth/AuthWrapper";
-import { Toaster } from "sonner";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Análisis de Contratos - Sistema de Detección de Cláusulas Abusivas",
-  description: "Sistema inteligente para el análisis de contratos y detección de cláusulas abusivas usando Machine Learning",
+  title: "Análisis de Contratos IA",
+  description: "Análisis de contratos con IA para detectar cláusulas abusivas en República Dominicana",
 };
 
 export default function RootLayout({
@@ -16,13 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className="min-h-screen bg-gray-50 antialiased">
+      <body className={`${inter.className} bg-slate-900 text-slate-100`}>
         <QueryProvider>
           <AuthWrapper>
             {children}
           </AuthWrapper>
-          <Toaster position="top-right" richColors />
         </QueryProvider>
+        <Toaster richColors theme="dark" />
       </body>
     </html>
   );

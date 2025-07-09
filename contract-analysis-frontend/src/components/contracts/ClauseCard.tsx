@@ -1,8 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { AlertTriangle, CheckCircle, Brain, Bot, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { AlertTriangle, CheckCircle, Brain, Bot, ChevronDown, MessageSquareQuote, FileSignature } from "lucide-react"
 import { useState } from "react"
+import { cn } from "@/lib/utils"
 
 interface ClauseCardProps {
   clause: {
@@ -27,132 +27,131 @@ interface ClauseCardProps {
 }
 
 export function ClauseCard({ clause }: ClauseCardProps) {
-  const [showDetails, setShowDetails] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
 
-  // Determinar el estado general de la cláusula con validaciones
-  const isAbusive = clause.ml_analysis?.is_abusive || clause.gpt_analysis?.is_abusive
+  const isAbusiveByML = clause.ml_analysis?.is_abusive ?? false
+  const isAbusiveByGPT = clause.gpt_analysis?.is_abusive ?? false
+  const isAbusive = isAbusiveByML || isAbusiveByGPT;
   
-  const isInvalid = clause.gpt_analysis?.is_valid_clause === false
-  
+  const riskLevel = clause.risk_score > 0.7 ? 'high' : clause.risk_score > 0.3 ? 'medium' : 'low'
+
+  const riskStyles = {
+    high: {
+      border: "border-red-500/40 hover:border-red-500/80",
+      iconBg: "bg-red-500/10",
+      iconColor: "text-red-400",
+      icon: <AlertTriangle />,
+    },
+    medium: {
+      border: "border-amber-500/40 hover:border-amber-500/80",
+      iconBg: "bg-amber-500/10",
+      iconColor: "text-amber-400",
+      icon: <AlertTriangle />,
+    },
+    low: {
+      border: "border-slate-700 hover:border-green-500/80",
+      iconBg: "bg-green-500/10",
+      iconColor: "text-green-400",
+      icon: <CheckCircle />,
+    },
+  }
+
+  const currentRisk = riskStyles[riskLevel]
+
   return (
-    <Card className={`overflow-hidden transition-all ${isAbusive ? 'border-destructive/50' : ''}`}>
-      <CardContent className="p-4">
-        {/* Header con número y badges */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold">Cláusula {clause.clause_number}</span>
-            <div className="flex gap-2">
-              {isInvalid && (
-                <Badge variant="outline" className="text-amber-500 border-amber-500">
-                  No es cláusula válida
-                </Badge>
-              )}
-              {isAbusive && (
-                <Badge variant="destructive" className="flex items-center gap-1">
-                  <AlertTriangle className="w-3 h-3" />
-                  Abusiva
-                </Badge>
-              )}
-              {!isAbusive && !isInvalid && (
-                <Badge variant="outline" className="text-emerald-500 border-emerald-500 flex items-center gap-1">
-                  <CheckCircle className="w-3 h-3" />
-                  No abusiva
-                </Badge>
-              )}
-            </div>
-          </div>
-          
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setShowDetails(!showDetails)}
-            className="text-xs"
-          >
-            {showDetails ? 'Ocultar detalles' : 'Ver detalles'}
-          </Button>
+    <div
+      className={cn(
+        "w-full bg-slate-800/60 border rounded-xl transition-all duration-300",
+        currentRisk.border
+      )}
+    >
+      {/* --- Card Header --- */}
+      <div
+        className="flex items-center p-4 cursor-pointer"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        <div className={cn("w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-lg mr-4", currentRisk.iconBg, currentRisk.iconColor)}>
+          {currentRisk.icon}
         </div>
-
-        {/* Texto de la cláusula */}
-        <div className="text-sm text-muted-foreground mb-4">
-          {clause.text}
+        <div className="flex-grow">
+          <h3 className="font-semibold text-white">
+            Cláusula {clause.clause_number}
+          </h3>
+          <p className="text-sm text-slate-400 line-clamp-1">
+            {clause.text}
+          </p>
         </div>
-
-        {/* Detalles del análisis */}
-        {showDetails && (
-          <div className="space-y-4 mt-4 pt-4 border-t">
-            {/* Análisis ML */}
-            {clause.ml_analysis && (
-              <div className="flex items-start gap-2">
-                <Brain className="w-4 h-4 text-primary mt-1" />
-                <div>
-                  <h4 className="text-sm font-medium mb-1">Análisis ML</h4>
-                  <div className="text-sm text-muted-foreground">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span>Resultado:</span>
-                      <Badge variant={clause.ml_analysis.is_abusive ? "destructive" : "outline"}>
-                        {clause.ml_analysis.is_abusive ? "Abusiva" : "No abusiva"}
-                      </Badge>
-                    </div>
-                    <div>
-                      Probabilidad de ser abusiva: {(clause.ml_analysis.abuse_probability * 100).toFixed(1)}%
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div className="ml-4 flex items-center gap-2 text-slate-400">
+           <span className="text-xs font-mono bg-slate-700/60 px-2 py-0.5 rounded">
+            Riesgo: {(clause.risk_score * 100).toFixed(0)}%
+          </span>
+          <ChevronDown
+            className={cn(
+              "w-5 h-5 transition-transform duration-300",
+              isExpanded && "rotate-180"
             )}
-
-            {/* Análisis GPT */}
+          />
+        </div>
+      </div>
+      
+      {/* --- Expandable Content --- */}
+      {isExpanded && (
+        <div className="px-4 pb-4 border-t border-slate-700/80">
+          <div className="space-y-6 pt-4">
+            
+            {/* Clause Text */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-300 mb-2">Texto Completo</h4>
+              <p className="text-sm text-slate-400 leading-relaxed bg-slate-900/50 p-3 rounded-md">
+                {clause.text}
+              </p>
+            </div>
+            
+            {/* AI Analysis Section */}
             {clause.gpt_analysis && (
-              <div className="flex items-start gap-2">
-                <Bot className="w-4 h-4 text-primary mt-1" />
-                <div>
-                  <h4 className="text-sm font-medium mb-1">Análisis GPT</h4>
-                  <div className="text-sm text-muted-foreground space-y-2">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span>Resultado:</span>
-                      <Badge variant={clause.gpt_analysis.is_abusive ? "destructive" : "outline"}>
-                        {clause.gpt_analysis.is_abusive ? "Abusiva" : "No abusiva"}
-                      </Badge>
-                    </div>
-                    <p>{clause.gpt_analysis.explanation}</p>
-                    
-                    {clause.gpt_analysis.suggested_fix && (
-                      <div className="mt-2 p-3 bg-secondary/30 rounded-md">
-                        <p className="font-medium mb-1">Sugerencia de corrección:</p>
-                        <p className="text-sm">{clause.gpt_analysis.suggested_fix}</p>
+              <div className="p-4 bg-slate-900/50 rounded-lg border border-slate-700">
+                <h4 className="text-sm font-semibold text-slate-300 mb-3 flex items-center gap-2">
+                  <Bot className="w-5 h-5 text-purple-400"/>
+                  Análisis de IA
+                </h4>
+
+                <div className="space-y-4">
+                   {/* Explanation */}
+                   <div className="flex items-start gap-3">
+                     <MessageSquareQuote className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5"/>
+                     <div>
+                       <p className="text-sm text-slate-300 font-medium">Explicación:</p>
+                       <p className="text-sm text-slate-400">{clause.gpt_analysis.explanation}</p>
+                     </div>
+                   </div>
+
+                   {/* Suggested Fix */}
+                   {clause.gpt_analysis.suggested_fix && (
+                      <div className="flex items-start gap-3">
+                         <FileSignature className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"/>
+                         <div>
+                           <p className="text-sm text-slate-300 font-medium">Sugerencia de la IA:</p>
+                           <p className="text-sm text-green-300/80 bg-green-900/20 p-2 rounded-md font-mono">
+                             {clause.gpt_analysis.suggested_fix}
+                           </p>
+                         </div>
                       </div>
-                    )}
-                  </div>
+                   )}
                 </div>
               </div>
             )}
-
-            {/* Entidades detectadas */}
-            {clause.entities && clause.entities.length > 0 && (
-              <div className="flex items-start gap-2">
-                <ArrowRight className="w-4 h-4 text-primary mt-1" />
-                <div>
-                  <h4 className="text-sm font-medium mb-1">Entidades Detectadas</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {clause.entities.map((entity, index) => (
-                      <Badge key={index} variant="secondary">
-                        {entity.text} ({entity.label})
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
+            
+            {/* ML Analysis */}
+            {clause.ml_analysis && (
+              <div className="text-xs text-slate-500 flex items-center justify-end gap-2">
+                  <Brain size={14} />
+                  <span>Modelo ML: {isAbusiveByML ? 'Detecta Abusiva' : 'No detecta abusiva'} ({(clause.ml_analysis.abuse_probability * 100).toFixed(1)}% prob.)</span>
               </div>
             )}
-
-            {/* Score de riesgo */}
-            <div className="flex items-center gap-2 mt-2">
-              <span className="text-sm text-muted-foreground">
-                Score de riesgo: {clause.risk_score !== null && !isNaN(clause.risk_score) ? (clause.risk_score * 100).toFixed(1) : '0.0'}%
-              </span>
-            </div>
+            
           </div>
-        )}
-      </CardContent>
-    </Card>
+        </div>
+      )}
+    </div>
   )
 } 

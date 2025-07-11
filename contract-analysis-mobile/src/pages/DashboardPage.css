@@ -1,0 +1,25 @@
+/* DashboardPage.css */
+
+ion-card {
+  --background: rgba(45, 55, 72, 0.8);
+  --color: #ffffff;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+ion-card-title {
+  color: #a0aec0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+ion-card-content {
+  color: #e2e8f0;
+}
+
+.recharts-tooltip-wrapper {
+  background: #2d3748 !important;
+  border-radius: 8px !important;
+  border: 1px solid #4a5568 !important;
+} 

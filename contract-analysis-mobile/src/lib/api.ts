@@ -1,18 +1,18 @@
 import axios from 'axios'
-import type { 
-  Contract, 
-  ContractType, 
-  Clause, 
-  CreateContractData, 
-  ContractFilters, 
+import type {
+  Contract,
+  ContractType,
+  Clause,
+  CreateContractData,
+  ContractFilters,
   DashboardStats,
-  ApiResponse 
-} from '@/types/contracts'
+  ApiResponse
+} from '../types/contracts'
 import { getStoredToken } from './auth-simple'
- 
+
 // Configuración base de axios
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000',
+  baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -112,7 +112,7 @@ export const contractTypesApi = {
       // Si es error de autenticación, intentar sin token
       if (error.response?.status === 401) {
         try {
-          const responseNoAuth = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api/contract-types/`)
+          const responseNoAuth = await axios.get(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'}/api/contract-types/`)
           return responseNoAuth.data
         } catch (noAuthError) {
           console.error('Error even without auth:', noAuthError)

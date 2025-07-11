@@ -238,6 +238,68 @@ class ContractMLService:
                 'recommendations': 'No hay recomendaciones disponibles debido a un error técnico.'
             }
 
+    def _extract_clauses_with_gpt(self, contract_text: str) -> List[Dict[str, any]]:
+        """
+        Usa la API de OpenAI para extraer cláusulas de un contrato.
+        """
+        logger.info("Iniciando extracción de cláusulas con GPT")
+        
+        prompt = f"""
+        Actúa como un asistente legal experto. Tu tarea es analizar el siguiente texto de un contrato y dividirlo en cláusulas individuales. Devuelve el resultado como un objeto JSON que contenga una única clave "clauses". El valor de "clauses" debe ser un array de objetos, donde cada objeto representa una cláusula y tiene dos claves: "clause_number" (el número o identificador de la cláusula, como "PRIMERO", "Art. 1", etc.) y "text" (el texto completo de la cláusula).
+
+        Ejemplo de respuesta:
+        {{
+          "clauses": [
+            {{
+              "clause_number": "PRIMERO",
+              "text": "El VENDEDOR vende y transfiere al COMPRADOR el vehículo..."
+            }},
+            {{
+              "clause_number": "SEGUNDO",
+              "text": "El precio de venta se ha fijado en la suma de..."
+            }}
+          ]
+        }}
+
+        Analiza el siguiente contrato:
+        ---
+        {contract_text}
+        ---
+        """
+
+        try:
+            api_key = config('OPENAI_API_KEY')
+            headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json"
+            }
+            url = "https://api.openai.com/v1/chat/completions"
+
+            data = {
+                "model": "gpt-4o", # Usar un modelo más potente para tareas complejas
+                "messages": [
+                    {"role": "system", "content": "Eres un asistente legal experto en analizar contratos y tu respuesta debe ser siempre un objeto JSON válido."},
+                    {"role": "user", "content": prompt}
+                ],
+                "temperature": 0.1,
+                "response_format": {"type": "json_object"}
+            }
+
+            response = requests.post(url, headers=headers, json=data, timeout=120)
+
+            if response.status_code == 200:
+                result = response.json()
+                content = json.loads(result['choices'][0]['message']['content'])
+                logger.info(f"Cláusulas extraídas exitosamente con GPT: {len(content.get('clauses', []))} cláusulas.")
+                return content.get('clauses', [])
+            else:
+                logger.error(f"Error en API OpenAI para extracción de cláusulas: {response.status_code} - {response.text}")
+                return []
+
+        except Exception as e:
+            logger.exception(f"Excepción en la extracción de cláusulas con GPT: {e}")
+            return []
+
     def _validate_clause_with_gpt(self, clause_text: str) -> Dict[str, any]:
         """
         Utiliza GPT para validar si el texto es una cláusula válida y si es abusiva.
@@ -248,11 +310,12 @@ class ContractMLService:
             prompt = f"""
             Analiza el siguiente texto de un contrato legal y responde en formato JSON con las siguientes claves:
             1. "is_valid_clause": booleano que indica si el texto es una cláusula contractual válida (y no un párrafo sin sentido legal)
-            2. "is_abusive": booleano que indica si la cláusula es abusiva según la legislación dominicana
-            3. "explanation": explicación detallada de por qué se considera válida/inválida y abusiva/no abusiva
-            4. "suggested_fix": si es abusiva, sugerir cómo podría reescribirse de forma no abusiva
+            2. "is_abusive": booleano que indica si la cláusula es abusiva
+            3. "explanation": si es abusiva, una breve explicación del riesgo (2-3 líneas)
+            4. "abusive_reason": si es abusiva, explicar en detalle el porqué de su abusividad, citando si es posible los principios legales vulnerados en República Dominicana.
+            5. "clause_type": clasifica la cláusula en una de estas categorías: 'Pago', 'Duración', 'Obligaciones', 'Terminación', 'Resolución de Disputas', 'General', 'Otro'.
 
-            Texto a analizar:
+            Texto de la cláusula:
             ---
             {clause_text}
             ---
@@ -378,16 +441,31 @@ class ContractMLService:
         return entities
     
     def _generate_summary(self, clause_results: List[Dict], risk_score: float) -> str:
-        """Genera resumen ejecutivo"""
-        total_clauses = len(clause_results)
-        abusive_count = sum(1 for c in clause_results if c['is_abusive'])
+        """Genera un resumen ejecutivo basado en el análisis."""
         
+        abusive_count = sum(1 for c in clause_results if c.get('is_abusive', False))
+
+        if not abusive_count:
+            return "El contrato no presenta cláusulas de riesgo alto según el análisis automatizado."
+
+        abusive_clauses_text = [
+            c['text'] for c in clause_results if c.get('is_abusive', False)
+        ]
+
+        # Evitar llamada a OpenAI si no hay cláusulas abusivas
+        if not abusive_clauses_text:
+            return "El contrato no presenta cláusulas de riesgo alto según el análisis automatizado."
+
+        openai_analysis = self._get_openai_analysis(abusive_clauses_text)
+        summary = openai_analysis['summary']
+        recommendations = openai_analysis['recommendations']
+
         risk_level = "BAJO" if risk_score < 0.3 else "MEDIO" if risk_score < 0.7 else "ALTO"
         
         summary = f"""
         RESUMEN EJECUTIVO DEL ANÁLISIS CONTRACTUAL
         
-        • Total de cláusulas analizadas: {total_clauses}
+        • Total de cláusulas analizadas: {len(clause_results)}
         • Cláusulas potencialmente abusivas: {abusive_count}
         • Nivel de riesgo: {risk_level} ({risk_score:.2%})
         
@@ -400,104 +478,89 @@ class ContractMLService:
         return summary.strip()
     
     def _generate_recommendations(self, clause_results: List[Dict]) -> str:
-        """Genera recomendaciones basadas en el análisis"""
-        abusive_clauses = [c for c in clause_results if c['is_abusive']]
-        
+        """
+        Genera una lista de recomendaciones accionables.
+        """
+        abusive_clauses = [c for c in clause_results if c.get('is_abusive', False)]
+
         if not abusive_clauses:
-            return "✅ No se detectaron cláusulas problemáticas. El contrato aparenta estar en orden."
+            return "No se requieren acciones adicionales. El contrato parece estar en orden."
+
+        recommendations = []
+        for clause in abusive_clauses:
+            fix = clause.get('gpt_analysis', {}).get('suggested_fix')
+            if fix:
+                recommendations.append(f"Para la Cláusula {clause.get('clause_number', 'N/A')}: {fix}")
         
-        recommendations = [
-            "RECOMENDACIONES:",
-            "",
-            "1. Revisar las siguientes cláusulas con un abogado especializado:",
-        ]
-        
-        for i, clause in enumerate(abusive_clauses, 1):
-            clause_preview = clause['text'][:100] + "..." if len(clause['text']) > 100 else clause['text']
-            recommendations.append(f"   • Cláusula {clause.get('clause_number', i)}: {clause_preview}")
-        
-        recommendations.extend([
-            "",
-            "2. Considerar renegociar los términos identificados como problemáticos.",
-            "3. Solicitar asesoría legal antes de firmar el contrato.",
-            "4. Documentar cualquier modificación acordada por escrito."
-        ])
-        
-        return "\n".join(recommendations)
+        if recommendations:
+            return "\n".join(f"- {rec}" for rec in recommendations)
+        else:
+            return "Se han detectado cláusulas de riesgo, pero la IA no ha proporcionado sugerencias específicas. Se recomienda una revisión manual o consultar a un profesional."
 
     def analyze_contract(self, contract_text: str) -> Dict:
         """
-        Analiza un contrato completo
-        
-        Args:
-            contract_text: Texto completo del contrato
-            
-        Returns:
-            Dict con resultados del análisis
+        Orquesta el análisis completo del contrato:
+        1. Extrae cláusulas usando IA.
+        2. Analiza cada cláusula (ML + GPT).
+        3. Genera un resumen y recomendaciones.
         """
         start_time = datetime.now()
-        
-        # Dividir en cláusulas
-        clauses = self._extract_clauses(contract_text)
-        
-        # Analizar cada cláusula
-        clause_results = []
-        total_abusive = 0
-        total_valid_clauses = 0
-        
-        for i, clause_text in enumerate(clauses):
-            clause_analysis = self._analyze_clause(clause_text)
-            clause_analysis['clause_number'] = i + 1
-            clause_results.append(clause_analysis)
-            
-            # Contar cláusulas abusivas basado en ambos análisis
-            ml_is_abusive = clause_analysis['ml_analysis']['is_abusive']
-            gpt_is_abusive = clause_analysis['gpt_analysis'].get('is_abusive', False)
-            
-            # Si ambos modelos están de acuerdo o GPT no está disponible
-            if ml_is_abusive and (gpt_is_abusive or gpt_is_abusive is None):
-                total_abusive += 1
-                
-            # Contar cláusulas válidas según GPT
-            if clause_analysis['gpt_analysis'].get('is_valid_clause', True):
-                total_valid_clauses += 1
-        
-        # Calcular métricas generales
-        processing_time = (datetime.now() - start_time).total_seconds()
-        risk_score = total_abusive / len(clauses) if clauses else 0
-        
-        # Extraer entidades del texto completo
-        entities = self._extract_entities(contract_text)
-        
-        # Obtener análisis de OpenAI para las cláusulas abusivas
-        abusive_clauses = [
-            res for res in clause_results 
-            if res['ml_analysis']['is_abusive'] or res['gpt_analysis'].get('is_abusive', False)
-        ]
-        
-        if abusive_clauses:
-            abusive_texts = [c['text'] for c in abusive_clauses]
-            openai_analysis = self._get_openai_analysis(abusive_texts)
-            summary = openai_analysis['summary']
-            recommendations = openai_analysis['recommendations']
-        else:
-            summary = self._generate_summary(clause_results, risk_score)
-            recommendations = self._generate_recommendations(clause_results)
+        logger.info("Iniciando análisis de contrato...")
 
+        # 1. Extraer cláusulas usando la nueva función con GPT
+        extracted_clauses = self._extract_clauses_with_gpt(contract_text)
+        
+        if not extracted_clauses:
+            logger.warning("No se pudieron extraer cláusulas del contrato.")
+            return {
+                'clause_results': [],
+                'summary': 'Error: No se pudieron extraer cláusulas del documento para su análisis.',
+                'recommendations': 'Por favor, verifique que el texto del contrato sea claro y esté bien estructurado.',
+                'processing_time': (datetime.now() - start_time).total_seconds()
+            }
+
+        # 2. Analizar cada cláusula extraída
+        clause_results = []
+        for clause_data in extracted_clauses:
+            # El texto de la cláusula ahora viene en clause_data['text']
+            analysis = self._analyze_clause(clause_data['text'])
+            
+            # Añadir el número de la cláusula a los resultados
+            analysis['clause_number'] = clause_data.get('clause_number', '')
+
+            # --- INICIO: Calcular y añadir la bandera 'is_abusive' ---
+            ml_is_abusive = analysis.get('ml_analysis', {}).get('is_abusive', False)
+            gpt_is_abusive = analysis.get('gpt_analysis', {}).get('is_abusive', False)
+            analysis['is_abusive'] = ml_is_abusive or gpt_is_abusive
+            # --- FIN: Calcular y añadir la bandera 'is_abusive' ---
+
+            clause_results.append(analysis)
+
+        # 3. Calcular score de riesgo y generar resumen
+        total_risk = sum(c['ml_analysis']['abuse_probability'] for c in clause_results)
+        num_clauses = len(clause_results)
+        risk_score = total_risk / num_clauses if num_clauses > 0 else 0
+        
+        summary = self._generate_summary(clause_results, risk_score)
+        recommendations = self._generate_recommendations(clause_results)
+        
+        end_time = datetime.now()
+        processing_time = (end_time - start_time).total_seconds()
+        logger.info(f"Análisis completado en {processing_time:.2f} segundos.")
+        
         return {
-            'total_clauses': len(clauses),
-            'valid_clauses': total_valid_clauses,
-            'abusive_clauses_count': total_abusive,
-            'risk_score': risk_score,
-            'processing_time': processing_time,
             'clause_results': clause_results,
-            'entities': entities,
-            'executive_summary': summary,
-            'recommendations': recommendations
+            'summary': summary,
+            'recommendations': recommendations,
+            'processing_time': processing_time
         }
 
     def _extract_clauses(self, text: str) -> List[str]:
-        """Extrae cláusulas individuales del texto"""
+        """
+        (MÉTODO ANTIGUO - CONSERVADO COMO REFERENCIA)
+        Extrae cláusulas del texto del contrato usando expresiones regulares.
+        Busca patrones como "PRIMERO:", "ARTÍCULO 1.", etc.
+        """
         # Patterns para identificar cláusulas
         patterns = [
             r'(PRIMER[OA]?:.*?)(?=SEGUND[OA]?:|$)',

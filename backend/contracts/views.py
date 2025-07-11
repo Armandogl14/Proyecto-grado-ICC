@@ -191,8 +191,20 @@ class ContractViewSet(viewsets.ModelViewSet):
         
         try:
             contract = Contract.objects.get(id=contract_id)
+            
+            # --- INICIO: Limpiar resultados de análisis anteriores ---
+            contract.clauses.all().delete()  # Borra cláusulas y entidades en cascada
+            if hasattr(contract, 'analysis_result'):
+                contract.analysis_result.delete()
+
+            # Reiniciar campos del contrato y marcar como 'analizando'
             contract.status = 'analyzing'
+            contract.analyzed_at = None
+            contract.total_clauses = 0
+            contract.abusive_clauses_count = 0
+            contract.risk_score = None
             contract.save()
+            # --- FIN: Limpieza ---
             
             # Realizar análisis usando el servicio ML
             analysis_result = ml_service.analyze_contract(contract.original_text)
@@ -230,12 +242,13 @@ class ContractViewSet(viewsets.ModelViewSet):
                     clause_number=str(clause_result.get('clause_number', '')),
                     is_abusive=is_abusive,
                     confidence_score=confidence_score,
-                    clause_type='general',
-                    # Campos GPT
+                    clause_type=gpt_analysis.get('clause_type', 'general'),
+                    # --- INICIO: Limpieza de datos GPT ---
                     gpt_is_valid_clause=gpt_analysis.get('is_valid_clause', True),
                     gpt_is_abusive=gpt_is_abusive,
-                    gpt_explanation=gpt_analysis.get('explanation', ''),
-                    gpt_suggested_fix=gpt_analysis.get('suggested_fix', '')
+                    gpt_explanation=gpt_analysis.get('explanation') or '',
+                    gpt_suggested_fix=gpt_analysis.get('abusive_reason') or ''
+                    # --- FIN: Limpieza de datos GPT ---
                 )
             
             # Actualizar el contrato con los resultados corregidos

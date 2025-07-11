@@ -125,13 +125,13 @@ export function ClauseCard({ clause }: ClauseCardProps) {
                      </div>
                    </div>
 
-                   {/* Suggested Fix */}
+                   {/* Suggested Fix -> Abusive Reason */}
                    {clause.gpt_analysis.suggested_fix && (
                       <div className="flex items-start gap-3">
-                         <FileSignature className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"/>
+                         <AlertTriangle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5"/>
                          <div>
-                           <p className="text-sm text-slate-300 font-medium">Sugerencia de la IA:</p>
-                           <p className="text-sm text-green-300/80 bg-green-900/20 p-2 rounded-md font-mono">
+                           <p className="text-sm text-slate-300 font-medium">Razón de la Abusividad (según IA):</p>
+                           <p className="text-sm text-red-300/80 bg-red-900/20 p-2 rounded-md font-mono">
                              {clause.gpt_analysis.suggested_fix}
                            </p>
                          </div>

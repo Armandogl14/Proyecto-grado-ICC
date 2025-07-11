@@ -1,10 +1,8 @@
-'use client'
-
 import React from 'react'
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { contractsApi, contractTypesApi, clausesApi } from '@/lib/api'
-import type { ContractFilters, CreateContractData } from '@/types/contracts'
-import { toast } from 'sonner'
+import { useQuery, useMutation, useQueryClient, useInfiniteQuery } from '@tanstack/react-query'
+import { contractsApi, contractTypesApi, clausesApi } from '../lib/api'
+import type { ContractFilters, CreateContractData } from '../types/contracts'
+import { useIonToast } from '@ionic/react'
 
 // Hook para obtener contratos
 export function useContracts(filters?: ContractFilters) {
@@ -13,6 +11,24 @@ export function useContracts(filters?: ContractFilters) {
     queryFn: () => contractsApi.getContracts(filters),
     staleTime: 5 * 60 * 1000, // 5 minutos
   })
+}
+
+// Hook para obtener contratos con paginación infinita
+export function useInfiniteContracts(filters: Omit<ContractFilters, 'page'> = {}) {
+  return useInfiniteQuery({
+    queryKey: ['contracts', 'infinite', filters],
+    queryFn: ({ pageParam = 1 }) =>
+      contractsApi.getContracts({ ...filters, page: pageParam }),
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, allPages) => {
+      if (lastPage.next) {
+        const url = new URL(lastPage.next);
+        const nextPage = url.searchParams.get('page');
+        return nextPage ? parseInt(nextPage, 10) : undefined;
+      }
+      return undefined;
+    },
+  });
 }
 
 // Hook para obtener un contrato específico
@@ -27,18 +43,27 @@ export function useContract(id: string) {
 // Hook para crear contrato
 export function useCreateContract() {
   const queryClient = useQueryClient()
-  
+  const [presentToast] = useIonToast()
+
   return useMutation({
     mutationFn: contractsApi.createContract,
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ['contracts'] })
       queryClient.invalidateQueries({ queryKey: ['dashboard-stats'] })
-      toast.success('Contrato creado exitosamente')
+      presentToast({
+        message: 'Contrato creado exitosamente',
+        duration: 2000,
+        color: 'success',
+      })
       return data
     },
     onError: (error: any) => {
       console.error('Error creating contract:', error)
-      toast.error('Error al crear contrato: ' + (error.response?.data?.detail || error.message))
+      presentToast({
+        message: 'Error al crear contrato: ' + (error.response?.data?.detail || error.message),
+        duration: 3000,
+        color: 'danger',
+      })
     }
   })
 }
@@ -46,26 +71,28 @@ export function useCreateContract() {
 // Hook para analizar contrato
 export function useAnalyzeContract() {
   const queryClient = useQueryClient()
-  
+  const [presentToast] = useIonToast()
+
   return useMutation({
     mutationFn: ({ id, forceReanalysis = false }: { id: string, forceReanalysis?: boolean }) => {
-      console.log('Starting contract analysis for:', id, 'forceReanalysis:', forceReanalysis)
       return contractsApi.analyzeContract(id, forceReanalysis)
     },
     onSuccess: (data, variables) => {
-      console.log('Analysis request successful:', data)
       queryClient.invalidateQueries({ queryKey: ['contract', variables.id] })
       queryClient.invalidateQueries({ queryKey: ['contracts'] })
-      toast.success('Análisis iniciado correctamente')
+      presentToast({
+        message: 'Análisis iniciado correctamente',
+        duration: 2000,
+        color: 'success',
+      })
     },
     onError: (error: any) => {
       console.error('Error analyzing contract:', error)
-      console.error('Error details:', {
-        status: error.response?.status,
-        data: error.response?.data,
-        message: error.message
+      presentToast({
+        message: 'Error al iniciar análisis: ' + (error.response?.data?.detail || error.message),
+        duration: 3000,
+        color: 'danger',
       })
-      toast.error('Error al iniciar análisis: ' + (error.response?.data?.detail || error.message))
     }
   })
 }
@@ -73,17 +100,26 @@ export function useAnalyzeContract() {
 // Hook para eliminar un contrato
 export function useDeleteContract() {
   const queryClient = useQueryClient()
+  const [presentToast] = useIonToast()
 
   return useMutation({
     mutationFn: contractsApi.deleteContract,
     onSuccess: () => {
-      toast.success('Contrato eliminado correctamente')
+      presentToast({
+        message: 'Contrato eliminado correctamente',
+        duration: 2000,
+        color: 'success',
+      })
       queryClient.invalidateQueries({ queryKey: ['contracts'] })
       queryClient.invalidateQueries({ queryKey: ['dashboard-stats'] })
     },
     onError: (error: any) => {
       console.error('Error deleting contract:', error)
-      toast.error('Error al eliminar el contrato: ' + (error.response?.data?.detail || error.message))
+      presentToast({
+        message: 'Error al eliminar el contrato: ' + (error.response?.data?.detail || error.message),
+        duration: 3000,
+        color: 'danger',
+      })
     },
   })
 }
@@ -118,32 +154,38 @@ export function useDashboardStats() {
 // Hook para análisis en tiempo real
 export function useRealTimeAnalysis(contractId: string) {
   const queryClient = useQueryClient()
-  
+  const [presentToast] = useIonToast()
+
   const query = useQuery({
     queryKey: ['contract', contractId],
     queryFn: () => contractsApi.getContract(contractId),
     enabled: !!contractId && contractId !== 'undefined',
     refetchInterval: (query) => {
-      // Si el contrato está en análisis, refrescar cada 3 segundos
       if (query.state.data?.status === 'analyzing') {
         return 3000
       }
-      // Si está completado o con error, no refrescar más
       return false
     },
   })
 
-  // Efecto para manejar cambios de estado
   React.useEffect(() => {
     if (query.data?.status === 'completed') {
       queryClient.invalidateQueries({ queryKey: ['clauses', contractId] })
       queryClient.invalidateQueries({ queryKey: ['dashboard-stats'] })
-      toast.success('¡Análisis completado!')
+      presentToast({
+        message: '¡Análisis completado!',
+        duration: 2000,
+        color: 'success',
+      })
     } else if (query.data?.status === 'error') {
       console.error('Contract analysis failed for contract:', contractId, query.data)
-      toast.error('Error en el análisis del contrato. Revisa la consola para más detalles.')
+      presentToast({
+        message: 'Error en el análisis del contrato.',
+        duration: 3000,
+        color: 'danger',
+      })
     }
-  }, [query.data?.status, contractId, queryClient])
+  }, [query.data?.status, contractId, queryClient, presentToast])
 
   return query
 } 

@@ -8,7 +8,8 @@ import { Header } from "@/components/layout/Header"
 import { 
   useRealTimeAnalysis, 
   useAnalyzeContract, 
-  useClausesByContract 
+  useClausesByContract,
+  useDeleteContract // Importar el nuevo hook
 } from "@/hooks/useContracts"
 import { formatDate } from "@/lib/utils"
 import { 
@@ -25,9 +26,11 @@ import {
   AlertTriangle,
   FileClock,
   BookText,
-  ListOrdered
+  ListOrdered,
+  Trash2 // Importar el icono de la papelera
 } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation" // Importar useRouter
 import React from "react" // Added missing import for React
 
 // Nuevo componente de Pestañas (Tabs) que usa elementos nativos para no añadir dependencias
@@ -49,11 +52,23 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
   const { data: contract, isLoading: isLoadingContract, error: contractError } = useRealTimeAnalysis(params.id)
   const { data: clausesData, isLoading: isLoadingClauses } = useClausesByContract(params.id)
   const analyzeContractMutation = useAnalyzeContract()
+  const deleteContractMutation = useDeleteContract() // Usar el nuevo hook
+  const router = useRouter() // Inicializar router
 
   const [activeTab, setActiveTab] = React.useState('summary')
 
   const handleAnalyze = () => analyzeContractMutation.mutate({ id: params.id })
   const handleReanalyze = () => analyzeContractMutation.mutate({ id: params.id, forceReanalysis: true })
+
+  const handleDelete = () => {
+    if (window.confirm("¿Estás seguro de que deseas eliminar este contrato? Esta acción es irreversible.")) {
+      deleteContractMutation.mutate(params.id, {
+        onSuccess: () => {
+          router.push('/dashboard') // Redirigir al dashboard después de eliminar
+        }
+      })
+    }
+  }
 
   // --- Render Skeletons ---
   if (isLoadingContract) {
@@ -133,6 +148,17 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
                         <RefreshCw className="w-4 h-4 mr-2" /> Intentar de nuevo
                     </Button>
                 )}
+                {/* Botón de Eliminar */}
+                <Button 
+                    onClick={handleDelete}
+                    variant="destructive" 
+                    size="icon" 
+                    disabled={deleteContractMutation.isPending}
+                    className="bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300"
+                    title="Eliminar Contrato"
+                >
+                    {deleteContractMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+                </Button>
             </div>
         </div>
 

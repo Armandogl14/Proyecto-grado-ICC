@@ -1,7 +1,7 @@
 import {
   IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton,
   IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonButton, IonIcon,
-  IonSpinner, IonAlert, IonGrid, IonRow, IonCol, IonChip, IonLabel, IonText
+  IonSpinner, IonAlert, IonGrid, IonRow, IonCol
 } from '@ionic/react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useRealTimeAnalysis, useAnalyzeContract, useDeleteContract, useClausesByContract } from '../hooks/useContracts';

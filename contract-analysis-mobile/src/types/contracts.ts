@@ -62,6 +62,7 @@ export interface CreateContractData {
   title: string
   original_text: string
   contract_type: number
+  file?: File
 }
 
 export interface PaginatedResponse<T> {

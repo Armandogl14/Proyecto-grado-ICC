@@ -1,7 +1,7 @@
 import {
   IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonLabel,
   IonButton, IonIcon, IonButtons, IonInfiniteScroll, IonInfiniteScrollContent,
-  IonSpinner, IonBadge, IonGrid, IonRow, IonCol
+  IonSpinner, IonBadge, IonGrid, IonRow, IonCol, type InfiniteScrollCustomEvent
 } from '@ionic/react';
 import { useInfiniteContracts } from '../hooks/useContracts';
 import { useHistory } from 'react-router-dom';
@@ -33,7 +33,7 @@ const ContractsPage: React.FC = () => {
   
   const history = useHistory();
 
-  const loadMore = (event: any) => {
+  const loadMore = (event: InfiniteScrollCustomEvent) => {
     if (hasNextPage) {
       fetchNextPage().then(() => event.target.complete());
     } else {

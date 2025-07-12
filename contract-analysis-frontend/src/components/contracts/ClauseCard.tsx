@@ -33,7 +33,7 @@ export function ClauseCard({ clause }: ClauseCardProps) {
   const isAbusiveByGPT = clause.gpt_analysis?.is_abusive ?? false
   const isAbusive = isAbusiveByML || isAbusiveByGPT;
   
-  const riskLevel = clause.risk_score > 0.7 ? 'high' : clause.risk_score > 0.3 ? 'medium' : 'low'
+  const riskLevel = clause.risk_score >= 0.8 ? 'high' : clause.risk_score >= 0.7 ? 'medium' : 'low';
 
   const riskStyles = {
     high: {

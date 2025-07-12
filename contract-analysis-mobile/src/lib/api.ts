@@ -68,8 +68,13 @@ export const contractsApi = {
   },
 
   // Crear nuevo contrato
-  createContract: async (data: CreateContractData): Promise<Contract> => {
-    const response = await api.post('/api/contracts/', data)
+  createContract: async (data: CreateContractData | FormData): Promise<Contract> => {
+    const isFormData = data instanceof FormData;
+    const response = await api.post('/api/contracts/', data, {
+      headers: {
+        ...(isFormData && { 'Content-Type': 'multipart/form-data' }),
+      },
+    });
     return response.data
   },
 

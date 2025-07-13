@@ -93,6 +93,11 @@ export const contractsApi = {
       responseType: 'blob'
     })
     return response.data
+  },
+
+  // Eliminar un contrato
+  deleteContract: async (id: string): Promise<void> => {
+    await api.delete(`/api/contracts/${id}/`)
   }
 }
 

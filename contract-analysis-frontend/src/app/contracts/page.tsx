@@ -1,9 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { RiskIndicator } from "@/components/contracts/RiskIndicator"
 import { useContracts, useContractTypes } from "@/hooks/useContracts"
 import { formatDate } from "@/lib/utils"
@@ -12,15 +11,17 @@ import {
   Search, 
   Filter,
   Eye,
-  Clock,
+  FileClock,
   CheckCircle,
   AlertTriangle,
   Loader2,
   FileText,
-  ArrowLeft
+  ArrowLeft,
+  ListRestart
 } from "lucide-react"
 import Link from "next/link"
 import { Contract } from "@/types/contracts"
+import { Header } from '@/components/layout/Header'
 
 export default function ContractsPage() {
   const [filters, setFilters] = useState({
@@ -31,309 +32,196 @@ export default function ContractsPage() {
     page_size: 10
   })
 
-  const { data: contractsData, isLoading } = useContracts(filters)
-  const { data: contractTypesData } = useContractTypes()
+  const { data: contractsData, isLoading, refetch } = useContracts(filters)
+  const { data: contractTypesData, isLoading: isLoadingTypes } = useContractTypes()
 
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'pending':
-        return <Clock className="w-4 h-4 text-amber-500" />
-      case 'analyzing':
-        return <Loader2 className="w-4 h-4 text-primary animate-spin" />
-      case 'completed':
-        return <CheckCircle className="w-4 h-4 text-emerald-500" />
-      case 'error':
-        return <AlertTriangle className="w-4 h-4 text-destructive" />
-      default:
-        return <FileText className="w-4 h-4 text-muted-foreground" />
-    }
+  const handleFilterChange = (key: string, value: any) => {
+    setFilters(prev => ({ ...prev, [key]: value, page: 1 }))
   }
 
-  const getStatusText = (status: string) => {
-    switch (status) {
-      case 'pending':
-        return 'Pendiente'
-      case 'analyzing':
-        return 'Analizando'
-      case 'completed':
-        return 'Completado'
-      case 'error':
-        return 'Error'
-      default:
-        return 'Desconocido'
-    }
+  const handleClearFilters = () => {
+    setFilters({
+      status: '',
+      contract_type: undefined,
+      search: '',
+      page: 1,
+      page_size: 10
+    })
   }
-
-  const getStatusColor = (status: string) => {
+  
+  const getStatusInfo = (status: string) => {
     switch (status) {
-      case 'pending':
-        return 'bg-amber-100 text-amber-800 border-amber-200'
-      case 'analyzing':
-        return 'bg-blue-100 text-blue-800 border-blue-200'
-      case 'completed':
-        return 'bg-emerald-100 text-emerald-800 border-emerald-200'
-      case 'error':
-        return 'bg-red-100 text-red-800 border-red-200'
-      default:
-        return 'bg-gray-100 text-gray-800 border-gray-200'
+      case 'pending': return { icon: <FileClock className="w-4 h-4" />, text: 'Pendiente', color: 'text-amber-400' }
+      case 'analyzing': return { icon: <Loader2 className="w-4 h-4 animate-spin" />, text: 'Analizando', color: 'text-purple-400' }
+      case 'completed': return { icon: <CheckCircle className="w-4 h-4" />, text: 'Completado', color: 'text-green-400' }
+      case 'error': return { icon: <AlertTriangle className="w-4 h-4" />, text: 'Error', color: 'text-red-400' }
+      default: return { icon: <FileText className="w-4 h-4" />, text: 'Desconocido', color: 'text-slate-400' }
     }
-  }
-
-  if (isLoading) {
-    return (
-      <div className="p-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="animate-pulse space-y-6">
-            <div className="h-8 bg-gray-200 rounded w-1/4"></div>
-            <div className="grid gap-4">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="h-32 bg-gray-200 rounded"></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    )
   }
 
   return (
-    <div className="p-6 bg-background">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <>
+      <Header />
+      <main className="container mx-auto p-4 md:p-8">
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link href="/dashboard">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Dashboard
-              </Button>
-            </Link>
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">
-                Contratos
-              </h1>
-              <p className="text-muted-foreground mt-1">
-                Gestiona y analiza tus contratos
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+          <div>
+              <h1 className="text-3xl font-bold text-white">Mis Contratos</h1>
+              <p className="text-slate-400 mt-1">
+                Gestiona y revisa todos tus contratos analizados.
               </p>
-            </div>
           </div>
-
           <Link href="/contracts/new">
-            <Button className="flex items-center gap-2">
-              <Plus className="w-4 h-4" />
-              Nuevo Contrato
+            <Button
+                size="sm"
+                className="group relative inline-flex h-9 items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-purple-500 to-pink-500 font-medium text-white transition-all duration-300 ease-in-out hover:from-purple-600 hover:to-pink-600">
+                <span className="relative z-10 flex items-center gap-2">
+                <Plus className="w-4 h-4" />
+                Nuevo Análisis
+                </span>
             </Button>
           </Link>
         </div>
 
         {/* Filters */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Filter className="w-5 h-5" />
-              Filtros
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid gap-4 md:grid-cols-4">
-              <div>
-                <label className="text-sm font-medium text-muted-foreground">
-                  Buscar
-                </label>
-                <div className="relative mt-1">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                  <input
-                    type="text"
-                    placeholder="Buscar contratos..."
-                    className="w-full pl-10 pr-4 py-2 border border-input rounded-md bg-background"
-                    value={filters.search}
-                    onChange={(e) => setFilters({...filters, search: e.target.value, page: 1})}
-                  />
-                </div>
+        <Card className="bg-slate-800/80 border-slate-700/60 backdrop-blur-sm p-5 rounded-2xl mb-8">
+          <div className="grid gap-4 md:grid-cols-4">
+              <div className="relative">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Buscar por título..."
+                  className="w-full pl-11 pr-4 py-2.5 bg-slate-900/70 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-slate-500"
+                  value={filters.search}
+                  onChange={(e) => handleFilterChange('search', e.target.value)}
+                />
               </div>
 
-              <div>
-                <label className="text-sm font-medium text-muted-foreground">
-                  Estado
-                </label>
-                <select
-                  className="w-full mt-1 px-3 py-2 border border-input rounded-md bg-background"
-                  value={filters.status}
-                  onChange={(e) => setFilters({...filters, status: e.target.value, page: 1})}
-                  aria-label="Filtrar por estado"
-                >
-                  <option value="">Todos los estados</option>
-                  <option value="pending">Pendiente</option>
-                  <option value="analyzing">Analizando</option>
-                  <option value="completed">Completado</option>
-                  <option value="error">Error</option>
-                </select>
-              </div>
+              <select
+                className="w-full px-3 py-2.5 bg-slate-900/70 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
+                value={filters.status}
+                onChange={(e) => handleFilterChange('status', e.target.value)}
+              >
+                <option value="">Todos los estados</option>
+                <option value="pending">Pendiente</option>
+                <option value="analyzing">Analizando</option>
+                <option value="completed">Completado</option>
+                <option value="error">Error</option>
+              </select>
 
-              <div>
-                <label className="text-sm font-medium text-muted-foreground">
-                  Tipo de Contrato
-                </label>
-                <select
-                  className="w-full mt-1 px-3 py-2 border border-input rounded-md bg-background"
-                  value={filters.contract_type || ''}
-                  onChange={(e) => setFilters({...filters, contract_type: e.target.value ? parseInt(e.target.value) : undefined, page: 1})}
-                  aria-label="Filtrar por tipo de contrato"
-                >
-                  <option value="">Todos los tipos</option>
-                  {contractTypesData?.results?.map((type) => (
-                    <option key={type.id} value={type.id}>
-                      {type.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              <select
+                className="w-full px-3 py-2.5 bg-slate-900/70 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
+                value={filters.contract_type || ''}
+                disabled={isLoadingTypes}
+                onChange={(e) => handleFilterChange('contract_type', e.target.value ? parseInt(e.target.value) : undefined)}
+              >
+                <option value="">{isLoadingTypes ? 'Cargando...' : 'Todos los tipos'}</option>
+                {contractTypesData?.results?.map((type) => (
+                  <option key={type.id} value={type.id}>
+                    {type.name}
+                  </option>
+                ))}
+              </select>
 
-              <div className="flex items-end">
-                <Button
-                  variant="outline"
-                  onClick={() => setFilters({
-                    status: '',
-                    contract_type: undefined,
-                    search: '',
-                    page: 1,
-                    page_size: 10
-                  })}
-                  className="w-full"
-                >
-                  Limpiar Filtros
-                </Button>
-              </div>
-            </div>
-          </CardContent>
+              <Button
+                variant="outline"
+                onClick={handleClearFilters}
+                className="border-slate-600 hover:bg-slate-800 h-full"
+              >
+                <ListRestart className="w-4 h-4 mr-2"/>
+                Limpiar
+              </Button>
+          </div>
         </Card>
 
         {/* Contracts List */}
         <div className="space-y-4">
-          {contractsData?.results && contractsData.results.length > 0 ? (
-            contractsData.results.map((contract: Contract) => (
-              <Card key={contract.id} className="hover:shadow-md transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-lg font-semibold text-foreground">
-                          {contract.title}
-                        </h3>
-                        <Badge className={`flex items-center gap-1 ${getStatusColor(contract.status)}`}>
-                          {getStatusIcon(contract.status)}
-                          {getStatusText(contract.status)}
-                        </Badge>
+          {isLoading ? (
+             [...Array(5)].map((_, i) => (
+                <Card key={i} className="bg-slate-800/80 border-slate-700/60 p-5 rounded-2xl animate-pulse h-24"></Card>
+             ))
+          ) : contractsData?.results && contractsData.results.length > 0 ? (
+            contractsData.results.map((contract: Contract) => {
+              const status = getStatusInfo(contract.status)
+              return (
+              <Card key={contract.id} className="bg-slate-800/80 border-slate-700/60 backdrop-blur-sm rounded-2xl hover:border-slate-600 transition-colors">
+                <CardContent className="p-4 md:p-5">
+                  <div className="grid md:grid-cols-4 items-center gap-4">
+                      {/* Title and Type */}
+                      <div className="md:col-span-2">
+                        <Link href={`/contracts/${contract.id}`}>
+                            <h3 className="font-semibold text-white hover:text-purple-400 transition-colors line-clamp-1">
+                                {contract.title}
+                            </h3>
+                        </Link>
+                        <p className="text-sm text-slate-400">{contract.contract_type.name}</p>
+                      </div>
+
+                      {/* Status and Risk */}
+                      <div className="flex items-center gap-4 md:gap-6">
+                        <div className={`flex items-center gap-2 font-medium text-sm ${status.color}`}>
+                            {status.icon}
+                            <span>{status.text}</span>
+                        </div>
+                         {contract.status === 'completed' && (
+                           <RiskIndicator 
+                              riskScore={contract.risk_score} 
+                              size="sm"
+                           />
+                         )}
                       </div>
                       
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-                        <span>{contract.contract_type.name}</span>
-                        <span>•</span>
-                        <span>Creado el {formatDate(contract.created_at)}</span>
-                        {contract.analyzed_at && (
-                          <>
-                            <span>•</span>
-                            <span>Analizado el {formatDate(contract.analyzed_at)}</span>
-                          </>
-                        )}
+                      {/* Dates and Actions */}
+                      <div className="flex items-center justify-end gap-4">
+                         <div className="text-right hidden lg:block">
+                            <p className="text-sm text-slate-300">Creado</p>
+                            <p className="text-xs text-slate-500">{formatDate(contract.created_at)}</p>
+                         </div>
+                         <Link href={`/contracts/${contract.id}`}>
+                           <Button size="icon" variant="ghost" className="text-slate-400 hover:bg-slate-700 hover:text-white">
+                             <Eye className="w-5 h-5" />
+                           </Button>
+                         </Link>
                       </div>
-
-                      {contract.status === 'completed' && (
-                        <div className="flex items-center gap-6 text-sm">
-                          <div className="flex items-center gap-2">
-                            <FileText className="w-4 h-4 text-muted-foreground" />
-                            <span>{contract.total_clauses} cláusulas</span>
-                          </div>
-                          
-                          {contract.abusive_clauses_count > 0 && (
-                            <div className="flex items-center gap-2">
-                              <AlertTriangle className="w-4 h-4 text-destructive" />
-                              <span className="text-destructive">
-                                {contract.abusive_clauses_count} abusivas
-                              </span>
-                            </div>
-                          )}
-
-                          {contract.risk_score !== undefined && (
-                            <RiskIndicator 
-                              riskScore={contract.risk_score} 
-                              showPercentage={true}
-                            />
-                          )}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <Link href={`/contracts/${contract.id}`}>
-                        <Button size="sm" variant="outline">
-                          <Eye className="w-4 h-4 mr-2" />
-                          Ver Detalles
-                        </Button>
-                      </Link>
-                    </div>
                   </div>
                 </CardContent>
               </Card>
-            ))
+            )})
           ) : (
-            <Card>
-              <CardContent className="text-center py-12">
-                <FileText className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  No hay contratos
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  {filters.search || filters.status || filters.contract_type
-                    ? "No se encontraron contratos que coincidan con los filtros."
-                    : "Aún no has creado ningún contrato."}
-                </p>
-                <Link href="/contracts/new">
-                  <Button>
-                    <Plus className="w-4 h-4 mr-2" />
-                    Crear Primer Contrato
-                  </Button>
-                </Link>
-              </CardContent>
+             <Card className="bg-slate-800/80 border-slate-700/60 p-12 rounded-2xl text-center">
+                <FileText className="w-12 h-12 text-slate-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white">No se encontraron contratos</h3>
+                <p className="text-slate-400 mt-2 mb-6">Prueba a ajustar los filtros o crea tu primer contrato.</p>
+                <Button onClick={handleClearFilters} variant="outline" className="border-slate-600">Limpiar filtros</Button>
             </Card>
           )}
         </div>
 
         {/* Pagination */}
         {contractsData && contractsData.count > filters.page_size && (
-          <div className="flex items-center justify-between">
-            <div className="text-sm text-muted-foreground">
-              Mostrando {((filters.page - 1) * filters.page_size) + 1} a{' '}
-              {Math.min(filters.page * filters.page_size, contractsData.count)} de{' '}
-              {contractsData.count} contratos
-            </div>
-            
-            <div className="flex items-center gap-2">
+          <div className="flex justify-center items-center gap-4 mt-8">
               <Button
                 variant="outline"
-                size="sm"
                 disabled={!contractsData.previous}
-                onClick={() => setFilters({...filters, page: filters.page - 1})}
+                onClick={() => handleFilterChange('page', filters.page - 1)}
+                className="border-slate-600"
               >
                 Anterior
               </Button>
-              
-              <span className="text-sm text-muted-foreground px-3">
-                Página {filters.page}
+              <span className="text-sm text-slate-400">
+                Página {filters.page} de {Math.ceil(contractsData.count / filters.page_size)}
               </span>
-              
-              <Button
+               <Button
                 variant="outline"
-                size="sm"
                 disabled={!contractsData.next}
-                onClick={() => setFilters({...filters, page: filters.page + 1})}
+                onClick={() => handleFilterChange('page', filters.page + 1)}
+                className="border-slate-600"
               >
                 Siguiente
               </Button>
-            </div>
           </div>
         )}
-      </div>
-    </div>
+      </main>
+    </>
   )
 } 

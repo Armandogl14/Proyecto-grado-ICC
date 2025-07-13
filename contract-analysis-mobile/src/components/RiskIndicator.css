@@ -1,0 +1,39 @@
+.risk-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 8px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+}
+
+.risk-score {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.risk-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+}
+
+.risk-low {
+  background-color: #2dd36f;
+  border: 1px solid #28b862;
+}
+
+.risk-medium {
+  background-color: #ffc409;
+  border: 1px solid #e0ac08;
+}
+
+.risk-high {
+  background-color: #eb445a;
+  border: 1px solid #cf3c4f;
+} 

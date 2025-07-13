@@ -116,6 +116,8 @@ class Clause(models.Model):
     # Análisis ML
     is_abusive = models.BooleanField(default=False)
     confidence_score = models.FloatField(
+        null=True,  # Permitir valores nulos
+        default=0.0, # Establecer un valor por defecto
         validators=[MinValueValidator(0.0), MaxValueValidator(1.0)],
         help_text="Confianza del modelo ML (0-1)"
     )
@@ -123,8 +125,8 @@ class Clause(models.Model):
     # Análisis GPT
     gpt_is_valid_clause = models.BooleanField(default=True)
     gpt_is_abusive = models.BooleanField(default=False)
-    gpt_explanation = models.TextField(blank=True, help_text="Explicación del análisis GPT")
-    gpt_suggested_fix = models.TextField(blank=True, help_text="Sugerencia de corrección de GPT")
+    gpt_explanation = models.TextField(blank=True, null=True, help_text="Explicación del análisis GPT")
+    gpt_suggested_fix = models.TextField(blank=True, null=True, help_text="Sugerencia de corrección de GPT")
     
     # Posición en el documento
     start_position = models.IntegerField(null=True, blank=True)

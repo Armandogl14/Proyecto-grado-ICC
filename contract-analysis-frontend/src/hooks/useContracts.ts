@@ -70,6 +70,24 @@ export function useAnalyzeContract() {
   })
 }
 
+// Hook para eliminar un contrato
+export function useDeleteContract() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: contractsApi.deleteContract,
+    onSuccess: () => {
+      toast.success('Contrato eliminado correctamente')
+      queryClient.invalidateQueries({ queryKey: ['contracts'] })
+      queryClient.invalidateQueries({ queryKey: ['dashboard-stats'] })
+    },
+    onError: (error: any) => {
+      console.error('Error deleting contract:', error)
+      toast.error('Error al eliminar el contrato: ' + (error.response?.data?.detail || error.message))
+    },
+  })
+}
+
 // Hook para obtener tipos de contrato
 export function useContractTypes() {
   return useQuery({

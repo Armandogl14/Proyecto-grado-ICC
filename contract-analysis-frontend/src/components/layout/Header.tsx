@@ -1,69 +1,54 @@
 'use client'
 
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useAuth } from "@/hooks/useAuth"
-import { User, LogOut, FileText } from "lucide-react"
-import Link from "next/link"
+import { LayoutDashboard, LogOut, User, FilePlus, Sparkles } from "lucide-react"
 
 export function Header() {
-  const { user, logout } = useAuth()
+  const { user, logout, isAuthenticated } = useAuth()
 
   return (
-    <header className="bg-white border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <FileText className="w-8 h-8 text-blue-600" />
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">
-                Análisis de Contratos
-              </h1>
-              <p className="text-xs text-gray-500">Sistema ML de Detección</p>
-            </div>
-          </Link>
+    <header className="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-slate-900/50 backdrop-blur-sm">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+        <Link href="/" className="flex items-center gap-2">
+          <Sparkles className="h-6 w-6 text-purple-400" />
+          <span className="text-xl font-bold text-white">LegalAI</span>
+        </Link>
+        <div className="flex items-center gap-4">
+          {isAuthenticated ? (
+            <>
+              <span className="hidden sm:inline text-sm text-slate-400">
+                Bienvenido, {user?.username}
+              </span>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link 
-              href="/dashboard" 
-              className="text-gray-600 hover:text-gray-900 font-medium"
-            >
-              Dashboard
-            </Link>
-            <Link 
-              href="/contracts/new" 
-              className="text-gray-600 hover:text-gray-900 font-medium"
-            >
-              Nuevo Contrato
-            </Link>
-          </nav>
-
-          {/* User Info */}
-          {user && (
-            <div className="flex items-center gap-4">
-              <div className="hidden sm:block text-right">
-                <p className="text-sm font-medium text-gray-900">
-                  {user.username}
-                </p>
-                <p className="text-xs text-gray-500">
-                  {user.is_superuser ? 'Administrador' : 'Usuario'}
-                </p>
-              </div>
-              
-              <div className="flex items-center gap-2">
-                <User className="w-5 h-5 text-gray-600" />
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={logout}
-                  className="text-gray-600 hover:text-gray-900"
-                >
-                  <LogOut className="w-4 h-4" />
-                  <span className="hidden sm:ml-2 sm:inline">Salir</span>
+              <Link href="/dashboard">
+                <Button variant="ghost" size="sm" className="hidden sm:flex items-center gap-2 text-slate-300 hover:bg-slate-800 hover:text-white">
+                  <LayoutDashboard className="h-4 w-4" />
+                  Dashboard
                 </Button>
-              </div>
-            </div>
+              </Link>
+              
+              <Link href="/contracts/new">
+                 <Button size="sm" className="group relative inline-flex h-9 items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-purple-500 to-pink-500 font-medium text-white transition-all duration-300 ease-in-out hover:from-purple-600 hover:to-pink-600">
+                   <span className="relative z-10 flex items-center gap-2">
+                    <FilePlus className="h-4 w-4" />
+                    Nuevo Análisis
+                   </span>
+                </Button>
+              </Link>
+
+              <Button onClick={logout} variant="ghost" size="icon" className="text-slate-400 hover:bg-slate-800 hover:text-red-500/80">
+                <LogOut className="h-5 w-5" />
+              </Button>
+            </>
+          ) : (
+            <Link href="/#"> 
+              <Button>
+                <User className="mr-2 h-4 w-4" />
+                Iniciar Sesión
+              </Button>
+            </Link>
           )}
         </div>
       </div>

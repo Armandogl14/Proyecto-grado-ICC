@@ -110,8 +110,8 @@ class Clause(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     contract = models.ForeignKey(Contract, on_delete=models.CASCADE, related_name='clauses')
     text = models.TextField(help_text="Texto de la cláusula")
-    clause_number = models.CharField(max_length=20, blank=True)
-    clause_type = models.CharField(max_length=20, choices=CLAUSE_TYPES, default='general')
+    clause_number = models.TextField(blank=True, help_text="Número o título de la cláusula")
+    clause_type = models.CharField(max_length=50, choices=CLAUSE_TYPES, default='general')
     
     # Análisis ML
     is_abusive = models.BooleanField(default=False)

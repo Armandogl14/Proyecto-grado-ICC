@@ -128,10 +128,8 @@ class ContractCreateSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['id']
     
-    def create(self, validated_data):
-        # El usuario se asigna automáticamente desde la vista
-        validated_data['uploaded_by'] = self.context['request'].user
-        return super().create(validated_data)
+    # Se elimina el método `create` para que no asigne automáticamente el usuario de la petición.
+    # La asignación del usuario se hará explícitamente en la vista.
 
 
 class ContractSerializer(serializers.ModelSerializer):

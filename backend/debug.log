@@ -3107,3 +3107,909 @@ INFO 2025-07-11 16:22:12,388 basehttp 4152 1684 "OPTIONS /api/clauses/?contract=
 INFO 2025-07-11 16:22:14,244 basehttp 4152 18848 "GET /api/clauses/?contract=d450ca85-47ae-4446-a100-a71e2c89e54e HTTP/1.1" 200 20218
 INFO 2025-07-11 16:22:14,280 basehttp 4152 1916 "GET /api/contracts/d450ca85-47ae-4446-a100-a71e2c89e54e/ HTTP/1.1" 200 21445
 INFO 2025-07-11 16:22:15,846 basehttp 4152 1916 "GET /api/clauses/?contract=d450ca85-47ae-4446-a100-a71e2c89e54e HTTP/1.1" 200 20218
+INFO 2025-07-13 18:18:51,429 autoreload 10192 25944 Watching for file changes with StatReloader
+INFO 2025-07-13 18:19:54,555 basehttp 10192 10960 "GET /admin HTTP/1.1" 301 0
+INFO 2025-07-13 18:19:54,816 basehttp 10192 25320 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-07-13 18:19:54,864 basehttp 10192 25320 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+INFO 2025-07-13 18:19:55,028 basehttp 10192 14268 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-07-13 18:19:55,029 basehttp 10192 25320 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-07-13 18:19:55,033 basehttp 10192 25320 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-07-13 18:19:55,034 basehttp 10192 14268 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-07-13 18:19:55,039 basehttp 10192 14268 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-07-13 18:19:55,039 basehttp 10192 25320 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-07-13 18:19:55,045 basehttp 10192 25320 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+WARNING 2025-07-13 18:19:55,113 log 10192 25320 Not Found: /favicon.ico
+WARNING 2025-07-13 18:19:55,114 basehttp 10192 25320 "GET /favicon.ico HTTP/1.1" 404 3107
+INFO 2025-07-13 18:20:05,883 basehttp 10192 25320 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4341
+INFO 2025-07-13 18:20:35,738 basehttp 10192 25320 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4341
+INFO 2025-07-13 18:23:00,617 autoreload 17948 16076 Watching for file changes with StatReloader
+INFO 2025-07-13 18:23:16,244 basehttp 17948 28780 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4341
+INFO 2025-07-13 18:23:22,195 basehttp 17948 28780 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-07-13 18:23:22,208 basehttp 17948 28780 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+INFO 2025-07-13 18:23:39,003 basehttp 17948 28780 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-07-13 18:23:39,261 basehttp 17948 28780 "GET /admin/ HTTP/1.1" 200 6100
+INFO 2025-07-13 18:23:39,372 basehttp 17948 28780 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-07-13 18:23:39,383 basehttp 17948 6648 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-07-13 18:23:39,383 basehttp 17948 28780 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-07-13 18:24:00,576 basehttp 17948 28780 "GET /admin/auth/group/ HTTP/1.1" 200 7734
+INFO 2025-07-13 18:24:00,632 basehttp 17948 28780 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-07-13 18:24:00,654 basehttp 17948 28780 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-07-13 18:24:00,657 basehttp 17948 28780 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-07-13 18:24:00,661 basehttp 17948 28780 "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-07-13 18:24:00,665 basehttp 17948 28780 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-07-13 18:24:00,669 basehttp 17948 28780 "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-07-13 18:24:00,672 basehttp 17948 28780 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-07-13 18:24:00,676 basehttp 17948 28780 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-07-13 18:24:00,683 basehttp 17948 28780 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-07-13 18:24:00,686 basehttp 17948 28780 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-07-13 18:24:00,692 basehttp 17948 28780 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-07-13 18:24:01,324 basehttp 17948 6648 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:24:01,357 basehttp 17948 6648 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-07-13 18:24:05,415 basehttp 17948 6648 "GET /admin/auth/user/ HTTP/1.1" 200 11328
+INFO 2025-07-13 18:24:05,456 basehttp 17948 6648 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-07-13 18:24:05,592 basehttp 17948 28780 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:24:05,619 basehttp 17948 6648 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-07-13 18:24:05,620 basehttp 17948 28780 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+WARNING 2025-07-13 18:24:13,206 log 17948 28780 Not Found: /
+WARNING 2025-07-13 18:24:13,207 basehttp 17948 28780 "GET / HTTP/1.1" 404 3056
+INFO 2025-07-13 18:24:17,663 basehttp 17948 28780 "GET /admin/auth/user/ HTTP/1.1" 200 11328
+WARNING 2025-07-13 18:24:27,634 log 17948 28780 Not Found: /
+WARNING 2025-07-13 18:24:27,634 basehttp 17948 28780 "GET / HTTP/1.1" 404 3056
+INFO 2025-07-13 18:24:31,392 basehttp 17948 28780 "GET /admin/auth/user/ HTTP/1.1" 200 11328
+INFO 2025-07-13 18:24:35,851 basehttp 17948 28780 "GET /admin/ HTTP/1.1" 200 6100
+INFO 2025-07-13 18:30:50,002 basehttp 17948 29200 "GET /admin/ HTTP/1.1" 200 6100
+INFO 2025-07-13 18:30:55,662 basehttp 17948 29200 "GET /admin/ HTTP/1.1" 200 6100
+INFO 2025-07-13 18:31:11,419 autoreload 17948 16076 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py changed, reloading.
+INFO 2025-07-13 18:31:13,777 autoreload 1604 17324 Watching for file changes with StatReloader
+INFO 2025-07-13 18:31:49,412 basehttp 1604 29096 "GET /admin/ HTTP/1.1" 200 6100
+INFO 2025-07-13 18:32:05,405 autoreload 10576 14608 Watching for file changes with StatReloader
+INFO 2025-07-13 18:32:41,845 basehttp 10576 19748 "GET /admin/ HTTP/1.1" 200 9074
+INFO 2025-07-13 18:32:48,396 basehttp 10576 19748 "GET /admin/contracts/contract/ HTTP/1.1" 200 11044
+INFO 2025-07-13 18:32:48,604 basehttp 10576 19748 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:32:51,023 basehttp 10576 19748 "GET /admin/contracts/clause/ HTTP/1.1" 200 11717
+INFO 2025-07-13 18:32:51,224 basehttp 10576 19748 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:32:53,401 basehttp 10576 19748 "GET /admin/contracts/entity/ HTTP/1.1" 200 11067
+INFO 2025-07-13 18:32:53,563 basehttp 10576 19748 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:32:57,253 basehttp 10576 19748 "GET /admin/contracts/contracttype/ HTTP/1.1" 200 10047
+INFO 2025-07-13 18:32:57,804 basehttp 10576 19748 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:34:25,618 basehttp 10576 19748 "GET /admin/contracts/contract/ HTTP/1.1" 200 11044
+INFO 2025-07-13 18:34:25,807 basehttp 10576 19748 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:34:29,454 basehttp 10576 19748 - Broken pipe from ('127.0.0.1', 62816)
+INFO 2025-07-13 18:34:30,470 basehttp 10576 25828 - Broken pipe from ('127.0.0.1', 63301)
+INFO 2025-07-13 18:34:31,091 basehttp 10576 12936 "GET /admin/contracts/contract/?status__exact=pending HTTP/1.1" 200 11282
+INFO 2025-07-13 18:34:31,267 basehttp 10576 12936 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:34:33,209 basehttp 10576 12936 "GET /admin/contracts/contract/?_facets=True&status__exact=pending HTTP/1.1" 200 11479
+INFO 2025-07-13 18:34:33,411 basehttp 10576 12936 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:34:33,520 basehttp 10576 12936 "GET /static/admin/img/icon-hidelink.svg HTTP/1.1" 200 784
+INFO 2025-07-13 18:34:35,174 basehttp 10576 12936 "GET /admin/contracts/contract/?_facets=True HTTP/1.1" 200 11247
+INFO 2025-07-13 18:34:35,341 basehttp 10576 12936 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:37:23,427 autoreload 21312 20204 Watching for file changes with StatReloader
+INFO 2025-07-13 18:38:08,114 basehttp 21312 1264 "GET /admin/contracts/contract/?_facets=True HTTP/1.1" 200 12272
+INFO 2025-07-13 18:38:08,405 basehttp 21312 1264 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:38:11,784 basehttp 21312 1264 "GET /admin/contracts/contract/ HTTP/1.1" 200 11889
+INFO 2025-07-13 18:38:11,974 basehttp 21312 1264 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:38:14,339 basehttp 21312 1264 "GET /admin/contracts/clause/ HTTP/1.1" 200 11717
+INFO 2025-07-13 18:38:14,511 basehttp 21312 1264 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:38:15,997 basehttp 21312 1264 "GET /admin/contracts/contract/ HTTP/1.1" 200 11889
+INFO 2025-07-13 18:38:16,168 basehttp 21312 1264 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:38:17,569 basehttp 21312 1264 "GET /admin/contracts/entity/ HTTP/1.1" 200 11067
+INFO 2025-07-13 18:38:17,748 basehttp 21312 1264 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:38:19,062 basehttp 21312 1264 "GET /admin/contracts/contracttype/ HTTP/1.1" 200 14572
+INFO 2025-07-13 18:38:19,267 basehttp 21312 1264 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:38:27,279 basehttp 21312 1264 "GET /admin/contracts/ HTTP/1.1" 200 7392
+INFO 2025-07-13 18:38:28,888 basehttp 21312 1264 "GET /admin/ HTTP/1.1" 200 9074
+INFO 2025-07-13 18:38:31,532 basehttp 21312 1264 "GET /admin/contracts/clause/ HTTP/1.1" 200 11717
+INFO 2025-07-13 18:38:31,712 basehttp 21312 1264 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:38:33,873 basehttp 21312 1264 "GET /admin/contracts/contract/ HTTP/1.1" 200 11889
+INFO 2025-07-13 18:38:34,061 basehttp 21312 1264 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 18:38:35,129 basehttp 21312 1264 "GET /admin/contracts/contracttype/ HTTP/1.1" 200 14572
+INFO 2025-07-13 18:38:35,324 basehttp 21312 1264 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 20:25:05,398 autoreload 25988 19944 Watching for file changes with StatReloader
+INFO 2025-07-13 20:27:21,273 basehttp 25988 7144 "OPTIONS /api/contract-types/ HTTP/1.1" 200 0
+WARNING 2025-07-13 20:27:23,127 log 25988 16768 Unauthorized: /api/contract-types/
+WARNING 2025-07-13 20:27:23,128 basehttp 25988 16768 "GET /api/contract-types/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:27:35,158 log 25988 16768 Unauthorized: /api/contract-types/
+WARNING 2025-07-13 20:27:35,159 basehttp 25988 16768 "GET /api/contract-types/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:27:45,941 log 25988 16768 Unauthorized: /api/contract-types/
+WARNING 2025-07-13 20:27:45,942 basehttp 25988 16768 "GET /api/contract-types/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:28:02,622 log 25988 16768 Unauthorized: /api/contract-types/
+WARNING 2025-07-13 20:28:02,623 basehttp 25988 16768 "GET /api/contract-types/ HTTP/1.1" 401 39
+INFO 2025-07-13 20:28:06,416 basehttp 25988 7144 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-07-13 20:28:51,191 basehttp 25988 7144 "OPTIONS /api/contracts/ HTTP/1.1" 200 0
+WARNING 2025-07-13 20:28:51,824 log 25988 16768 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:28:51,824 basehttp 25988 16768 "POST /api/contracts/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:29:08,026 log 25988 16768 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:29:08,027 basehttp 25988 16768 "POST /api/contracts/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:29:22,080 log 25988 16768 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:29:22,081 basehttp 25988 16768 "POST /api/contracts/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:29:25,467 log 25988 16768 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:29:25,468 basehttp 25988 16768 "POST /api/contracts/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:29:34,358 log 25988 16768 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:29:34,359 basehttp 25988 16768 "POST /api/contracts/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:30:00,831 log 25988 16768 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:30:00,832 basehttp 25988 16768 "POST /api/contracts/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:30:16,324 log 25988 16768 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:30:16,325 basehttp 25988 16768 "POST /api/contracts/ HTTP/1.1" 401 39
+INFO 2025-07-13 20:30:53,030 basehttp 25988 6316 "GET /admin/auth/user/ HTTP/1.1" 200 13578
+INFO 2025-07-13 20:30:53,230 basehttp 25988 6316 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 20:30:56,999 basehttp 25988 6316 "GET /admin/auth/user/1/change/ HTTP/1.1" 200 25364
+INFO 2025-07-13 20:30:57,118 basehttp 25988 6316 "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO 2025-07-13 20:30:57,121 basehttp 25988 6316 "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-07-13 20:30:57,125 basehttp 25988 6316 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+INFO 2025-07-13 20:30:57,128 basehttp 25988 6316 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-07-13 20:30:57,131 basehttp 25988 6316 "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2025-07-13 20:30:57,258 basehttp 25988 6316 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 20:30:57,263 basehttp 25988 6316 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+INFO 2025-07-13 20:30:57,268 basehttp 25988 6316 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-07-13 20:30:57,274 basehttp 25988 6316 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-07-13 20:30:57,325 basehttp 25988 6316 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO 2025-07-13 20:30:57,328 basehttp 25988 6316 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2025-07-13 20:30:57,333 basehttp 25988 6316 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+WARNING 2025-07-13 20:31:25,948 log 25988 16768 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:31:25,949 basehttp 25988 16768 "POST /api/contracts/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:31:35,271 log 25988 16768 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:31:35,272 basehttp 25988 16768 "POST /api/contracts/ HTTP/1.1" 401 39
+INFO 2025-07-13 20:31:42,373 basehttp 25988 6316 "GET /admin/auth/user/1/password/ HTTP/1.1" 200 11146
+INFO 2025-07-13 20:31:42,427 basehttp 25988 6316 "GET /static/admin/css/unusable_password_field.css HTTP/1.1" 200 663
+INFO 2025-07-13 20:31:42,427 basehttp 25988 17544 "GET /static/admin/js/unusable_password_field.js HTTP/1.1" 200 1480
+INFO 2025-07-13 20:31:54,494 basehttp 25988 17544 "POST /admin/auth/user/1/password/ HTTP/1.1" 200 11395
+INFO 2025-07-13 20:32:07,054 basehttp 25988 17544 "POST /admin/auth/user/1/password/ HTTP/1.1" 302 0
+INFO 2025-07-13 20:32:07,927 basehttp 25988 17544 "GET /admin/auth/user/1/change/ HTTP/1.1" 200 25500
+INFO 2025-07-13 20:32:08,108 basehttp 25988 17544 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 20:32:15,144 basehttp 25988 17544 "POST /admin/logout/ HTTP/1.1" 200 3568
+INFO 2025-07-13 20:32:16,660 basehttp 25988 17544 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-07-13 20:32:16,675 basehttp 25988 17544 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+INFO 2025-07-13 20:32:21,346 basehttp 25988 17544 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-07-13 20:32:21,601 basehttp 25988 17544 "GET /admin/ HTTP/1.1" 200 9452
+WARNING 2025-07-13 20:32:56,952 log 25988 16768 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:32:56,952 basehttp 25988 16768 "POST /api/contracts/ HTTP/1.1" 401 39
+INFO 2025-07-13 20:34:14,550 autoreload 25988 19944 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\backend\settings.py changed, reloading.
+INFO 2025-07-13 20:34:16,619 autoreload 28508 26932 Watching for file changes with StatReloader
+INFO 2025-07-13 20:34:25,143 autoreload 28508 26932 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\backend\urls.py changed, reloading.
+INFO 2025-07-13 20:34:26,788 autoreload 26072 2124 Watching for file changes with StatReloader
+INFO 2025-07-13 20:39:16,716 autoreload 12328 29320 Watching for file changes with StatReloader
+WARNING 2025-07-13 20:40:04,380 log 12328 22664 Unauthorized: /api/contract-types/
+WARNING 2025-07-13 20:40:04,381 basehttp 12328 22664 "GET /api/contract-types/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:40:14,763 log 12328 22664 Unauthorized: /api/contract-types/
+WARNING 2025-07-13 20:40:14,763 basehttp 12328 22664 "GET /api/contract-types/ HTTP/1.1" 401 39
+WARNING 2025-07-13 20:40:34,961 log 12328 22664 Unauthorized: /api/contract-types/
+WARNING 2025-07-13 20:40:34,963 basehttp 12328 22664 "GET /api/contract-types/ HTTP/1.1" 401 39
+INFO 2025-07-13 20:41:27,041 autoreload 12328 29320 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py changed, reloading.
+INFO 2025-07-13 20:41:28,592 autoreload 27656 27448 Watching for file changes with StatReloader
+INFO 2025-07-13 20:42:09,080 autoreload 27656 27448 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py changed, reloading.
+INFO 2025-07-13 20:42:10,630 autoreload 13616 19144 Watching for file changes with StatReloader
+INFO 2025-07-13 20:42:27,203 autoreload 17552 24980 Watching for file changes with StatReloader
+WARNING 2025-07-13 20:43:31,597 log 17552 12308 Unauthorized: /api/contract-types/
+WARNING 2025-07-13 20:43:31,598 basehttp 17552 12308 "GET /api/contract-types/ HTTP/1.1" 401 39
+INFO 2025-07-13 20:43:41,869 basehttp 17552 29912 "GET /api/contract-types/ HTTP/1.1" 200 1236
+WARNING 2025-07-13 20:44:04,208 log 17552 12308 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:44:04,209 basehttp 17552 12308 "POST /api/contracts/ HTTP/1.1" 401 39
+INFO 2025-07-13 20:44:46,589 autoreload 17552 24980 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\backend\settings.py changed, reloading.
+INFO 2025-07-13 20:44:48,208 autoreload 2748 6352 Watching for file changes with StatReloader
+INFO 2025-07-13 20:44:59,175 autoreload 2748 6352 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py changed, reloading.
+INFO 2025-07-13 20:45:00,740 autoreload 7796 10268 Watching for file changes with StatReloader
+WARNING 2025-07-13 20:45:15,810 log 7796 20756 Unauthorized: /api/contracts/
+WARNING 2025-07-13 20:45:54,664 log 7796 26476 Unauthorized: /api/contract-types/
+INFO 2025-07-13 20:46:09,345 basehttp 7796 20756 - Broken pipe from ('127.0.0.1', 52320)
+WARNING 2025-07-13 20:46:09,346 basehttp 7796 26476 "GET /api/contract-types/ HTTP/1.1" 401 39
+INFO 2025-07-13 20:46:18,698 autoreload 17188 17372 Watching for file changes with StatReloader
+WARNING 2025-07-13 20:46:59,379 log 17188 5988 Unauthorized: /api/contract-types/
+WARNING 2025-07-13 20:46:59,379 basehttp 17188 5988 "GET /api/contract-types/ HTTP/1.1" 401 39
+INFO 2025-07-13 20:48:53,432 autoreload 8220 8016 Watching for file changes with StatReloader
+INFO 2025-07-13 20:49:13,716 basehttp 8220 12312 "GET /api/contract-types/ HTTP/1.1" 200 1236
+ERROR 2025-07-13 20:49:34,146 log 8220 12312 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py", line 61, in perform_create
+    contract = serializer.save(uploaded_by=default_user)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\serializers.py", line 134, in create
+    return super().create(validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 661, in create
+    obj = self.model(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\base.py", line 545, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 291, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<django.contrib.auth.models.AnonymousUser object at 0x0000017B31655F50>": "Contract.uploaded_by" must be a "User" instance.
+ERROR 2025-07-13 20:49:34,163 basehttp 8220 12312 "POST /api/contracts/ HTTP/1.1" 500 185034
+INFO 2025-07-13 20:50:14,636 autoreload 8220 8016 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\serializers.py changed, reloading.
+INFO 2025-07-13 20:50:16,162 autoreload 18120 7160 Watching for file changes with StatReloader
+INFO 2025-07-13 20:50:31,350 autoreload 2044 16928 Watching for file changes with StatReloader
+INFO 2025-07-13 20:50:44,276 basehttp 2044 18940 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-07-13 20:51:03,955 ml_service 2044 18940 Iniciando análisis de contrato...
+INFO 2025-07-13 20:51:03,956 ml_service 2044 18940 Iniciando extracción de cláusulas con GPT
+INFO 2025-07-13 20:51:17,831 ml_service 2044 18940 Cláusulas extraídas exitosamente con GPT: 16 cláusulas.
+INFO 2025-07-13 20:51:17,840 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:17,841 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:18,870 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'General'}
+INFO 2025-07-13 20:51:18,937 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:18,937 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:20,298 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': False, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Otro'}
+INFO 2025-07-13 20:51:20,300 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:20,301 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:21,677 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 20:51:21,698 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:21,699 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:22,913 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Duración'}
+INFO 2025-07-13 20:51:22,923 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:22,924 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:24,283 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 20:51:24,318 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:24,318 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:25,682 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 20:51:25,696 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:25,697 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:26,513 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 20:51:26,546 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:26,546 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:27,351 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Duración'}
+INFO 2025-07-13 20:51:27,367 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:27,367 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:28,295 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Duración'}
+INFO 2025-07-13 20:51:28,339 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:28,340 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:29,382 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 20:51:29,409 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:29,410 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:30,185 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 20:51:30,207 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:30,208 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:31,072 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 20:51:31,088 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:31,088 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:32,007 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 20:51:32,019 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:32,020 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:32,805 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'General'}
+INFO 2025-07-13 20:51:32,834 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:32,835 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:33,840 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Resolución de Disputas'}
+INFO 2025-07-13 20:51:33,866 ml_service 2044 18940 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:51:33,867 ml_service 2044 18940 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:51:34,548 ml_service 2044 18940 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'General'}
+INFO 2025-07-13 20:51:34,565 ml_service 2044 18940 Iniciando análisis OpenAI para 10 cláusulas
+DEBUG 2025-07-13 20:51:34,565 ml_service 2044 18940 Enviando solicitud a OpenAI API para análisis general
+DEBUG 2025-07-13 20:51:37,709 ml_service 2044 18940 Análisis recibido: {'resumen': 'Las cláusulas del contrato contienen disposiciones que podrían limitar los derechos del inquilino y favorecer en exceso a la propietaria, generando desequilibrio en la relación contractual.', 'recomendaciones': ['Solicitar una revisión detallada de las cláusulas por parte de un abogado especializado en arrendamientos para identificar posibles abusos y sugerir modificaciones equitativas.', 'Negociar con la propietaria para eliminar o modificar cláusulas que impongan cargas excesivas al inquilino, como la penalidad por rescisión anticipada o la obligación de pagar recargos por mora.', 'Buscar asesoramiento sobre la legalidad y equidad de la cláusula que establece al fiador solidario, considerando alternativas para proteger los intereses del inquilino sin imponer una carga excesiva al fiador.']}
+INFO 2025-07-13 20:51:37,709 ml_service 2044 18940 Análisis completado en 33.75 segundos.
+ERROR 2025-07-13 20:51:37,931 views 2044 18940 Error en análisis síncrono: value too long for type character varying(20)
+
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.StringDataRightTruncation: value too long for type character varying(20)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py", line 246, in trigger_analysis_sync
+    Clause.objects.create(
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.DataError: value too long for type character varying(20)
+
+
+INFO 2025-07-13 20:51:37,934 basehttp 2044 18940 "POST /api/contracts/ HTTP/1.1" 201 3745
+INFO 2025-07-13 20:51:41,578 basehttp 2044 21136 "OPTIONS /api/contracts/2d02be01-6536-4fe9-8506-77c493d193d0/ HTTP/1.1" 200 0
+INFO 2025-07-13 20:51:41,580 basehttp 2044 12956 "OPTIONS /api/clauses/?contract=2d02be01-6536-4fe9-8506-77c493d193d0 HTTP/1.1" 200 0
+WARNING 2025-07-13 20:51:41,588 log 2044 7948 Forbidden: /api/clauses/
+WARNING 2025-07-13 20:51:41,588 basehttp 2044 7948 "GET /api/clauses/?contract=2d02be01-6536-4fe9-8506-77c493d193d0 HTTP/1.1" 403 63
+INFO 2025-07-13 20:51:42,000 basehttp 2044 18940 "GET /api/contracts/2d02be01-6536-4fe9-8506-77c493d193d0/ HTTP/1.1" 200 5348
+WARNING 2025-07-13 20:51:42,600 log 2044 18940 Forbidden: /api/clauses/
+WARNING 2025-07-13 20:51:42,602 basehttp 2044 18940 "GET /api/clauses/?contract=2d02be01-6536-4fe9-8506-77c493d193d0 HTTP/1.1" 403 63
+WARNING 2025-07-13 20:51:44,614 log 2044 18940 Forbidden: /api/clauses/
+WARNING 2025-07-13 20:51:44,615 basehttp 2044 18940 "GET /api/clauses/?contract=2d02be01-6536-4fe9-8506-77c493d193d0 HTTP/1.1" 403 63
+INFO 2025-07-13 20:53:04,299 autoreload 2044 16928 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\models.py changed, reloading.
+INFO 2025-07-13 20:53:05,901 autoreload 27288 14384 Watching for file changes with StatReloader
+INFO 2025-07-13 20:54:45,991 autoreload 7076 7872 Watching for file changes with StatReloader
+INFO 2025-07-13 20:55:07,472 basehttp 7076 21996 "OPTIONS /api/contracts/2d02be01-6536-4fe9-8506-77c493d193d0/analyze/ HTTP/1.1" 200 0
+INFO 2025-07-13 20:55:08,889 ml_service 7076 5620 Iniciando análisis de contrato...
+INFO 2025-07-13 20:55:08,890 ml_service 7076 5620 Iniciando extracción de cláusulas con GPT
+INFO 2025-07-13 20:55:22,123 ml_service 7076 5620 Cláusulas extraídas exitosamente con GPT: 16 cláusulas.
+INFO 2025-07-13 20:55:22,125 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:22,125 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:23,993 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'General'}
+INFO 2025-07-13 20:55:24,048 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:24,049 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:28,828 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': False, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Otro'}
+INFO 2025-07-13 20:55:28,833 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:28,834 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:34,933 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 20:55:34,968 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:34,969 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:37,041 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Duración'}
+INFO 2025-07-13 20:55:37,052 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:37,052 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:37,924 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 20:55:37,948 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:37,949 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:39,821 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 20:55:39,833 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:39,833 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:40,935 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 20:55:40,971 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:40,972 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:41,703 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Duración'}
+INFO 2025-07-13 20:55:41,737 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:41,738 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:45,358 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Duración'}
+INFO 2025-07-13 20:55:45,387 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:45,387 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:46,130 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 20:55:46,163 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:46,164 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:46,937 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 20:55:46,974 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:46,975 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:47,748 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 20:55:47,763 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:47,763 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:48,540 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 20:55:48,565 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:48,566 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:49,875 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Terminación'}
+INFO 2025-07-13 20:55:49,902 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:49,903 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:50,757 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Resolución de Disputas'}
+INFO 2025-07-13 20:55:50,783 ml_service 7076 5620 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 20:55:50,784 ml_service 7076 5620 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 20:55:51,510 ml_service 7076 5620 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'General'}
+INFO 2025-07-13 20:55:51,539 ml_service 7076 5620 Iniciando análisis OpenAI para 10 cláusulas
+DEBUG 2025-07-13 20:55:51,540 ml_service 7076 5620 Enviando solicitud a OpenAI API para análisis general
+DEBUG 2025-07-13 20:55:54,253 ml_service 7076 5620 Análisis recibido: {'resumen': 'Las cláusulas del contrato presentan riesgos para el inquilino al limitar su libertad de subarrendar, imponer penalidades por rescisión anticipada y establecer obligaciones financieras y de mantenimiento desproporcionadas.', 'recomendaciones': ['Negociar la cláusula de penalidad por rescisión anticipada para que sea más equitativa y proporcional a los daños reales sufridos por la propietaria.', 'Revisar y ajustar las responsabilidades financieras y de mantenimiento del inquilino para garantizar que sean justas y razonables.', 'Evaluar la inclusión de cláusulas que protejan los derechos del inquilino, como la posibilidad de ceder el contrato con autorización previa.']}
+INFO 2025-07-13 20:55:54,254 ml_service 7076 5620 Análisis completado en 45.37 segundos.
+ERROR 2025-07-13 20:55:54,465 views 7076 5620 Error en análisis síncrono: value too long for type character varying(20)
+
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.StringDataRightTruncation: value too long for type character varying(20)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py", line 246, in trigger_analysis_sync
+    Clause.objects.create(
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.DataError: value too long for type character varying(20)
+
+
+INFO 2025-07-13 20:55:54,534 basehttp 7076 5620 "POST /api/contracts/2d02be01-6536-4fe9-8506-77c493d193d0/analyze/ HTTP/1.1" 200 122
+INFO 2025-07-13 20:55:54,938 basehttp 7076 5620 "GET /api/contracts/2d02be01-6536-4fe9-8506-77c493d193d0/ HTTP/1.1" 200 5348
+INFO 2025-07-13 20:56:56,347 autoreload 7076 7872 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\models.py changed, reloading.
+INFO 2025-07-13 20:56:58,054 autoreload 27696 9568 Watching for file changes with StatReloader
+INFO 2025-07-13 21:00:44,628 autoreload 27696 9568 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\models.py changed, reloading.
+INFO 2025-07-13 21:00:46,297 autoreload 22080 14276 Watching for file changes with StatReloader
+INFO 2025-07-13 21:03:24,564 autoreload 25388 22724 Watching for file changes with StatReloader
+INFO 2025-07-13 21:03:38,568 ml_service 25388 15160 Iniciando análisis de contrato...
+INFO 2025-07-13 21:03:38,568 ml_service 25388 15160 Iniciando extracción de cláusulas con GPT
+INFO 2025-07-13 21:04:03,527 ml_service 25388 15160 Cláusulas extraídas exitosamente con GPT: 16 cláusulas.
+INFO 2025-07-13 21:04:03,534 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:03,535 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:04,426 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'General'}
+INFO 2025-07-13 21:04:04,488 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:04,488 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:05,424 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': False, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'General'}
+INFO 2025-07-13 21:04:05,429 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:05,430 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:06,242 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 21:04:06,280 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:06,281 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:07,231 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Duración'}
+INFO 2025-07-13 21:04:07,254 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:07,255 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:08,329 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 21:04:08,369 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:08,369 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:09,464 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 21:04:09,479 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:09,480 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:10,460 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 21:04:10,479 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:10,480 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:11,463 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Duración'}
+INFO 2025-07-13 21:04:11,486 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:11,486 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:12,407 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Duración'}
+INFO 2025-07-13 21:04:12,445 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:12,446 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:13,404 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 21:04:13,434 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:13,435 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:14,540 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 21:04:14,576 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:14,577 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:15,832 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 21:04:15,860 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:15,861 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:17,939 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 21:04:17,957 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:17,957 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:18,753 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Terminación'}
+INFO 2025-07-13 21:04:18,769 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:18,770 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:19,898 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Resolución de Disputas'}
+INFO 2025-07-13 21:04:19,930 ml_service 25388 15160 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:04:19,930 ml_service 25388 15160 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:04:20,994 ml_service 25388 15160 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'General'}
+INFO 2025-07-13 21:04:21,023 ml_service 25388 15160 Iniciando análisis OpenAI para 10 cláusulas
+DEBUG 2025-07-13 21:04:21,024 ml_service 25388 15160 Enviando solicitud a OpenAI API para análisis general
+DEBUG 2025-07-13 21:04:23,162 ml_service 25388 15160 Análisis recibido: {'resumen': 'Las cláusulas del contrato presentan desequilibrio de derechos a favor de la propietaria, imponiendo cargas excesivas al inquilino y limitando su libertad de acción.', 'recomendaciones': ['Negociar cláusulas más equitativas que protejan los derechos e intereses del inquilino.', 'Revisar la cláusula de penalidad por rescisión anticipada para asegurar que sea razonable y proporcional.', 'Consultar con un abogado especializado en arrendamientos para verificar la legalidad y equidad de las cláusulas del contrato.']}
+INFO 2025-07-13 21:04:23,163 ml_service 25388 15160 Análisis completado en 44.59 segundos.
+INFO 2025-07-13 21:04:24,309 basehttp 25388 15160 "POST /api/contracts/2d02be01-6536-4fe9-8506-77c493d193d0/analyze/ HTTP/1.1" 200 139
+INFO 2025-07-13 21:04:25,631 basehttp 25388 15160 "GET /api/contracts/2d02be01-6536-4fe9-8506-77c493d193d0/ HTTP/1.1" 200 15674
+WARNING 2025-07-13 21:04:25,670 log 25388 15160 Forbidden: /api/clauses/
+WARNING 2025-07-13 21:04:25,671 basehttp 25388 15160 "GET /api/clauses/?contract=2d02be01-6536-4fe9-8506-77c493d193d0 HTTP/1.1" 403 63
+WARNING 2025-07-13 21:04:26,691 log 25388 15160 Forbidden: /api/clauses/
+WARNING 2025-07-13 21:04:26,692 basehttp 25388 15160 "GET /api/clauses/?contract=2d02be01-6536-4fe9-8506-77c493d193d0 HTTP/1.1" 403 63
+WARNING 2025-07-13 21:04:28,709 log 25388 15160 Forbidden: /api/clauses/
+WARNING 2025-07-13 21:04:28,711 basehttp 25388 15160 "GET /api/clauses/?contract=2d02be01-6536-4fe9-8506-77c493d193d0 HTTP/1.1" 403 63
+INFO 2025-07-13 21:05:39,778 autoreload 25388 22724 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py changed, reloading.
+INFO 2025-07-13 21:05:41,487 autoreload 14240 17576 Watching for file changes with StatReloader
+INFO 2025-07-13 21:06:17,079 basehttp 14240 22240 "GET /api/clauses/?contract=2d02be01-6536-4fe9-8506-77c493d193d0 HTTP/1.1" 200 11518
+INFO 2025-07-13 21:06:17,202 basehttp 14240 30224 "GET /api/contracts/2d02be01-6536-4fe9-8506-77c493d193d0/ HTTP/1.1" 200 15674
+INFO 2025-07-13 21:06:18,489 basehttp 14240 30224 "GET /api/clauses/?contract=2d02be01-6536-4fe9-8506-77c493d193d0 HTTP/1.1" 200 11518
+INFO 2025-07-13 21:09:29,098 basehttp 14240 22440 "OPTIONS /api/contracts/dashboard_stats/ HTTP/1.1" 200 0
+INFO 2025-07-13 21:09:29,101 basehttp 14240 25072 "OPTIONS /api/contracts/?page_size=5 HTTP/1.1" 200 0
+INFO 2025-07-13 21:09:29,376 basehttp 14240 22240 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 429
+INFO 2025-07-13 21:09:29,765 basehttp 14240 30224 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 512
+INFO 2025-07-13 21:09:36,289 basehttp 14240 22240 "GET /api/clauses/?contract=2d02be01-6536-4fe9-8506-77c493d193d0 HTTP/1.1" 200 11518
+INFO 2025-07-13 21:09:36,411 basehttp 14240 30224 "GET /api/contracts/2d02be01-6536-4fe9-8506-77c493d193d0/ HTTP/1.1" 200 15674
+INFO 2025-07-13 21:11:59,204 basehttp 14240 30224 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 512
+INFO 2025-07-13 21:12:01,357 basehttp 14240 30224 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-07-13 21:12:26,313 ml_service 14240 30224 Iniciando análisis de contrato...
+INFO 2025-07-13 21:12:26,313 ml_service 14240 30224 Iniciando extracción de cláusulas con GPT
+INFO 2025-07-13 21:12:39,821 ml_service 14240 30224 Cláusulas extraídas exitosamente con GPT: 16 cláusulas.
+INFO 2025-07-13 21:12:39,828 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:39,829 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:41,061 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'General'}
+INFO 2025-07-13 21:12:41,107 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:41,107 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:42,103 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': False, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Otro'}
+INFO 2025-07-13 21:12:42,106 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:42,112 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:43,164 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 21:12:43,181 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:43,181 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:43,976 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 21:12:44,007 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:44,008 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:44,887 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 21:12:44,909 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:44,909 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:46,111 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 21:12:46,135 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:46,136 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:48,794 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula es abusiva porque limita los derechos del inquilino de acceder a la propiedad al cambiar las cerraduras sin previo aviso.', 'abusive_reason': 'La cláusula es abusiva porque crea un desequilibrio significativo entre las partes al otorgar un poder excesivo a la propietaria, limitando el derecho fundamental del inquilino de acceder a la propiedad. Esto vulnera el principio de equidad y buena fe, así como el derecho a la propiedad y a la inviolabilidad del domicilio establecidos en la Constitución de la República Dominicana.', 'clause_type': 'Pago'}
+INFO 2025-07-13 21:12:48,824 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:48,825 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:49,637 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'Duración'}
+INFO 2025-07-13 21:12:49,661 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:49,661 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:51,989 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula es abusiva porque impone un aumento automático del 30% en el alquiler sin previo aviso, creando un desequilibrio significativo en perjuicio del inquilino.', 'abusive_reason': 'La cláusula es abusiva porque impone una modificación unilateral del contrato sin consentimiento del inquilino, lo cual vulnera el principio de buena fe y equidad establecido en el Código Civil Dominicano. Además, al no requerir previo aviso, limita los derechos del inquilino a conocer y negociar las condiciones de renovación del contrato.', 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 21:12:52,003 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:52,004 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:53,167 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 21:12:53,187 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:53,188 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:53,896 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Obligaciones'}
+INFO 2025-07-13 21:12:53,923 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:53,924 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:55,169 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Terminación'}
+INFO 2025-07-13 21:12:55,199 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:55,200 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:55,950 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': None, 'abusive_reason': None, 'clause_type': 'Pago'}
+INFO 2025-07-13 21:12:55,977 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:55,978 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:57,864 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula es abusiva ya que permite a una sola parte, LA PROPIETARIA, modificar las condiciones del contrato sin previo aviso, creando un desequilibrio significativo en favor de dicha parte.', 'abusive_reason': 'Esta cláusula es abusiva porque otorga un poder unilateral a LA PROPIETARIA para modificar las condiciones del contrato sin previo aviso, lo cual crea un desequilibrio significativo entre las partes. Esta situación vulnera el principio de buena fe y equidad, así como el derecho a la seguridad jurídica de la otra parte contratante, contraviniendo el artículo 1134 del Código Civil Dominicano que establece la obligación de cumplir con lo pactado de buena fe.', 'clause_type': 'Otro'}
+INFO 2025-07-13 21:12:57,878 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:57,878 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:12:59,635 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula es abusiva ya que limita los derechos del inquilino de manera desproporcionada.', 'abusive_reason': 'La cláusula es abusiva porque al renunciar expresamente a cualquier reclamación legal o disputa, el inquilino se ve privado de sus derechos fundamentales a recurrir a la justicia en caso de incumplimiento del contrato. Esto crea un desequilibrio significativo entre las partes y viola el principio de equidad y buena fe. En República Dominicana, esta cláusula podría considerarse abusiva por vulnerar el principio de igualdad de las partes en la relación contractual, así como el derecho a la tutela judicial efectiva.', 'clause_type': 'General'}
+INFO 2025-07-13 21:12:59,655 ml_service 14240 30224 Iniciando validación GPT para cláusula
+DEBUG 2025-07-13 21:12:59,656 ml_service 14240 30224 Enviando solicitud a OpenAI API con prompt: 
+            Analiza el siguiente texto de un contrato legal y responde en formato JSON con las sigu...
+DEBUG 2025-07-13 21:13:00,778 ml_service 14240 30224 Resultado del análisis GPT: {'is_valid_clause': True, 'is_abusive': False, 'explanation': '', 'abusive_reason': '', 'clause_type': 'General'}
+INFO 2025-07-13 21:13:00,804 ml_service 14240 30224 Iniciando análisis OpenAI para 14 cláusulas
+DEBUG 2025-07-13 21:13:00,805 ml_service 14240 30224 Enviando solicitud a OpenAI API para análisis general
+DEBUG 2025-07-13 21:13:02,770 ml_service 14240 30224 Análisis recibido: {'resumen': 'Las cláusulas del contrato presentan desequilibrios significativos de derechos a favor de la propietaria, imponiendo cargas excesivas al inquilino y limitando sus derechos fundamentales.', 'recomendaciones': ['Negociar cláusulas más equitativas que respeten los derechos y obligaciones de ambas partes.', 'Consultar con un abogado especializado en arrendamientos para revisar y modificar las cláusulas abusivas.', 'Informarse sobre la normativa vigente en República Dominicana que protege a los inquilinos y establece límites a las cláusulas abusivas en contratos de arrendamiento.']}
+INFO 2025-07-13 21:13:02,770 ml_service 14240 30224 Análisis completado en 36.46 segundos.
+INFO 2025-07-13 21:13:03,913 basehttp 14240 30224 "POST /api/contracts/ HTTP/1.1" 201 3392
+INFO 2025-07-13 21:13:04,020 basehttp 14240 25072 "OPTIONS /api/contracts/25d87e04-7f09-4399-9609-26231fbf196a/ HTTP/1.1" 200 0
+INFO 2025-07-13 21:13:04,031 basehttp 14240 22440 "OPTIONS /api/clauses/?contract=25d87e04-7f09-4399-9609-26231fbf196a HTTP/1.1" 200 0
+INFO 2025-07-13 21:13:05,304 basehttp 14240 22240 "GET /api/clauses/?contract=25d87e04-7f09-4399-9609-26231fbf196a HTTP/1.1" 200 13218
+INFO 2025-07-13 21:13:05,422 basehttp 14240 30224 "GET /api/contracts/25d87e04-7f09-4399-9609-26231fbf196a/ HTTP/1.1" 200 17021
+INFO 2025-07-13 21:13:06,717 basehttp 14240 30224 "GET /api/clauses/?contract=25d87e04-7f09-4399-9609-26231fbf196a HTTP/1.1" 200 13218
+INFO 2025-07-13 21:21:47,978 basehttp 14240 23972 "GET /admin/contracts/clause/ HTTP/1.1" 200 36631
+INFO 2025-07-13 21:21:48,117 basehttp 14240 11040 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-07-13 21:21:48,175 basehttp 14240 23972 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-13 21:21:53,773 basehttp 14240 23972 "GET /admin/contracts/contract/ HTTP/1.1" 200 15344
+INFO 2025-07-13 21:21:53,962 basehttp 14240 23972 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-16 12:03:52,899 autoreload 20116 11072 Watching for file changes with StatReloader
+INFO 2025-07-16 12:25:57,587 ml_service 7000 19924 Iniciando extracción de cláusulas con LLM
+DEBUG 2025-07-16 12:25:57,588 ml_service 7000 19924 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+ERROR 2025-07-16 12:26:43,081 ml_service 7000 19924 Error en el análisis del LLM: HTTPSConnectionPool(host='api.together.xyz', port=443): Read timed out. (read timeout=45)
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\socket.py", line 718, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.together.xyz', port=443): Read timed out. (read timeout=45)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 107, in _call_llm_api
+    response = requests.post(base_url, headers=headers, json=data, timeout=45)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.together.xyz', port=443): Read timed out. (read timeout=45)
+ERROR 2025-07-16 12:26:43,104 ml_service 7000 19924 No se pudieron extraer cláusulas con el LLM.
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\socket.py", line 718, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.together.xyz', port=443): Read timed out. (read timeout=45)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 192, in _extract_clauses_with_llm
+    analysis = self._call_llm_api(prompt, system_message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 107, in _call_llm_api
+    response = requests.post(base_url, headers=headers, json=data, timeout=45)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\requests\adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.together.xyz', port=443): Read timed out. (read timeout=45)
+INFO 2025-07-16 12:27:48,231 ml_service 4248 9004 Iniciando extracción de cláusulas con LLM
+DEBUG 2025-07-16 12:27:48,231 ml_service 4248 9004 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 12:27:52,873 ml_service 4248 9004 Análisis LLM recibido: {'clauses': [{'clause_number': 'PRIMERO', 'text': 'El Propietario, Juan Pérez, alquila a la Inquilina, María Gómez, el apartamento 3B del residencial Los Prados, Santo Domingo.'}, {'clause_number': 'SEGUNDO', 'text': 'El precio mensual del alquiler se fija en veinte mil pesos dominicanos (RD$20,000.00).'}, {'clause_number': 'TERCERO', 'text': 'La Inquilina se compromete a no tener mascotas de ningún tipo. La violación de esta cláusula dará derecho al Propietario a terminar el contrato y la inquilina deberá pagar el doble del alquiler por cada mes que tuvo la mascota.'}, {'clause_number': 'CUARTO', 'text': 'Este contrato durará un año y se renovará automáticamente bajo las mismas condiciones, a menos que una de las partes notifique lo contrario con 30 días de antelación.'}]}
+INFO 2025-07-16 12:27:52,874 ml_service 4248 9004 Validando cláusula con LLM: 'La Inquilina se compromete a no tener mascotas de ningún tipo. La violación de e...'
+DEBUG 2025-07-16 12:27:52,875 ml_service 4248 9004 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 12:27:55,308 ml_service 4248 9004 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula impone una sanción desproporcionada y punitiva al inquilino por tener una mascota, lo que podría considerarse abusivo.', 'suggested_fix': 'El inquilino que viole esta cláusula deberá pagar una tarifa razonable por mes adicional de alquiler por cada mes que tuvo la mascota, en lugar del doble del alquiler.'}
+INFO 2025-07-16 12:27:55,312 ml_service 4248 9004 Iniciando análisis LLM para 1 cláusulas
+DEBUG 2025-07-16 12:27:55,312 ml_service 4248 9004 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 12:27:59,209 ml_service 4248 9004 Análisis LLM recibido: {'resumen': 'La primera cláusula limita la libertad de la inquilina en tener mascotas, con sanciones económicas severas en caso de incumplimiento. Esto podría considerarse abusivo y generar disputas. La violación de la cláusula también permite al propietario terminar el contrato abruptamente.', 'recomendaciones': ['Considerar la negociación de la cláusula para permitir la tenencia de mascotas bajo términos más razonables.', 'Si se mantiene la cláusula, evaluar la posibilidad de buscar otro alojamiento que acepte mascotas para evitar riesgos innecesarios.', 'Documentar cualquier acuerdo alcanzado durante las negociaciones y asegurarse de que se refleje en la versión final del contrato antes de firmar.']}
+INFO 2025-07-16 14:43:54,840 autoreload 5440 4432 Watching for file changes with StatReloader
+INFO 2025-07-16 14:47:53,157 basehttp 5440 13068 "OPTIONS /api/contracts/dashboard_stats/ HTTP/1.1" 200 0
+INFO 2025-07-16 14:47:53,158 basehttp 5440 21120 "OPTIONS /api/contracts/?page_size=5 HTTP/1.1" 200 0
+INFO 2025-07-16 14:47:54,450 basehttp 5440 16632 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 806
+INFO 2025-07-16 14:47:54,932 basehttp 5440 10644 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 889
+INFO 2025-07-16 14:47:58,013 basehttp 5440 21120 "OPTIONS /api/contract-types/ HTTP/1.1" 200 0
+INFO 2025-07-16 14:47:58,157 basehttp 5440 10644 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-07-16 14:48:46,725 basehttp 5440 21120 "OPTIONS /api/contracts/ HTTP/1.1" 200 0
+INFO 2025-07-16 14:48:47,218 ml_service 5440 10644 Iniciando extracción de cláusulas con LLM
+DEBUG 2025-07-16 14:48:47,218 ml_service 5440 10644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 14:48:56,728 ml_service 5440 10644 Análisis LLM recibido: {'clauses': [{'clause_number': 'PRIMERO', 'text': 'Por medio del presente acto, EL VENDEDOR, CARLOS EDUARDO MENÉNDEZ TORRES, VENDE, CEDE Y TRASPASA sin ninguna garantía ni verificación de autenticidad, a favor de EL COMPRADOR, JOSÉ ANTONIO PÉREZ CASTILLO, lo que se describe a continuación: "Un arma de fuego de origen desconocido, marca ilegible, calibre no determinado, sin número de serie visible, cuya legalidad no ha sido confirmada ni registrada en ninguna institución competente.",0'}, {'clause_number': 'SEGUNDO', 'text': 'El precio convenido y pactado entre las partes ha sido establecido en la suma de CIEN MIL PESOS DOMINICANOS (RD$100,000.00), monto que EL VENDEDOR declara haber recibido en efectivo, sin constancia escrita ni recibo de pago, y sin ninguna obligación de devolución.,0'}, {'clause_number': 'TERCERO', 'text': 'EL VENDEDOR no garantiza la legalidad ni la funcionalidad del arma, dejando en manos de EL COMPRADOR cualquier trámite relacionado con permisos, licencias o regulación ante las autoridades pertinentes.,0'}, {'clause_number': 'CUARTO', 'text': 'Ambas partes acuerdan que, en caso de disputa o inconveniente con respecto al presente contrato, ninguna de ellas podrá recurrir a instancias judiciales ni exigir responsabilidades legales a la otra parte.,0'}]}
+INFO 2025-07-16 14:48:56,735 ml_service 5440 10644 Validando cláusula con LLM: 'Por medio del presente acto, EL VENDEDOR, CARLOS EDUARDO MENÉNDEZ TORRES, VENDE,...'
+DEBUG 2025-07-16 14:48:56,736 ml_service 5440 10644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 14:48:59,318 ml_service 5440 10644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula vende un bien sin garantías, origen, marca, calibre o número de serie, lo que podría ser ilegal o peligroso.', 'suggested_fix': 'El vendedor debe proporcionar información verificable y garantías sobre el bien que se vende, de acuerdo con la ley.'}
+INFO 2025-07-16 14:48:59,408 ml_service 5440 10644 Validando cláusula con LLM: 'El precio convenido y pactado entre las partes ha sido establecido en la suma de...'
+DEBUG 2025-07-16 14:48:59,409 ml_service 5440 10644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 14:49:00,888 ml_service 5440 10644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece el precio de venta acordado entre las partes.', 'suggested_fix': ''}
+INFO 2025-07-16 14:49:00,924 ml_service 5440 10644 Validando cláusula con LLM: 'EL VENDEDOR no garantiza la legalidad ni la funcionalidad del arma, dejando en m...'
+DEBUG 2025-07-16 14:49:00,924 ml_service 5440 10644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 14:49:02,974 ml_service 5440 10644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece claramente que el comprador es responsable de obtener los permisos y licencias necesarios para el arma.', 'suggested_fix': ''}
+INFO 2025-07-16 14:49:03,005 ml_service 5440 10644 Validando cláusula con LLM: 'Ambas partes acuerdan que, en caso de disputa o inconveniente con respecto al pr...'
+DEBUG 2025-07-16 14:49:03,005 ml_service 5440 10644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 14:49:05,956 ml_service 5440 10644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula niega a ambas partes el derecho a la justicia legal en caso de disputa, lo que es abusivo e injusto.', 'suggested_fix': 'Las partes acuerdan someter cualquier disputa o inconveniente relacionado con este contrato a arbitraje vinculante, respetando siempre los derechos de cada parte a recurrir a instancias judiciales según lo establecido en la legislación dominicana.'}
+INFO 2025-07-16 14:49:05,975 ml_service 5440 10644 Iniciando análisis LLM para 2 cláusulas
+DEBUG 2025-07-16 14:49:05,975 ml_service 5440 10644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 14:49:11,990 ml_service 5440 10644 Análisis LLM recibido: {'resumen': 'El contrato contiene dos cláusulas potencialmente abusivas. La primera cláusula, al vender un arma de fuego de origen desconocido y sin legalidad confirmada, implica un riesgo de incumplimiento a la ley y a regulaciones sobre armas de fuego. La segunda cláusula, que prohíbe recurrir a instancias judiciales en caso de disputa, limita los derechos legales de las partes y puede generar riesgos en caso de controversias.', 'recomendaciones': ['Revisar la cláusula relacionada con la venta de un arma de fuego y asegurarse de cumplir con las leyes y regulaciones locales sobre armas.', 'Considerar la eliminación o modificación de la cláusula que prohíbe recurrir a instancias judiciales en caso de disputa, con el fin de garantizar el ejercicio de los derechos legales y el acceso a la justicia en caso de controversias.', 'Consultar con un abogado especializado en derecho de República Dominicana para revisar el contrato y minimizar los riesgos potenciales.']}
+INFO 2025-07-16 14:49:12,332 basehttp 5440 10644 "POST /api/contracts/ HTTP/1.1" 201 2134
+INFO 2025-07-16 14:49:12,413 basehttp 5440 21120 "OPTIONS /api/contracts/a8556cd5-4810-44d4-9b81-00e7bb56c5aa/ HTTP/1.1" 200 0
+INFO 2025-07-16 14:49:12,413 basehttp 5440 13068 "OPTIONS /api/clauses/?contract=a8556cd5-4810-44d4-9b81-00e7bb56c5aa HTTP/1.1" 200 0
+INFO 2025-07-16 14:49:12,877 basehttp 5440 16632 "GET /api/clauses/?contract=a8556cd5-4810-44d4-9b81-00e7bb56c5aa HTTP/1.1" 200 3520
+INFO 2025-07-16 14:49:13,031 basehttp 5440 10644 "GET /api/contracts/a8556cd5-4810-44d4-9b81-00e7bb56c5aa/ HTTP/1.1" 200 6064
+INFO 2025-07-16 14:49:13,511 basehttp 5440 10644 "GET /api/clauses/?contract=a8556cd5-4810-44d4-9b81-00e7bb56c5aa HTTP/1.1" 200 3520
+INFO 2025-07-16 15:05:13,401 basehttp 5440 3640 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-07-16 15:05:38,083 ml_service 5440 3640 Iniciando extracción de cláusulas con LLM
+DEBUG 2025-07-16 15:05:38,084 ml_service 5440 3640 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 15:05:46,137 ml_service 5440 3640 Análisis LLM recibido: {'clauses': [{'clause_number': 'PRIMERO', 'text': 'Por medio del presente acto, EL VENDEDOR, LUIS ALFONSO MARTÍNEZ RAMOS, de generales que constan, VENDE, CEDE Y TRASPASA con todas las garantías legales habidas y por haber, a favor de EL COMPRADOR, JUAN ESTEBAN GÓMEZ REYES, de generales que también constan y quien lo acepta, lo que se describe a continuación: "Una pistola marca Sig Sauer, calibre nueve milímetros (9mm), propiedad de EL VENDEDOR según consta en la Licencia No.22560000234-8 expedida por la Secretaría de Estado de Interior y Policía en fecha a los 15 días del mes de mayo del Dos mil veinticuatro (2024).",1'}, {'clause_number': 'SEGUNDO', 'text': 'El precio convenido y pactado entre las partes por el objeto del presente acto, ha sido establecido en la suma de QUINIENTOS CINCUENTA MIL PESOS DOMINICANOS (RD$550,000.00), moneda de curso legal, valor que declara EL VENDEDOR haber recibido de manos de EL COMPRADOR, en efectivo, a su entera satisfacción y contento, por lo que le otorga carta de pago y descargo conforme a la ley.,1'}, {'clause_number': 'TERCERO', 'text': 'Por este acto, EL VENDEDOR autoriza formalmente a la Secretaría de Estado de Interior y Policía a tramitar el correspondiente traspaso de la Licencia ya descrita, en beneficio de EL COMPRADOR, previo cumplimiento de los requisitos y formalidades de ley por parte de EL COMPRADOR.,1'}, {'clause_number': 'CUARTO', 'text': 'Para lo no previsto en el presente acto, las partes acuerdan remitirse al Derecho Común.,1'}]}
+INFO 2025-07-16 15:05:46,142 ml_service 5440 3640 Validando cláusula con LLM: 'Por medio del presente acto, EL VENDEDOR, LUIS ALFONSO MARTÍNEZ RAMOS, de genera...'
+DEBUG 2025-07-16 15:05:46,143 ml_service 5440 3640 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 15:05:47,761 ml_service 5440 3640 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una venta legal de un arma de fuego con las garantías adecuadas.', 'suggested_fix': ''}
+INFO 2025-07-16 15:05:47,809 ml_service 5440 3640 Validando cláusula con LLM: 'El precio convenido y pactado entre las partes por el objeto del presente acto, ...'
+DEBUG 2025-07-16 15:05:47,810 ml_service 5440 3640 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 15:05:49,618 ml_service 5440 3640 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece el precio de venta acordado entre las partes y no parece ser abusiva.', 'suggested_fix': ''}
+INFO 2025-07-16 15:05:49,647 ml_service 5440 3640 Validando cláusula con LLM: 'Por este acto, EL VENDEDOR autoriza formalmente a la Secretaría de Estado de Int...'
+DEBUG 2025-07-16 15:05:49,647 ml_service 5440 3640 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 15:05:51,223 ml_service 5440 3640 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula es una estipulación común en la transferencia de propiedad y autoriza a las autoridades pertinentes a procesar el traspaso de la licencia.', 'suggested_fix': ''}
+INFO 2025-07-16 15:05:51,253 ml_service 5440 3640 Validando cláusula con LLM: 'Para lo no previsto en el presente acto, las partes acuerdan remitirse al Derech...'
+DEBUG 2025-07-16 15:05:51,253 ml_service 5440 3640 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 15:05:52,636 ml_service 5440 3640 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula establece una cláusula de remisión al Derecho Común, lo que es común en los contratos.', 'suggested_fix': ''}
+INFO 2025-07-16 15:05:52,661 ml_service 5440 3640 No hay cláusulas para analizar con LLM
+INFO 2025-07-16 15:05:53,014 basehttp 5440 3640 "POST /api/contracts/ HTTP/1.1" 201 1753
+INFO 2025-07-16 15:05:53,385 basehttp 5440 15896 "OPTIONS /api/contracts/585198fc-cf33-4929-9057-c079da6062c2/ HTTP/1.1" 200 0
+INFO 2025-07-16 15:05:53,387 basehttp 5440 18680 "OPTIONS /api/clauses/?contract=585198fc-cf33-4929-9057-c079da6062c2 HTTP/1.1" 200 0
+INFO 2025-07-16 15:05:54,046 basehttp 5440 3640 "GET /api/contracts/585198fc-cf33-4929-9057-c079da6062c2/ HTTP/1.1" 200 5830
+INFO 2025-07-16 15:05:54,402 basehttp 5440 16608 "GET /api/clauses/?contract=585198fc-cf33-4929-9057-c079da6062c2 HTTP/1.1" 200 3667

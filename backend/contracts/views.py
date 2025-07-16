@@ -17,6 +17,7 @@ from .serializers import (
 )
 from ml_analysis.ml_service import ml_service
 import logging
+from django.contrib.auth import get_user_model
 
 logger = logging.getLogger(__name__)
 
@@ -31,14 +32,14 @@ class ContractTypeViewSet(viewsets.ReadOnlyModelViewSet):
 class ContractViewSet(viewsets.ModelViewSet):
     """ViewSet principal para contratos con funcionalidades completas"""
     
-    permission_classes = [IsAuthenticated]
+    # La autenticación y los permisos ahora se controlan globalmente en settings.py
     parser_classes = [JSONParser, MultiPartParser, FormParser]
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['status', 'contract_type', 'risk_score']
     
     def get_queryset(self):
-        """Filtrar contratos por usuario"""
-        return Contract.objects.filter(uploaded_by=self.request.user)
+        """Devuelve todos los contratos al no haber autenticación."""
+        return Contract.objects.all()
     
     def get_serializer_class(self):
         """Usar diferentes serializers según la acción"""
@@ -50,8 +51,14 @@ class ContractViewSet(viewsets.ModelViewSet):
             return ContractDetailSerializer
     
     def perform_create(self, serializer):
-        """Asignar usuario al crear contrato"""
-        contract = serializer.save(uploaded_by=self.request.user)
+        """Asigna un usuario por defecto al crear el contrato."""
+        # Se asigna el primer superusuario que exista como autor por defecto.
+        # Esto es necesario porque la creación de contratos requiere un autor.
+        default_user = get_user_model().objects.filter(is_superuser=True).order_by('pk').first()
+        if not default_user:
+            raise Exception("No hay un superusuario en el sistema para asignar el contrato. Por favor, cree uno con 'python manage.py createsuperuser'.")
+        
+        contract = serializer.save(uploaded_by=default_user)
         
         # Iniciar análisis automáticamente si es texto (modo síncrono para desarrollo)
         if contract.original_text:
@@ -272,15 +279,14 @@ class ContractViewSet(viewsets.ModelViewSet):
 class ClauseViewSet(viewsets.ReadOnlyModelViewSet):
     """ViewSet para cláusulas (solo lectura)"""
     serializer_class = ClauseSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated] # Comentado para deshabilitar la autenticación
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['is_abusive', 'clause_type']
+    # Se añade 'contract' a los campos de filtrado para poder buscar por contrato desde el frontend
+    filterset_fields = ['is_abusive', 'clause_type', 'contract'] 
     
     def get_queryset(self):
-        """Filtrar cláusulas por contratos del usuario"""
-        return Clause.objects.filter(
-            contract__uploaded_by=self.request.user
-        )
+        """Devuelve todas las cláusulas al no haber autenticación."""
+        return Clause.objects.all()
     
     @action(detail=False, methods=['get'])
     def abusive_patterns(self, request):

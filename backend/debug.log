@@ -4013,3 +4013,2360 @@ INFO 2025-07-16 15:05:53,385 basehttp 5440 15896 "OPTIONS /api/contracts/585198f
 INFO 2025-07-16 15:05:53,387 basehttp 5440 18680 "OPTIONS /api/clauses/?contract=585198fc-cf33-4929-9057-c079da6062c2 HTTP/1.1" 200 0
 INFO 2025-07-16 15:05:54,046 basehttp 5440 3640 "GET /api/contracts/585198fc-cf33-4929-9057-c079da6062c2/ HTTP/1.1" 200 5830
 INFO 2025-07-16 15:05:54,402 basehttp 5440 16608 "GET /api/clauses/?contract=585198fc-cf33-4929-9057-c079da6062c2 HTTP/1.1" 200 3667
+INFO 2025-07-16 16:22:14,369 autoreload 19104 21700 Watching for file changes with StatReloader
+INFO 2025-07-16 16:22:45,233 basehttp 19104 13808 "GET /api/contracts/?page=1 HTTP/1.1" 200 1590
+INFO 2025-07-16 16:22:45,319 basehttp 19104 10228 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 1590
+INFO 2025-07-16 16:22:45,736 basehttp 19104 19928 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1673
+INFO 2025-07-16 16:22:47,933 basehttp 19104 10228 "GET /api/clauses/?contract=585198fc-cf33-4929-9057-c079da6062c2 HTTP/1.1" 200 3667
+INFO 2025-07-16 16:22:48,049 basehttp 19104 19928 "GET /api/contracts/585198fc-cf33-4929-9057-c079da6062c2/ HTTP/1.1" 200 5830
+INFO 2025-07-16 16:22:48,668 basehttp 19104 19928 "GET /api/clauses/?contract=585198fc-cf33-4929-9057-c079da6062c2 HTTP/1.1" 200 3667
+INFO 2025-07-16 16:22:49,303 basehttp 19104 10228 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1673
+INFO 2025-07-16 16:23:36,270 basehttp 19104 19928 "GET /api/clauses/?contract=a8556cd5-4810-44d4-9b81-00e7bb56c5aa HTTP/1.1" 200 3520
+INFO 2025-07-16 16:23:36,481 basehttp 19104 10228 "GET /api/contracts/a8556cd5-4810-44d4-9b81-00e7bb56c5aa/ HTTP/1.1" 200 6064
+INFO 2025-07-16 16:23:37,131 basehttp 19104 10228 "GET /api/clauses/?contract=a8556cd5-4810-44d4-9b81-00e7bb56c5aa HTTP/1.1" 200 3520
+INFO 2025-07-16 16:23:37,817 basehttp 19104 19928 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1673
+INFO 2025-07-16 16:24:56,037 basehttp 19104 19928 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-07-16 16:33:07,416 basehttp 19104 18428 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 1590
+INFO 2025-07-16 16:33:07,478 basehttp 19104 20180 "GET /api/contracts/?page=1 HTTP/1.1" 200 1590
+INFO 2025-07-16 16:33:07,783 basehttp 19104 2012 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 1673
+INFO 2025-07-16 16:33:09,690 ml_service 19104 2012 Iniciando extracción de cláusulas con LLM
+DEBUG 2025-07-16 16:33:09,692 ml_service 19104 2012 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 16:33:16,317 ml_service 19104 2012 Análisis LLM recibido: {'clauses': [{'clause_number': 'PRIMERO', 'text': 'Por medio del presente acto, EL VENDEDOR, LUIS ALFONSO MARTÍNEZ RAMOS, de generales que constan, VENDE, CEDE Y TRASPASA con todas las garantías legales habidas y por haber, a favor de EL COMPRADOR, JUAN ESTEBAN GÓMEZ REYES, de generales que también constan y quien lo acepta, lo que se describe a continuación: "Una pistola marca Sig Sauer, calibre nueve milímetros (9mm), propiedad de EL VENDEDOR según consta en la Licencia No.22560000234-8 expedida por la Secretaría de Estado de Interior y Policía en fecha a los 15 días del mes de mayo del Dos mil veinticuatro (2024).",1'}, {'clause_number': 'SEGUNDO', 'text': 'El precio convenido y pactado entre las partes por el objeto del presente acto, ha sido establecido en la suma de QUINIENTOS CINCUENTA MIL PESOS DOMINICANOS (RD$550,000.00), moneda de curso legal, valor que declara EL VENDEDOR haber recibido de manos de EL COMPRADOR, en efectivo, a su entera satisfacción y contento, por lo que le otorga carta de pago y descargo conforme a la ley.,1'}, {'clause_number': 'TERCERO', 'text': 'Por este acto, EL VENDEDOR autoriza formalmente a la Secretaría de Estado de Interior y Policía a tramitar el correspondiente traspaso de la Licencia ya descrita, en beneficio de EL COMPRADOR, previo cumplimiento de los requisitos y formalidades de ley por parte de EL COMPRADOR.,1'}, {'clause_number': 'CUARTO', 'text': 'Para lo no previsto en el presente acto, las partes acuerdan remitirse al Derecho Común.,1'}]}
+INFO 2025-07-16 16:33:16,345 ml_service 19104 2012 Validando cláusula con LLM: 'Por medio del presente acto, EL VENDEDOR, LUIS ALFONSO MARTÍNEZ RAMOS, de genera...'
+DEBUG 2025-07-16 16:33:16,347 ml_service 19104 2012 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 16:33:17,337 ml_service 19104 2012 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una transferencia de propiedad legal de un arma de fuego, pero no es abusiva.', 'suggested_fix': ''}
+INFO 2025-07-16 16:33:17,462 ml_service 19104 2012 Validando cláusula con LLM: 'El precio convenido y pactado entre las partes por el objeto del presente acto, ...'
+DEBUG 2025-07-16 16:33:17,462 ml_service 19104 2012 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 16:33:19,327 ml_service 19104 2012 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'This clause is a standard payment clause, stating the agreed price for the object of the contract.', 'suggested_fix': ''}
+INFO 2025-07-16 16:33:19,392 ml_service 19104 2012 Validando cláusula con LLM: 'Por este acto, EL VENDEDOR autoriza formalmente a la Secretaría de Estado de Int...'
+DEBUG 2025-07-16 16:33:19,392 ml_service 19104 2012 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 16:33:21,332 ml_service 19104 2012 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula es una estipulación común en la transferencia de propiedad y autoriza a la autoridad gubernamental pertinente a procesar el traspaso de la licencia.', 'suggested_fix': ''}
+INFO 2025-07-16 16:33:21,380 ml_service 19104 2012 Validando cláusula con LLM: 'Para lo no previsto en el presente acto, las partes acuerdan remitirse al Derech...'
+DEBUG 2025-07-16 16:33:21,380 ml_service 19104 2012 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-07-16 16:33:22,761 ml_service 19104 2012 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula se refiere a la aplicación del Derecho Común en caso de no estar previsto algo en el contrato.', 'suggested_fix': ''}
+INFO 2025-07-16 16:33:22,793 ml_service 19104 2012 No hay cláusulas para analizar con LLM
+INFO 2025-07-16 16:33:23,143 basehttp 19104 2012 "POST /api/contracts/ HTTP/1.1" 201 1778
+INFO 2025-07-16 16:33:24,025 basehttp 19104 2012 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 1998
+INFO 2025-07-16 16:33:24,077 basehttp 19104 20180 "GET /api/contracts/?page=1 HTTP/1.1" 200 1998
+INFO 2025-07-16 16:33:24,505 basehttp 19104 18428 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 2081
+INFO 2025-07-16 16:33:24,572 basehttp 19104 10644 "GET /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/ HTTP/1.1" 200 5889
+INFO 2025-07-16 16:33:24,641 basehttp 19104 6052 "GET /api/clauses/?contract=4818080c-d7da-4704-bbd9-1eb49af38344 HTTP/1.1" 200 3701
+INFO 2025-07-16 16:33:25,857 basehttp 19104 6052 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 2081
+INFO 2025-07-16 16:33:27,655 basehttp 19104 18428 "GET /api/clauses/?contract=4818080c-d7da-4704-bbd9-1eb49af38344 HTTP/1.1" 200 3701
+INFO 2025-07-16 16:33:27,804 basehttp 19104 10644 "GET /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/ HTTP/1.1" 200 5889
+INFO 2025-07-16 16:33:27,947 basehttp 19104 6052 "GET /api/contracts/?page=1 HTTP/1.1" 200 1998
+ERROR 2025-07-16 17:52:19,917 log 19104 14104 Internal Server Error: /api/contracts/dashboard_stats/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py", line 148, in dashboard_stats
+    'total_contracts': user_contracts.count(),
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:19,917 log 19104 5260 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:19,917 log 19104 19348 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:19,959 basehttp 19104 14104 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 500 198483
+ERROR 2025-07-16 17:52:19,987 basehttp 19104 5260 "GET /api/contracts/?page=1 HTTP/1.1" 500 231931
+ERROR 2025-07-16 17:52:20,004 basehttp 19104 19348 "GET /api/contracts/?page_size=5 HTTP/1.1" 500 231977
+ERROR 2025-07-16 17:52:21,251 log 19104 19348 Internal Server Error: /api/contracts/dashboard_stats/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py", line 148, in dashboard_stats
+    'total_contracts': user_contracts.count(),
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:21,268 basehttp 19104 19348 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 500 198483
+ERROR 2025-07-16 17:52:21,396 log 19104 5260 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:21,514 log 19104 14104 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:21,562 basehttp 19104 5260 "GET /api/contracts/?page=1 HTTP/1.1" 500 231931
+ERROR 2025-07-16 17:52:21,585 basehttp 19104 14104 "GET /api/contracts/?page_size=5 HTTP/1.1" 500 231977
+ERROR 2025-07-16 17:52:21,735 log 19104 19348 Internal Server Error: /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:21,775 basehttp 19104 19348 "GET /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/ HTTP/1.1" 500 214150
+ERROR 2025-07-16 17:52:21,865 log 19104 18600 Internal Server Error: /api/clauses/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\backends.py", line 70, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 215, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 206, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 201, in errors
+    self.full_clean()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 337, in full_clean
+    self._clean_fields()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 345, in _clean_fields
+    self.cleaned_data[name] = field._clean_bound_field(bf)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 273, in _clean_bound_field
+    return self.clean(value)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 208, in clean
+    value = self.to_python(value)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 311, in to_python
+    return super().to_python(value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\models.py", line 1564, in to_python
+    value = self.queryset.get(**{key: value})
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:21,891 basehttp 19104 18600 "GET /api/clauses/?contract=4818080c-d7da-4704-bbd9-1eb49af38344 HTTP/1.1" 500 245783
+ERROR 2025-07-16 17:52:23,015 log 19104 18600 Internal Server Error: /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:23,061 basehttp 19104 18600 "GET /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/ HTTP/1.1" 500 214150
+ERROR 2025-07-16 17:52:23,301 log 19104 19348 Internal Server Error: /api/clauses/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\backends.py", line 70, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 215, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 206, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 201, in errors
+    self.full_clean()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 337, in full_clean
+    self._clean_fields()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 345, in _clean_fields
+    self.cleaned_data[name] = field._clean_bound_field(bf)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 273, in _clean_bound_field
+    return self.clean(value)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 208, in clean
+    value = self.to_python(value)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 311, in to_python
+    return super().to_python(value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\models.py", line 1564, in to_python
+    value = self.queryset.get(**{key: value})
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:23,330 basehttp 19104 19348 "GET /api/clauses/?contract=4818080c-d7da-4704-bbd9-1eb49af38344 HTTP/1.1" 500 245783
+ERROR 2025-07-16 17:52:23,494 log 19104 18600 Internal Server Error: /api/contracts/dashboard_stats/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py", line 148, in dashboard_stats
+    'total_contracts': user_contracts.count(),
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:23,505 basehttp 19104 18600 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 500 198483
+ERROR 2025-07-16 17:52:23,891 log 19104 18600 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:23,941 log 19104 19348 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:23,951 basehttp 19104 18600 "GET /api/contracts/?page=1 HTTP/1.1" 500 231931
+ERROR 2025-07-16 17:52:23,960 basehttp 19104 19348 "GET /api/contracts/?page_size=5 HTTP/1.1" 500 231977
+ERROR 2025-07-16 17:52:25,230 log 19104 19348 Internal Server Error: /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:25,237 basehttp 19104 19348 "GET /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/ HTTP/1.1" 500 214150
+ERROR 2025-07-16 17:52:25,501 log 19104 19348 Internal Server Error: /api/clauses/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\backends.py", line 70, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 215, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 206, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 201, in errors
+    self.full_clean()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 337, in full_clean
+    self._clean_fields()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 345, in _clean_fields
+    self.cleaned_data[name] = field._clean_bound_field(bf)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 273, in _clean_bound_field
+    return self.clean(value)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 208, in clean
+    value = self.to_python(value)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 311, in to_python
+    return super().to_python(value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\models.py", line 1564, in to_python
+    value = self.queryset.get(**{key: value})
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:25,504 basehttp 19104 19348 "GET /api/clauses/?contract=4818080c-d7da-4704-bbd9-1eb49af38344 HTTP/1.1" 500 245783
+ERROR 2025-07-16 17:52:27,778 log 19104 19348 Internal Server Error: /api/contracts/dashboard_stats/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\Documents\GitHub\Proyecto-grado-ICC\backend\contracts\views.py", line 148, in dashboard_stats
+    'total_contracts': user_contracts.count(),
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:27,793 basehttp 19104 19348 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 500 198483
+ERROR 2025-07-16 17:52:28,248 log 19104 19348 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:28,277 log 19104 18600 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:28,281 basehttp 19104 19348 "GET /api/contracts/?page=1 HTTP/1.1" 500 231931
+ERROR 2025-07-16 17:52:28,289 basehttp 19104 18600 "GET /api/contracts/?page_size=5 HTTP/1.1" 500 231977
+ERROR 2025-07-16 17:52:29,600 log 19104 18600 Internal Server Error: /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:29,669 basehttp 19104 18600 "GET /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/ HTTP/1.1" 500 214150
+ERROR 2025-07-16 17:52:29,865 log 19104 19348 Internal Server Error: /api/clauses/
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\backends.py", line 70, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 215, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 206, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 201, in errors
+    self.full_clean()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 337, in full_clean
+    self._clean_fields()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\forms.py", line 345, in _clean_fields
+    self.cleaned_data[name] = field._clean_bound_field(bf)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 273, in _clean_bound_field
+    return self.clean(value)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 208, in clean
+    value = self.to_python(value)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 311, in to_python
+    return super().to_python(value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\models.py", line 1564, in to_python
+    value = self.queryset.get(**{key: value})
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zaloke\anaconda3\envs\contract-analysis\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "db.hzkfwulyrzfpiyzdnxcb.supabase.co" to address: Unknown host
+
+ERROR 2025-07-16 17:52:29,870 basehttp 19104 19348 "GET /api/clauses/?contract=4818080c-d7da-4704-bbd9-1eb49af38344 HTTP/1.1" 500 245783
+INFO 2025-07-16 23:04:04,859 basehttp 19104 22632 "GET /api/clauses/?contract=4818080c-d7da-4704-bbd9-1eb49af38344 HTTP/1.1" 200 3701
+INFO 2025-07-16 23:04:04,970 basehttp 19104 22788 "GET /api/contracts/4818080c-d7da-4704-bbd9-1eb49af38344/ HTTP/1.1" 200 5889
+INFO 2025-07-16 23:04:05,081 basehttp 19104 24268 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 1998
+INFO 2025-07-16 23:04:05,214 basehttp 19104 22916 "GET /api/contracts/?page=1 HTTP/1.1" 200 1998
+INFO 2025-07-16 23:04:05,417 basehttp 19104 23004 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 2081
+INFO 2025-07-16 23:04:05,504 basehttp 19104 22788 "GET /api/clauses/?contract=4818080c-d7da-4704-bbd9-1eb49af38344 HTTP/1.1" 200 3701
+INFO 2025-07-16 23:04:06,550 basehttp 19104 23004 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 2081

@@ -19,13 +19,13 @@ export default function NewContractPage() {
         <div className="mb-8">
             <button
                 onClick={() => router.back()}
-                className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors mb-4"
+                className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-4"
             >
                 <ArrowLeft size={16} />
                 Volver
             </button>
-            <h1 className="text-3xl font-bold text-white">Nuevo Análisis</h1>
-            <p className="text-slate-400 mt-1">
+            <h1 className="text-3xl font-bold text-foreground">Nuevo Análisis</h1>
+            <p className="text-muted-foreground mt-1">
                 Completa los datos para analizar un nuevo contrato con nuestra IA.
             </p>
         </div>

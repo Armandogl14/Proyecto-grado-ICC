@@ -34,14 +34,14 @@ import { useRouter } from "next/navigation" // Importar useRouter
 import React from "react" // Added missing import for React
 
 // Nuevo componente de Pestañas (Tabs) que usa elementos nativos para no añadir dependencias
-const Tabs = ({ children }: { children: React.ReactNode }) => <div className="flex border-b border-slate-700">{children}</div>
+const Tabs = ({ children }: { children: React.ReactNode }) => <div className="flex border-b border-border">{children}</div>
 const Tab = ({ children, onClick, isActive }: { children: React.ReactNode; onClick: () => void; isActive: boolean; }) => (
   <button
     onClick={onClick}
     className={`px-4 py-2 -mb-px font-semibold border-b-2 transition-colors ${
       isActive
-        ? 'border-purple-400 text-purple-300'
-        : 'border-transparent text-slate-400 hover:text-white'
+        ? 'border-primary text-primary'
+        : 'border-transparent text-muted-foreground hover:text-foreground'
     }`}
   >
     {children}
@@ -76,10 +76,10 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
       <>
         <Header />
         <div className="container mx-auto p-4 md:p-8 animate-pulse">
-            <div className="h-6 w-1/4 bg-slate-700 rounded mb-4"></div>
-            <div className="h-10 w-1/2 bg-slate-700 rounded mb-2"></div>
-            <div className="h-6 w-1/3 bg-slate-700 rounded mb-8"></div>
-            <div className="h-40 bg-slate-800 rounded-2xl"></div>
+            <div className="h-6 w-1/4 bg-muted/50 rounded mb-4"></div>
+            <div className="h-10 w-1/2 bg-muted/50 rounded mb-2"></div>
+            <div className="h-6 w-1/3 bg-muted/50 rounded mb-8"></div>
+            <div className="h-40 bg-card/80 rounded-2xl"></div>
         </div>
       </>
     )
@@ -91,15 +91,15 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
       <>
         <Header />
         <div className="container mx-auto p-4 md:p-8 text-center">
-            <AlertTriangle className="w-16 h-16 text-red-500/50 mx-auto mb-4" />
-            <h1 className="text-2xl font-bold text-white mb-4">
+            <AlertTriangle className="w-16 h-16 text-destructive/50 mx-auto mb-4" />
+            <h1 className="text-2xl font-bold text-foreground mb-4">
             {contractError ? "Error al cargar el contrato" : "Contrato no encontrado"}
             </h1>
-            <p className="text-slate-400 mb-6">
+            <p className="text-muted-foreground mb-6">
             {contractError?.message || "No pudimos encontrar el contrato que buscas."}
             </p>
             <Link href="/dashboard">
-                <Button variant="outline" className="border-slate-600 hover:bg-slate-800">
+                <Button variant="outline" className="border-border hover:bg-secondary">
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Volver al Dashboard
                 </Button>
@@ -111,10 +111,10 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
 
   const getStatusInfo = () => {
     switch (contract.status) {
-      case 'pending': return { icon: <FileClock className="w-5 h-5 text-amber-400" />, text: 'Pendiente de análisis' }
-      case 'analyzing': return { icon: <Loader2 className="w-5 h-5 text-purple-400 animate-spin" />, text: 'Analizando...' }
-      case 'completed': return { icon: <CheckCircle className="w-5 h-5 text-green-400" />, text: 'Análisis completado' }
-      case 'error': return { icon: <AlertTriangle className="w-5 h-5 text-red-400" />, text: 'Error en análisis' }
+      case 'pending': return { icon: <FileClock className="w-5 h-5 text-yellow-500" />, text: 'Pendiente de análisis' }
+      case 'analyzing': return { icon: <Loader2 className="w-5 h-5 text-primary animate-spin" />, text: 'Analizando...' }
+      case 'completed': return { icon: <CheckCircle className="w-5 h-5 text-green-500" />, text: 'Análisis completado' }
+      case 'error': return { icon: <AlertTriangle className="w-5 h-5 text-destructive" />, text: 'Error en análisis' }
     }
   }
 
@@ -125,12 +125,12 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
         {/* --- Page Header --- */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
             <div>
-                <Link href="/dashboard" className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors mb-2 text-sm">
+                <Link href="/dashboard" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-2 text-sm">
                     <ArrowLeft size={16} />
                     Volver al Dashboard
                 </Link>
-                <h1 className="text-3xl font-bold text-white">{contract.title}</h1>
-                <p className="text-slate-400 mt-1">{contract.contract_type.name}</p>
+                <h1 className="text-3xl font-bold text-foreground">{contract.title}</h1>
+                <p className="text-muted-foreground mt-1">{contract.contract_type.name}</p>
             </div>
             <div className="flex items-center gap-3">
                 {contract.status === 'pending' && (
@@ -139,7 +139,7 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
                     </Button>
                 )}
                 {contract.status === 'completed' && (
-                    <Button onClick={handleReanalyze} variant="outline" className="border-slate-600 hover:bg-slate-800">
+                    <Button onClick={handleReanalyze} variant="outline" className="border-border hover:bg-secondary">
                         <RefreshCw className="w-4 h-4 mr-2" /> Re-analizar
                     </Button>
                 )}
@@ -154,7 +154,7 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
                     variant="destructive" 
                     size="icon" 
                     disabled={deleteContractMutation.isPending}
-                    className="bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300"
+                    className="bg-destructive/10 text-destructive hover:bg-destructive/20 hover:text-destructive"
                     title="Eliminar Contrato"
                 >
                     {deleteContractMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
@@ -163,27 +163,27 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
         </div>
 
         {/* --- Summary Card --- */}
-        <Card className="bg-slate-800/80 border-slate-700/60 backdrop-blur-sm p-6 rounded-2xl mb-8">
+        <Card className="bg-card/80 border-border/60 backdrop-blur-sm p-6 rounded-2xl mb-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
                 <div className="flex flex-col items-center md:items-start gap-1">
-                    <p className="text-sm text-slate-400 font-medium">Nivel de Riesgo</p>
+                    <p className="text-sm text-muted-foreground font-medium">Nivel de Riesgo</p>
                     <RiskIndicator riskScore={contract.risk_score} size="md" />
                 </div>
                 <div className="flex flex-col items-center md:items-start gap-1">
-                    <p className="text-sm text-slate-400 font-medium">Estado</p>
-                    <div className="flex items-center gap-2 text-white font-semibold">
+                    <p className="text-sm text-muted-foreground font-medium">Estado</p>
+                    <div className="flex items-center gap-2 text-foreground font-semibold">
                         {getStatusInfo()?.icon} {getStatusInfo()?.text}
                     </div>
                 </div>
                 <div className="flex flex-col items-center md:items-start gap-1">
-                    <p className="text-sm text-slate-400 font-medium">Cláusulas Abusivas</p>
-                    <p className="text-2xl font-bold text-red-400 flex items-center gap-2">
+                    <p className="text-sm text-muted-foreground font-medium">Cláusulas Abusivas</p>
+                    <p className="text-2xl font-bold text-destructive flex items-center gap-2">
                         <AlertOctagon /> {contract.abusive_clauses_count || 0}
                     </p>
                 </div>
                 <div className="flex flex-col items-center md:items-start gap-1">
-                    <p className="text-sm text-slate-400 font-medium">Total de Cláusulas</p>
-                     <p className="text-2xl font-bold text-white flex items-center gap-2">
+                    <p className="text-sm text-muted-foreground font-medium">Total de Cláusulas</p>
+                     <p className="text-2xl font-bold text-foreground flex items-center gap-2">
                         <ListOrdered /> {contract.total_clauses || 0}
                     </p>
                 </div>
@@ -202,9 +202,9 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
         {/* --- Tab Content --- */}
         <div>
             {activeTab === 'summary' && (
-                <Card className="bg-slate-800/80 border-slate-700/60 p-6 rounded-2xl">
-                    <h2 className="text-xl font-bold text-white mb-4">Resumen y Recomendaciones de la IA</h2>
-                    <div className="prose prose-invert prose-p:text-slate-300 prose-strong:text-white">
+                <Card className="bg-card/80 border-border/60 p-6 rounded-2xl">
+                    <h2 className="text-xl font-bold text-foreground mb-4">Resumen y Recomendaciones de la IA</h2>
+                    <div className="prose prose-p:text-muted-foreground prose-strong:text-foreground">
                         <p>{contract.executive_summary || "El resumen ejecutivo aún no está disponible."}</p>
                         <p><strong>Recomendaciones:</strong> {contract.recommendations || "Las recomendaciones aún no están disponibles."}</p>
                     </div>
@@ -214,7 +214,7 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
             {activeTab === 'clauses' && (
                 <div className="space-y-4">
                     {isLoadingClauses ? (
-                        <div className="text-center py-10 text-slate-400 flex items-center justify-center gap-2">
+                        <div className="text-center py-10 text-muted-foreground flex items-center justify-center gap-2">
                             <Loader2 className="w-5 h-5 animate-spin" /> Cargando cláusulas...
                         </div>
                     ) : (
@@ -226,9 +226,9 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
             )}
             
             {activeTab === 'text' && (
-                <Card className="bg-slate-900/50 border-slate-700/60 rounded-2xl">
+                <Card className="bg-background/50 border-border/60 rounded-2xl">
                     <CardContent className="p-6">
-                        <pre className="text-sm whitespace-pre-wrap leading-relaxed text-slate-300 font-mono">
+                        <pre className="text-sm whitespace-pre-wrap leading-relaxed text-muted-foreground font-mono">
                             {contract.original_text}
                         </pre>
                     </CardContent>

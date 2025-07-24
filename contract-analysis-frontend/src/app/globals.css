@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc; /* slate-50 */
-  --foreground: #0f172a; /* slate-900 */
-  --card: #ffffff;
-  --card-foreground: #0f172a; /* slate-900 */
-  --primary: #1e293b; /* slate-800 */
-  --primary-foreground: #f8fafc; /* slate-50 */
-  --secondary: #f1f5f9; /* slate-100 */
-  --secondary-foreground: #0f172a; /* slate-900 */
-  --muted: #f1f5f9; /* slate-100 */
-  --muted-foreground: #64748b; /* slate-500 */
-  --accent: #f1f5f9; /* slate-100 */
-  --accent-foreground: #0f172a; /* slate-900 */
-  --destructive: #dc2626; /* red-600 */
-  --destructive-foreground: #f8fafc; /* slate-50 */
-  --border: #e2e8f0; /* slate-200 */
-  --input: #e2e8f0; /* slate-200 */
-  --ring: #94a3b8; /* slate-400 */
+  --background: #fdf6f6; /* Pastel Background */
+  --foreground: #565264; /* Dark Pastel Purple/Gray */
+  --card: #ffffff; /* White */
+  --card-foreground: #565264;
+  --primary: #a680b8; /* Pastel Purple */
+  --primary-foreground: #ffffff; /* White */
+  --secondary: #e8e8e8; /* Light Pastel Gray */
+  --secondary-foreground: #565264;
+  --muted: #f5f5f5; /* Very Light Gray */
+  --muted-foreground: #707070; /* Gray */
+  --accent: #d6c2e2; /* Light Pastel Purple */
+  --accent-foreground: #565264;
+  --destructive: #e57373; /* Pastel Red */
+  --destructive-foreground: #ffffff;
+  --border: #d1d5db; /* Light Gray */
+  --input: #e8e8e8;
+  --ring: #a680b8; /* Pastel Purple */
 }
 
 @theme inline {
@@ -38,28 +38,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020617; /* slate-950 */
-    --foreground: #f1f5f9; /* slate-100 */
-    --card: #0f172a; /* slate-900 */
-    --card-foreground: #f1f5f9; /* slate-100 */
-    --primary: #f8fafc; /* slate-50 */
-    --primary-foreground: #0f172a; /* slate-900 */
-    --secondary: #1e293b; /* slate-800 */
-    --secondary-foreground: #f1f5f9; /* slate-100 */
-    --muted: #1e293b; /* slate-800 */
-    --muted-foreground: #94a3b8; /* slate-400 */
-    --accent: #1e293b; /* slate-800 */
-    --accent-foreground: #f1f5f9; /* slate-100 */
-    --destructive: #ef4444; /* red-500 */
-    --destructive-foreground: #f1f5f9; /* slate-100 */
-    --border: #1e293b; /* slate-800 */
-    --input: #1e293b; /* slate-800 */
-    --ring: #475569; /* slate-600 */
-  }
 }
 
 body {

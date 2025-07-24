@@ -99,10 +99,10 @@ export function CreateContractForm({ onSuccess, className = "" }: CreateContract
   }
 
   return (
-    <Card className={`w-full max-w-3xl mx-auto bg-slate-800/80 border border-slate-700/60 rounded-2xl backdrop-blur-sm ${className}`}>
+    <Card className={`w-full max-w-3xl mx-auto bg-card/80 border border-border/60 rounded-2xl backdrop-blur-sm ${className}`}>
       <CardHeader>
-        <CardTitle className="text-white flex items-center gap-3">
-          <FileText className="w-6 h-6 text-purple-400" />
+        <CardTitle className="text-foreground flex items-center gap-3">
+          <FileText className="w-6 h-6 text-primary" />
           <span className="text-2xl font-bold">Analizar un Contrato</span>
         </CardTitle>
       </CardHeader>
@@ -112,28 +112,28 @@ export function CreateContractForm({ onSuccess, className = "" }: CreateContract
           
           {/* Título */}
           <div>
-            <label htmlFor="title" className="block text-sm font-medium mb-2 text-slate-300">
+            <label htmlFor="title" className="block text-sm font-medium mb-2 text-muted-foreground">
               Título del Contrato
             </label>
             <input
               id="title"
               type="text"
               {...register('title')}
-              className="w-full px-4 py-2 bg-slate-900/70 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-slate-500"
+              className="w-full px-4 py-2 bg-secondary/70 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder:text-muted-foreground"
               placeholder="Ej: Contrato de Alquiler de Apartamento"
             />
-            {errors.title && <p className="text-red-400 text-sm mt-2 flex items-center gap-1.5"><AlertCircle size={14}/> {errors.title.message}</p>}
+            {errors.title && <p className="text-destructive text-sm mt-2 flex items-center gap-1.5"><AlertCircle size={14}/> {errors.title.message}</p>}
           </div>
 
           {/* Tipo de Contrato */}
           <div>
-            <label htmlFor="contract_type" className="block text-sm font-medium mb-2 text-slate-300">
+            <label htmlFor="contract_type" className="block text-sm font-medium mb-2 text-muted-foreground">
               Tipo de Contrato
             </label>
             <select
               id="contract_type"
               {...register('contract_type')}
-              className="w-full px-3 py-2.5 bg-slate-900/70 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
+              className="w-full px-3 py-2.5 bg-secondary/70 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
               disabled={isLoadingTypes}
             >
               <option value="">
@@ -145,22 +145,22 @@ export function CreateContractForm({ onSuccess, className = "" }: CreateContract
                   </option>
               ))}
             </select>
-            {errors.contract_type && <p className="text-red-400 text-sm mt-2 flex items-center gap-1.5"><AlertCircle size={14}/> {errors.contract_type.message}</p>}
+            {errors.contract_type && <p className="text-destructive text-sm mt-2 flex items-center gap-1.5"><AlertCircle size={14}/> {errors.contract_type.message}</p>}
           </div>
 
           {/* Upload & Paste Area */}
           <div>
-            <label className="block text-sm font-medium mb-2 text-slate-300">
+            <label className="block text-sm font-medium mb-2 text-muted-foreground">
               Texto del Contrato
             </label>
-            <div className="p-4 bg-slate-900/70 border border-slate-700 rounded-lg">
+            <div className="p-4 bg-secondary/70 border border-border rounded-lg">
                 <textarea
                   {...register('original_text')}
                   rows={10}
-                  className="w-full bg-transparent focus:outline-none text-slate-300 placeholder:text-slate-500 resize-none"
+                  className="w-full bg-transparent focus:outline-none text-foreground placeholder:text-muted-foreground resize-none"
                   placeholder="Pega aquí el texto completo del contrato..."
                 />
-                <div className="flex justify-between items-center mt-3 pt-3 border-t border-slate-700">
+                <div className="flex justify-between items-center mt-3 pt-3 border-t border-border">
                     <div>
                         <input
                             type="file"
@@ -172,16 +172,16 @@ export function CreateContractForm({ onSuccess, className = "" }: CreateContract
                         />
                         <label
                             htmlFor="file-upload"
-                            className={`flex items-center gap-2 px-4 py-2 border border-slate-600 rounded-md cursor-pointer transition-colors ${isParsing ? 'bg-slate-700 cursor-wait' : 'hover:bg-slate-700/50'}`}
+                            className={`flex items-center gap-2 px-4 py-2 border border-border rounded-md cursor-pointer transition-colors ${isParsing ? 'bg-secondary cursor-wait' : 'hover:bg-secondary/50'}`}
                         >
                             {isParsing ? (
                                 <>
-                                    <Loader2 className="w-4 h-4 animate-spin text-purple-400" />
+                                    <Loader2 className="w-4 h-4 animate-spin text-primary" />
                                     Procesando...
                                 </>
                             ) : (
                                 <>
-                                    <Upload className="w-4 h-4 text-purple-400" />
+                                    <Upload className="w-4 h-4 text-primary" />
                                     Cargar archivo
                                 </>
                             )}
@@ -189,9 +189,9 @@ export function CreateContractForm({ onSuccess, className = "" }: CreateContract
                     </div>
                     <div className="flex flex-col items-end">
                         {errors.original_text && (
-                            <p className="text-red-400 text-xs flex items-center gap-1">{errors.original_text.message}</p>
+                            <p className="text-destructive text-xs flex items-center gap-1">{errors.original_text.message}</p>
                         )}
-                        <p className="text-xs text-slate-500 ml-auto mt-1">
+                        <p className="text-xs text-muted-foreground ml-auto mt-1">
                             {watchedText.length} caracteres
                         </p>
                     </div>
@@ -205,7 +205,7 @@ export function CreateContractForm({ onSuccess, className = "" }: CreateContract
               type="submit"
               size="lg"
               disabled={isSubmitting || createContractMutation.isPending || isParsing}
-              className="w-full group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-purple-500 to-pink-500 font-medium text-white transition-all duration-300 ease-in-out hover:from-purple-600 hover:to-pink-600 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-primary font-medium text-primary-foreground transition-all duration-300 ease-in-out hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting || createContractMutation.isPending ? (
                 <span className="relative z-10 flex items-center gap-2">

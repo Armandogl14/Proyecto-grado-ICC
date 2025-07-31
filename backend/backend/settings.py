@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-u2p#9k8d#4vha=(*ecauw9-ocwhg#3v0v(4qq5wtkhs38w6u5h"
+SECRET_KEY = config('SECRET_KEY', default="django-insecure-u2p#9k8d#4vha=(*ecauw9-ocwhg#3v0v(4qq5wtkhs38w6u5h")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']  # Solo para desarrollo
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,*').split(',')
 
 
 # Application definition
@@ -245,3 +245,63 @@ LOGGING = {
         },
     },
 }
+
+# =============================================================================
+# CONFIGURACIONES ADICIONALES PARA PRODUCCIÓN
+# =============================================================================
+
+# Configuraciones de seguridad para producción
+if not DEBUG:
+    # Security Settings
+    SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=True, cast=bool)
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=True, cast=bool)
+    CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=True, cast=bool)
+    SECURE_BROWSER_XSS_FILTER = config('SECURE_BROWSER_XSS_FILTER', default=True, cast=bool)
+    SECURE_CONTENT_TYPE_NOSNIFF = config('SECURE_CONTENT_TYPE_NOSNIFF', default=True, cast=bool)
+    SECURE_HSTS_SECONDS = 31536000  # 1 año
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    
+    # Static Files para producción
+    STATIC_ROOT = config('STATIC_ROOT', default='/var/www/contract-analysis/static/')
+    MEDIA_ROOT = config('MEDIA_ROOT', default='/var/www/contract-analysis/media/')
+    
+    # WhiteNoise for static files
+    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    
+    # CORS actualizado para producción
+    cors_origins = config('CORS_ALLOWED_ORIGINS', default='')
+    if cors_origins:
+        CORS_ALLOWED_ORIGINS = cors_origins.split(',')
+        CORS_ALLOW_ALL_ORIGINS = False
+    
+    # Cache con Redis
+    redis_url = config('REDIS_URL', default='')
+    if redis_url:
+        CACHES = {
+            'default': {
+                'BACKEND': 'django_redis.cache.RedisCache',
+                'LOCATION': redis_url,
+                'OPTIONS': {
+                    'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+                }
+            }
+        }
+    
+    # Logging para producción
+    log_file = config('LOG_FILE', default='/var/log/contract-analysis/django.log')
+    LOGGING['handlers']['file']['filename'] = log_file
+    LOGGING['root'] = {
+        'level': config('LOG_LEVEL', default='INFO'),
+        'handlers': ['file', 'console'],
+    }
+
+# Configuración de APIs externas
+OPENAI_API_KEY = config('OPENAI_API_KEY', default='')
+TOGETHER_API_KEY = config('TOGETHER_API_KEY', default='')
+
+# Aumentar timeouts para procesamiento ML
+DATA_UPLOAD_MAX_MEMORY_SIZE = 100 * 1024 * 1024  # 100MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 100 * 1024 * 1024  # 100MB

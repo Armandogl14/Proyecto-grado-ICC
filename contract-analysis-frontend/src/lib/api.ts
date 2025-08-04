@@ -12,11 +12,12 @@ import { getStoredToken } from './auth-simple'
  
 // Configuración base de axios
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000',
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL || 'http://172.245.214.69',
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true, // Incluir cookies de sesión automáticamente
+  withCredentials: false,
+  timeout: 10000,
 })
 
 // Interceptor para manejar autenticación
@@ -81,15 +82,15 @@ export const contractsApi = {
     return response.data
   },
 
-  // Obtener estadísticas del dashboard
-  getDashboardStats: async (): Promise<DashboardStats> => {
-    const response = await api.get('/api/contracts/dashboard_stats/')
+  // Obtener resumen del contrato (reemplaza dashboard stats)
+  getContractSummary: async (id: string): Promise<any> => {
+    const response = await api.get(`/api/contracts/${id}/summary/`)
     return response.data
   },
 
-  // Exportar reporte
-  exportReport: async (id: string): Promise<Blob> => {
-    const response = await api.get(`/api/contracts/${id}/export_report/`, {
+  // Exportar reporte (usando endpoint correcto)
+  exportContract: async (id: string): Promise<Blob> => {
+    const response = await api.get(`/api/contracts/${id}/export/`, {
       responseType: 'blob'
     })
     return response.data
@@ -112,7 +113,7 @@ export const contractTypesApi = {
       // Si es error de autenticación, intentar sin token
       if (error.response?.status === 401) {
         try {
-          const responseNoAuth = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api/contract-types/`)
+          const responseNoAuth = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://172.245.214.69'}/api/contract-types/`)
           return responseNoAuth.data
         } catch (noAuthError) {
           console.error('Error even without auth:', noAuthError)

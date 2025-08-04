@@ -106,11 +106,22 @@ export function useClausesByContract(contractId: string) {
   })
 }
 
-// Hook para estadísticas del dashboard
+// Hook para estadísticas del dashboard (usando lista de contratos)
 export function useDashboardStats() {
   return useQuery({
     queryKey: ['dashboard-stats'],
-    queryFn: contractsApi.getDashboardStats,
+    queryFn: async () => {
+      // Obtener todos los contratos y generar estadísticas desde el frontend
+      const contractsData = await contractsApi.getContracts({ page_size: 100 })
+      const contracts = contractsData.results || []
+      
+      return {
+        total_contracts: contracts.length,
+        completed_contracts: contracts.filter(c => c.status === 'completed').length,
+        pending_analysis: contracts.filter(c => c.status === 'pending').length,
+        analyzing_contracts: contracts.filter(c => c.status === 'analyzing').length,
+      }
+    },
     staleTime: 2 * 60 * 1000, // 2 minutos
   })
 }

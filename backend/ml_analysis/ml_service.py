@@ -104,7 +104,7 @@ class ContractMLService:
 
         try:
             logger.debug(f"Enviando solicitud a LLM API. Modelo: {model_name}")
-            response = requests.post(base_url, headers=headers, json=data, timeout=120)
+            response = requests.post(base_url, headers=headers, json=data)
             response.raise_for_status()  # Lanza una excepción para códigos de error HTTP
             
             result = response.json()
@@ -161,32 +161,40 @@ class ContractMLService:
 
     def _extract_clauses_with_llm(self, contract_text: str) -> List[Dict[str, any]]:
         """
-        Usa un LLM para extraer cláusulas de un contrato.
+        Usa un LLM para extraer cláusulas de un contrato, con prompt mejorado y ejemplos (few-shot).
         """
-        logger.info("Iniciando extracción de cláusulas con LLM")
+        logger.info("Iniciando extracción de cláusulas con LLM (prompt mejorado)")
         
-        prompt = f"""
-        Actúa como un asistente legal experto. Tu tarea es analizar el siguiente texto de un contrato y dividirlo en cláusulas individuales. Devuelve el resultado como un objeto JSON que contenga una única clave "clauses". El valor de "clauses" debe ser un array de objetos, donde cada objeto representa una cláusula y tiene dos claves: "clause_number" (el número o identificador de la cláusula, como "PRIMERO", "Art. 1", etc.) y "text" (el texto completo de la cláusula).
-
+        # Ejemplos para few-shot
+        few_shot_examples = '''
         Ejemplo de respuesta:
-        {{
+        {
           "clauses": [
-            {{
+            {
               "clause_number": "PRIMERO",
-              "text": "El VENDEDOR vende y transfiere al COMPRADOR el vehículo..."
-            }},
-            {{
+              "text": "El VENDEDOR vende y transfiere al COMPRADOR el vehículo marca Toyota, modelo Corolla, año 2020."
+            },
+            {
               "clause_number": "SEGUNDO",
-              "text": "El precio de venta acordado es de RD$500,000.00..."
-            }}
+              "text": "El precio de venta acordado es de RD$500,000.00, pagaderos en dos cuotas."
+            },
+            {
+              "clause_number": "TERCERO",
+              "text": "El COMPRADOR se compromete a realizar el traspaso en un plazo de 30 días."
+            }
           ]
-        }}
+        }
+        '''
+        prompt = f"""
+        Actúa como un asistente legal experto. Tu tarea es analizar el siguiente texto de un contrato y dividirlo en cláusulas individuales. Considera que las cláusulas pueden estar numeradas (PRIMERO, SEGUNDO, ARTÍCULO 1, etc.) o no, y pueden estar separadas por saltos de línea, puntos y aparte, o encabezados. Devuelve el resultado como un objeto JSON que contenga una única clave "clauses". El valor de "clauses" debe ser un array de objetos, donde cada objeto representa una cláusula y tiene dos claves: "clause_number" (el número o identificador de la cláusula, o "SIN_NUMERO" si no tiene) y "text" (el texto completo de la cláusula).
+
+        {few_shot_examples}
 
         --- INICIO DEL CONTRATO ---
         {contract_text}
         --- FIN DEL CONTRATO ---
         """
-        system_message = "Eres un asistente legal experto que extrae cláusulas de documentos legales. Tu respuesta debe ser siempre un objeto JSON válido que contenga una única clave 'clauses'."
+        system_message = "Eres un asistente legal experto que extrae cláusulas de documentos legales. Tu respuesta debe ser siempre un objeto JSON válido que contenga una única clave 'clauses'. Si una cláusula no tiene número, usa 'SIN_NUMERO'."
 
         try:
             analysis = self._call_llm_api(prompt, system_message)
@@ -197,34 +205,42 @@ class ContractMLService:
             return clauses
         except Exception:
             logger.exception("No se pudieron extraer cláusulas con el LLM.")
-            return []
+            # Fallback: usar método regex si el LLM falla
+            logger.info("Usando método de extracción regex como respaldo.")
+            return [{"clause_number": f"SIN_NUMERO_{i+1}", "text": c} for i, c in enumerate(self._extract_clauses(contract_text))]
 
     def _validate_clause_with_llm(self, clause_text: str) -> Dict[str, any]:
         """
-        Usa un LLM para validar una cláusula específica.
+        Usa un LLM para validar una cláusula específica. Prompt mejorado con few-shot y campo de confianza.
         """
         logger.info(f"Validando cláusula con LLM: '{clause_text[:80]}...'")
         
+        # Ejemplo few-shot para el prompt
+        few_shot = '''
+        Ejemplo de respuesta para una cláusula abusiva:
+        {
+          "is_valid_clause": true,
+          "is_abusive": true,
+          "explanation": "La cláusula impone al inquilino la responsabilidad por multas que no se relacionan con su operación, lo cual es desproporcionado.",
+          "suggested_fix": "El inquilino será responsable de las multas que resulten directamente de sus acciones u omisiones en el uso del local.",
+          "confidence": 0.85
+        }
+        '''
         prompt = f"""
         Actúa como un asistente legal experto en la legislación de República Dominicana. Analiza la siguiente cláusula de contrato y determina su validez y si es abusiva. Devuelve tu análisis en un objeto JSON con las siguientes claves:
         - "is_valid_clause": Un booleano. `true` si parece ser una cláusula legal real, `false` si es texto sin sentido, un encabezado, o no es una cláusula.
         - "is_abusive": Un booleano. `true` si la cláusula contiene elementos que podrían ser considerados abusivos o injustos para una de las partes; de lo contrario, `false`.
         - "explanation": Una explicación concisa (1-2 frases) del motivo de tu evaluación, especialmente si es abusiva.
         - "suggested_fix": Si la cláusula es abusiva, una sugerencia de cómo podría reescribirse para ser más justa. Si no es abusiva, deja este campo como una cadena vacía.
+        - "confidence": Un número entre 0 y 1 que indica tu nivel de confianza en tu evaluación.
 
-        Ejemplo de respuesta para una cláusula abusiva:
-        {{
-          "is_valid_clause": true,
-          "is_abusive": true,
-          "explanation": "La cláusula impone al inquilino la responsabilidad por multas que no se relacionan con su operación, lo cual es desproporcionado.",
-          "suggested_fix": "El inquilino será responsable de las multas que resulten directamente de sus acciones u omisiones en el uso del local."
-        }}
+        {few_shot}
 
         --- INICIO DE LA CLÁUSULA ---
         {clause_text}
         --- FIN DE LA CLÁUSULA ---
         """
-        system_message = "Eres un asistente legal experto que analiza cláusulas de contratos. Tu respuesta debe ser siempre un objeto JSON válido con las claves 'is_valid_clause', 'is_abusive', 'explanation', y 'suggested_fix'."
+        system_message = "Eres un asistente legal experto que analiza cláusulas de contratos. Tu respuesta debe ser siempre un objeto JSON válido con las claves 'is_valid_clause', 'is_abusive', 'explanation', 'suggested_fix' y 'confidence'."
 
         try:
             return self._call_llm_api(prompt, system_message)
@@ -234,7 +250,8 @@ class ContractMLService:
                 'is_valid_clause': False,
                 'is_abusive': False,
                 'explanation': 'Error al analizar la cláusula con el servicio de IA.',
-                'suggested_fix': ''
+                'suggested_fix': '',
+                'confidence': 0.0
             }
     
     def _load_pretrained_models(self):
@@ -392,11 +409,11 @@ class ContractMLService:
 
     def analyze_contract(self, contract_text: str) -> Dict:
         """
-        Orquesta el análisis completo de un contrato.
+        Orquesta el análisis completo de un contrato. Mejoras: risk_score híbrido ML+LLM y mayor cobertura de extracción.
         """
         start_time = datetime.now()
         
-        # 1. Extraer cláusulas del texto usando el LLM
+        # 1. Extraer cláusulas del texto usando el LLM (prompt mejorado)
         extracted_clauses = self._extract_clauses_with_llm(contract_text)
         
         clause_results = []
@@ -416,11 +433,15 @@ class ContractMLService:
             # Combinar número de cláusula con el resultado del análisis
             analysis_result['clause_number'] = clause_data.get('clause_number', f'Cláusula {i+1}')
             
-            # Calcular el risk score para esta cláusula
-            risk_score = analysis_result['ml_analysis']['abuse_probability']
-            if analysis_result['gpt_analysis'].get('is_abusive'):
-                risk_score = max(risk_score, 0.8)
-            
+            # Mejor risk_score: ponderación ML y LLM
+            ml_risk = analysis_result['ml_analysis']['abuse_probability']
+            llm_conf = analysis_result['gpt_analysis'].get('confidence', 0.0)
+            llm_is_abusive = analysis_result['gpt_analysis'].get('is_abusive', False)
+            # Si el LLM detecta abuso, ponderar más su confianza
+            if llm_is_abusive:
+                risk_score = 0.6 * ml_risk + 0.4 * llm_conf
+            else:
+                risk_score = ml_risk * 0.8 + llm_conf * 0.2
             analysis_result['risk_score'] = risk_score
             clause_results.append(analysis_result)
 

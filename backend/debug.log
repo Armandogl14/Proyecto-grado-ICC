@@ -6370,3 +6370,882 @@ INFO 2025-07-16 23:04:05,214 basehttp 19104 22916 "GET /api/contracts/?page=1 HT
 INFO 2025-07-16 23:04:05,417 basehttp 19104 23004 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 2081
 INFO 2025-07-16 23:04:05,504 basehttp 19104 22788 "GET /api/clauses/?contract=4818080c-d7da-4704-bbd9-1eb49af38344 HTTP/1.1" 200 3701
 INFO 2025-07-16 23:04:06,550 basehttp 19104 23004 "GET /api/contracts/dashboard_stats/ HTTP/1.1" 200 2081
+INFO 2025-08-05 13:01:16,507 autoreload 13920 22680 Watching for file changes with StatReloader
+INFO 2025-08-05 13:05:35,257 autoreload 17200 26184 Watching for file changes with StatReloader
+INFO 2025-08-05 14:43:51,419 basehttp 17200 5056 "OPTIONS /api/contracts/?page_size=100 HTTP/1.1" 200 0
+INFO 2025-08-05 14:43:51,422 basehttp 17200 18508 "OPTIONS /api/contracts/?page_size=5 HTTP/1.1" 200 0
+ERROR 2025-08-05 14:43:53,152 log 17200 18508 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\backends.py", line 94, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 212, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\filterset.py", line 24, in form
+    form = super().form
+           ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 264, in form
+    Form = self.get_form_class()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 254, in get_form_class
+    fields = OrderedDict([
+                         ^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 255, in <listcomp>
+    (name, filter_.field)
+           ^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filters.py", line 137, in field
+    self._field = self.field_class(label=self.label, **field_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 278, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 259, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 895, in __init__
+    self.choices = choices
+    ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 265, in _set_choices
+    super()._set_choices(value)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute '_set_choices'
+ERROR 2025-08-05 14:43:53,176 log 17200 5056 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\backends.py", line 94, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 212, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\filterset.py", line 24, in form
+    form = super().form
+           ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 264, in form
+    Form = self.get_form_class()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 254, in get_form_class
+    fields = OrderedDict([
+                         ^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 255, in <listcomp>
+    (name, filter_.field)
+           ^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filters.py", line 137, in field
+    self._field = self.field_class(label=self.label, **field_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 278, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 259, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 895, in __init__
+    self.choices = choices
+    ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 265, in _set_choices
+    super()._set_choices(value)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute '_set_choices'
+ERROR 2025-08-05 14:43:53,184 basehttp 17200 18508 "GET /api/contracts/?page_size=5 HTTP/1.1" 500 151042
+ERROR 2025-08-05 14:43:53,191 basehttp 17200 5056 "GET /api/contracts/?page_size=100 HTTP/1.1" 500 151070
+ERROR 2025-08-05 14:43:55,359 log 17200 18508 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\backends.py", line 94, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 212, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\filterset.py", line 24, in form
+    form = super().form
+           ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 264, in form
+    Form = self.get_form_class()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 254, in get_form_class
+    fields = OrderedDict([
+                         ^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 255, in <listcomp>
+    (name, filter_.field)
+           ^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filters.py", line 137, in field
+    self._field = self.field_class(label=self.label, **field_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 278, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 259, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 895, in __init__
+    self.choices = choices
+    ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 265, in _set_choices
+    super()._set_choices(value)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute '_set_choices'
+ERROR 2025-08-05 14:43:55,363 basehttp 17200 18508 "GET /api/contracts/?page_size=100 HTTP/1.1" 500 151070
+ERROR 2025-08-05 14:43:55,403 log 17200 5056 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\backends.py", line 94, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 212, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\filterset.py", line 24, in form
+    form = super().form
+           ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 264, in form
+    Form = self.get_form_class()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 254, in get_form_class
+    fields = OrderedDict([
+                         ^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 255, in <listcomp>
+    (name, filter_.field)
+           ^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filters.py", line 137, in field
+    self._field = self.field_class(label=self.label, **field_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 278, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 259, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 895, in __init__
+    self.choices = choices
+    ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 265, in _set_choices
+    super()._set_choices(value)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute '_set_choices'
+ERROR 2025-08-05 14:43:55,407 basehttp 17200 5056 "GET /api/contracts/?page_size=5 HTTP/1.1" 500 151042
+ERROR 2025-08-05 14:43:58,548 log 17200 5056 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\backends.py", line 94, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 212, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\filterset.py", line 24, in form
+    form = super().form
+           ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 264, in form
+    Form = self.get_form_class()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 254, in get_form_class
+    fields = OrderedDict([
+                         ^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 255, in <listcomp>
+    (name, filter_.field)
+           ^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filters.py", line 137, in field
+    self._field = self.field_class(label=self.label, **field_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 278, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 259, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 895, in __init__
+    self.choices = choices
+    ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 265, in _set_choices
+    super()._set_choices(value)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute '_set_choices'
+ERROR 2025-08-05 14:43:58,571 log 17200 18508 Internal Server Error: /api/contracts/
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\backends.py", line 94, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 212, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\rest_framework\filterset.py", line 24, in form
+    form = super().form
+           ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 264, in form
+    Form = self.get_form_class()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 254, in get_form_class
+    fields = OrderedDict([
+                         ^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filterset.py", line 255, in <listcomp>
+    (name, filter_.field)
+           ^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\filters.py", line 137, in field
+    self._field = self.field_class(label=self.label, **field_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 278, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 259, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django\forms\fields.py", line 895, in __init__
+    self.choices = choices
+    ^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\site-packages\django_filters\fields.py", line 265, in _set_choices
+    super()._set_choices(value)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute '_set_choices'
+ERROR 2025-08-05 14:43:58,576 basehttp 17200 5056 "GET /api/contracts/?page_size=100 HTTP/1.1" 500 151070
+ERROR 2025-08-05 14:43:58,583 basehttp 17200 18508 "GET /api/contracts/?page_size=5 HTTP/1.1" 500 151042
+INFO 2025-08-05 14:46:33,467 autoreload 22628 25956 Watching for file changes with StatReloader
+INFO 2025-08-05 14:47:44,492 basehttp 22628 29548 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 2750
+INFO 2025-08-05 14:47:44,638 basehttp 22628 7356 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 2750
+INFO 2025-08-05 14:47:50,250 basehttp 22628 7356 "OPTIONS /api/contract-types/ HTTP/1.1" 200 0
+INFO 2025-08-05 14:47:50,392 basehttp 22628 7356 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-08-05 14:49:57,345 basehttp 22628 7356 "OPTIONS /api/contracts/ HTTP/1.1" 200 0
+INFO 2025-08-05 14:49:57,824 ml_service 22628 7356 Iniciando extracción de cláusulas con LLM (prompt mejorado)
+DEBUG 2025-08-05 14:49:57,825 ml_service 22628 7356 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+ERROR 2025-08-05 14:50:11,010 ml_service 22628 7356 Error en el análisis del LLM: Unterminated string starting at: line 45 column 15 (char 2800)
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 112, in _call_llm_api
+    analysis = json.loads(content)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 45 column 15 (char 2800)
+ERROR 2025-08-05 14:50:11,020 ml_service 22628 7356 No se pudieron extraer cláusulas con el LLM.
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 200, in _extract_clauses_with_llm
+    analysis = self._call_llm_api(prompt, system_message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 112, in _call_llm_api
+    analysis = json.loads(content)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 45 column 15 (char 2800)
+INFO 2025-08-05 14:50:11,027 ml_service 22628 7356 Usando método de extracción regex como respaldo.
+INFO 2025-08-05 14:50:11,042 ml_service 22628 7356 Validando cláusula con LLM: 'PRIMERO: : EL PROPIETARIO da en alquiler a LA INQUILINA un apartamento en el ter...'
+DEBUG 2025-08-05 14:50:11,043 ml_service 22628 7356 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:50:12,636 ml_service 22628 7356 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece los términos básicos de un contrato de arrendamiento.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:50:12,700 ml_service 22628 7356 Validando cláusula con LLM: 'SEGUNDO: : EL PROPIETARIO garantiza a LA INQUILINA el uso y disfrute pacífico de...'
+DEBUG 2025-08-05 14:50:12,701 ml_service 22628 7356 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:50:13,734 ml_service 22628 7356 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece el derecho de la inquilina al uso y disfrute pacífico del inmueble arrendado.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:50:13,762 ml_service 22628 7356 Validando cláusula con LLM: 'TERCERO: : LA INQUILINA queda obligada a mantener el inmueble en perfectas condi...'
+DEBUG 2025-08-05 14:50:13,763 ml_service 22628 7356 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:50:52,895 ml_service 22628 7356 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece las responsabilidades del inquilino en el mantenimiento del inmueble.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:50:52,926 ml_service 22628 7356 Validando cláusula con LLM: 'CUARTO: : LA INQUILINA se compromete a no hacer modificaciones en el inmueble si...'
+DEBUG 2025-08-05 14:50:52,926 ml_service 22628 7356 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:50:55,045 ml_service 22628 7356 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula establece una restricción razonable sobre las modificaciones en el inmueble, requiriendo el consentimiento por escrito del propietario.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:50:55,085 ml_service 22628 7356 Validando cláusula con LLM: 'QUINTO: : LA INQUILINA queda obligada a pagar la suma de VEINTINUEVE MIL PESOS D...'
+DEBUG 2025-08-05 14:50:55,086 ml_service 22628 7356 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:50:56,997 ml_service 22628 7356 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece los términos de pago del alquiler y las consecuencias de un retraso, lo que es común en un contrato de arrendamiento.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:50:57,044 ml_service 22628 7356 Validando cláusula con LLM: 'SEXTO: : El presente contrato tendrá una vigencia de UN (1) año a partir de la f...'
+DEBUG 2025-08-05 14:50:57,045 ml_service 22628 7356 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+INFO 2025-08-05 14:50:58,508 autoreload 22628 25956 C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py changed, reloading.
+INFO 2025-08-05 14:51:00,467 autoreload 20084 16824 Watching for file changes with StatReloader
+INFO 2025-08-05 14:52:52,113 ml_service 20084 14644 Iniciando extracción de cláusulas con LLM (prompt mejorado)
+DEBUG 2025-08-05 14:52:52,114 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+ERROR 2025-08-05 14:53:00,854 ml_service 20084 14644 Error en el análisis del LLM: Unterminated string starting at: line 45 column 15 (char 2800)
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 112, in _call_llm_api
+    analysis = json.loads(content)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 45 column 15 (char 2800)
+ERROR 2025-08-05 14:53:00,861 ml_service 20084 14644 No se pudieron extraer cláusulas con el LLM.
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 200, in _extract_clauses_with_llm
+    analysis = self._call_llm_api(prompt, system_message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 112, in _call_llm_api
+    analysis = json.loads(content)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 45 column 15 (char 2800)
+INFO 2025-08-05 14:53:00,868 ml_service 20084 14644 Usando método de extracción regex como respaldo.
+INFO 2025-08-05 14:53:00,879 ml_service 20084 14644 Validando cláusula con LLM: 'PRIMERO: : EL PROPIETARIO da en alquiler a LA INQUILINA un apartamento en el ter...'
+DEBUG 2025-08-05 14:53:00,880 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:53:02,901 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula parece ser una estipulación de alquiler común y no contiene elementos abusivos.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:53:02,962 ml_service 20084 14644 Validando cláusula con LLM: 'SEGUNDO: : EL PROPIETARIO garantiza a LA INQUILINA el uso y disfrute pacífico de...'
+DEBUG 2025-08-05 14:53:02,963 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:53:04,215 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece el derecho de la inquilina al uso y disfrute pacífico del inmueble arrendado.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:53:04,243 ml_service 20084 14644 Validando cláusula con LLM: 'TERCERO: : LA INQUILINA queda obligada a mantener el inmueble en perfectas condi...'
+DEBUG 2025-08-05 14:53:04,244 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:53:05,843 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece las responsabilidades del inquilino en relación al mantenimiento del inmueble.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:53:05,889 ml_service 20084 14644 Validando cláusula con LLM: 'CUARTO: : LA INQUILINA se compromete a no hacer modificaciones en el inmueble si...'
+DEBUG 2025-08-05 14:53:05,890 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:53:07,573 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece una condición común en los contratos de arrendamiento donde el arrendatario requiere permiso para realizar modificaciones en el inmueble.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:53:07,605 ml_service 20084 14644 Validando cláusula con LLM: 'QUINTO: : LA INQUILINA queda obligada a pagar la suma de VEINTINUEVE MIL PESOS D...'
+DEBUG 2025-08-05 14:53:07,606 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:53:08,975 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula establece el monto y la fecha de pago del alquiler, así como las consecuencias de un retraso en el pago.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:53:09,001 ml_service 20084 14644 Validando cláusula con LLM: 'SEXTO: : El presente contrato tendrá una vigencia de UN (1) año a partir de la f...'
+DEBUG 2025-08-05 14:53:09,002 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:53:10,746 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula especifica los términos de vigencia y terminación del contrato.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:53:32,609 basehttp 20084 27176 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 3428
+INFO 2025-08-05 14:53:32,708 basehttp 20084 10112 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 3428
+INFO 2025-08-05 14:53:47,770 basehttp 20084 9752 "OPTIONS /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 0
+INFO 2025-08-05 14:53:47,770 basehttp 20084 23812 "OPTIONS /api/clauses/?contract=dc10945e-78df-4e07-932a-560a6aa77d34 HTTP/1.1" 200 0
+INFO 2025-08-05 14:54:00,413 basehttp 20084 28932 "GET /api/clauses/?contract=dc10945e-78df-4e07-932a-560a6aa77d34 HTTP/1.1" 200 52
+INFO 2025-08-05 14:54:00,592 basehttp 20084 18996 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:54:27,580 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:54:35,037 basehttp 20084 27176 "OPTIONS /api/clauses/?contract=dc10945e-78df-4e07-932a-560a6aa77d34 HTTP/1.1" 200 0
+INFO 2025-08-05 14:54:35,043 basehttp 20084 10112 "OPTIONS /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 0
+INFO 2025-08-05 14:54:35,063 ml_service 20084 14644 Validando cláusula con LLM: 'SÉPTIMO: : En caso de renovación, el alquiler aumentará conforme a la tasa de in...'
+DEBUG 2025-08-05 14:54:35,064 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+INFO 2025-08-05 14:54:35,380 basehttp 20084 18996 - Broken pipe from ('127.0.0.1', 62501)
+INFO 2025-08-05 14:54:35,388 basehttp 20084 28932 - Broken pipe from ('127.0.0.1', 62502)
+INFO 2025-08-05 14:54:35,402 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:54:35,656 basehttp 20084 9752 - Broken pipe from ('127.0.0.1', 62499)
+INFO 2025-08-05 14:54:35,854 basehttp 20084 23812 - Broken pipe from ('127.0.0.1', 62500)
+DEBUG 2025-08-05 14:54:36,395 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece una fórmula para ajustar el alquiler en caso de renovación.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:54:36,414 ml_service 20084 14644 Validando cláusula con LLM: 'OCTAVO: : LA INQUILINA asumirá el pago de los servicios de electricidad, teléfon...'
+DEBUG 2025-08-05 14:54:36,415 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:54:37,727 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula asigna responsabilidades claras de pago de servicios entre las partes.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:54:37,750 ml_service 20084 14644 Validando cláusula con LLM: 'NOVENO: : LA INQUILINA presenta como su FIADOR SOLIDARIO E INDIVISIBLE a la seño...'
+DEBUG 2025-08-05 14:54:37,751 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+INFO 2025-08-05 14:54:38,776 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+DEBUG 2025-08-05 14:54:39,028 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula establece una garantía solidaria para el cumplimiento del contrato de arrendamiento.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:54:39,079 ml_service 20084 14644 Validando cláusula con LLM: 'DÉCIMO: : LA INQUILINA se obliga a entregar el inmueble en perfecto estado al té...'
+DEBUG 2025-08-05 14:54:39,080 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:54:40,258 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece la obligación del inquilino de devolver el inmueble en buen estado y dar por terminados los contratos de servicios. No parece abusiva.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:54:40,284 ml_service 20084 14644 Validando cláusula con LLM: 'PRIMERO: : En caso de que LA INQUILINA rescinda el contrato antes de su vencimie...'
+DEBUG 2025-08-05 14:54:40,285 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:54:42,051 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula impone una penalidad desproporcionada y unívoca a la inquilina en caso de rescisión anticipada del contrato.', 'suggested_fix': 'La penalidad debería ser equivalente a los daños y perjuicios reales sufridos por la parte perjudicada, no una cantidad fija.', 'confidence': 0.9}
+INFO 2025-08-05 14:54:42,084 ml_service 20084 14644 Validando cláusula con LLM: 'SEGUNDO: : Todas las condiciones del presente contrato son esenciales y su incum...'
+DEBUG 2025-08-05 14:54:42,085 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+INFO 2025-08-05 14:54:42,142 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+DEBUG 2025-08-05 14:54:43,571 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula establece las consecuencias en caso de incumplimiento de las condiciones contractuales.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:54:43,592 ml_service 20084 14644 Validando cláusula con LLM: 'TERCERO: : Las partes se someten a la jurisdicción de los tribunales de Santo Do...'
+DEBUG 2025-08-05 14:54:43,592 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:54:44,869 ml_service 20084 14644 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Cláusula común en contratos para establecer la jurisdicción competente en caso de disputa.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:54:44,891 ml_service 20084 14644 Iniciando análisis LLM para 1 cláusulas
+DEBUG 2025-08-05 14:54:44,892 ml_service 20084 14644 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+INFO 2025-08-05 14:54:45,509 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+DEBUG 2025-08-05 14:54:48,523 ml_service 20084 14644 Análisis LLM recibido: {'resumen': 'La cláusula primera del contrato podría generar una carga financiera excesiva para la inquilina, quien debería pagar no solo los alquileres vencidos sino también una penalidad completa de un mes de renta en caso de rescindir antes del vencimiento. Esto representa un riesgo desproporcionado y potencialmente abusivo para la inquilina.', 'recomendations': ['Negociar la modificación de la cláusula primera para reducir o eliminar la penalidad por rescisión anticipada, considerando una penalización proporcional al tiempo restante del contrato en lugar de un mes completo de renta.', 'Considerar la posibilidad de incluir una cláusula que permita la rescisión anticipada del contrato sin penalización en caso de presentarse situaciones justificadas, como por ejemplo, pérdida de empleo o traslado forzoso.', 'Buscar asesoramiento legal adicional antes de firmar el contrato para garantizar que los términos sean justos y equitativos para ambas partes.']}
+INFO 2025-08-05 14:54:48,874 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:54:49,491 basehttp 20084 14644 - Broken pipe from ('127.0.0.1', 62475)
+INFO 2025-08-05 14:54:52,243 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:54:55,615 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:54:58,973 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:02,332 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:05,687 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:09,058 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:12,430 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:15,798 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:19,161 basehttp 20084 1556 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:33,599 basehttp 20084 1556 - Broken pipe from ('127.0.0.1', 62511)
+INFO 2025-08-05 14:55:39,121 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:43,772 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:47,087 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:50,415 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:53,729 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:55:57,054 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:00,377 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:03,691 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:07,012 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:10,322 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:13,644 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:16,970 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:20,309 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:23,632 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:26,950 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:30,296 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:33,638 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:36,967 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:40,283 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:43,605 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:46,916 basehttp 20084 10112 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:56:51,091 basehttp 20084 10112 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 3460
+INFO 2025-08-05 14:56:51,706 basehttp 20084 10112 "OPTIONS /api/contracts/26e0196f-c27b-4924-87e9-be5241434ab6/ HTTP/1.1" 200 0
+INFO 2025-08-05 14:56:51,706 basehttp 20084 27176 "OPTIONS /api/clauses/?contract=26e0196f-c27b-4924-87e9-be5241434ab6 HTTP/1.1" 200 0
+INFO 2025-08-05 14:56:52,712 basehttp 20084 10112 "GET /api/clauses/?contract=26e0196f-c27b-4924-87e9-be5241434ab6 HTTP/1.1" 200 10203
+INFO 2025-08-05 14:56:52,849 basehttp 20084 27176 "GET /api/contracts/26e0196f-c27b-4924-87e9-be5241434ab6/ HTTP/1.1" 200 13487
+INFO 2025-08-05 14:56:53,901 basehttp 20084 27176 "GET /api/clauses/?contract=26e0196f-c27b-4924-87e9-be5241434ab6 HTTP/1.1" 200 10203
+INFO 2025-08-05 14:57:25,088 basehttp 20084 27176 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 3460
+INFO 2025-08-05 14:57:25,245 basehttp 20084 27176 "GET /api/clauses/?contract=dc10945e-78df-4e07-932a-560a6aa77d34 HTTP/1.1" 200 52
+INFO 2025-08-05 14:57:28,432 basehttp 20084 27176 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:57:31,771 basehttp 20084 27176 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:57:35,104 basehttp 20084 27176 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 200 3305
+INFO 2025-08-05 14:57:38,650 basehttp 20084 27176 "DELETE /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 204 0
+WARNING 2025-08-05 14:57:38,724 log 20084 27176 Not Found: /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/
+WARNING 2025-08-05 14:57:38,725 basehttp 20084 27176 "GET /api/contracts/dc10945e-78df-4e07-932a-560a6aa77d34/ HTTP/1.1" 404 49
+INFO 2025-08-05 14:57:39,921 basehttp 20084 10112 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 3121
+INFO 2025-08-05 14:57:39,950 basehttp 20084 27176 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 3121
+INFO 2025-08-05 14:58:04,283 ml_service 20084 27176 Iniciando extracción de cláusulas con LLM (prompt mejorado)
+DEBUG 2025-08-05 14:58:04,284 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+ERROR 2025-08-05 14:58:22,338 ml_service 20084 27176 Error en el análisis del LLM: Unterminated string starting at: line 52 column 7 (char 2840)
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 112, in _call_llm_api
+    analysis = json.loads(content)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 52 column 7 (char 2840)
+ERROR 2025-08-05 14:58:22,341 ml_service 20084 27176 No se pudieron extraer cláusulas con el LLM.
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 200, in _extract_clauses_with_llm
+    analysis = self._call_llm_api(prompt, system_message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 112, in _call_llm_api
+    analysis = json.loads(content)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 52 column 7 (char 2840)
+INFO 2025-08-05 14:58:22,349 ml_service 20084 27176 Usando método de extracción regex como respaldo.
+INFO 2025-08-05 14:58:22,353 ml_service 20084 27176 Validando cláusula con LLM: 'PRIMERO: : EL PROPIETARIO da en alquiler a LA INQUILINA un apartamento en el pri...'
+DEBUG 2025-08-05 14:58:22,353 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:23,993 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece los términos básicos de un contrato de arrendamiento.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:58:24,039 ml_service 20084 27176 Validando cláusula con LLM: 'SEGUNDO: : EL PROPIETARIO garantiza a LA INQUILINA el uso del inmueble, pero se ...'
+DEBUG 2025-08-05 14:58:24,040 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:25,515 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece el derecho de acceso del propietario al inmueble arrendado.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:58:25,547 ml_service 20084 27176 Validando cláusula con LLM: 'TERCERO: : LA INQUILINA queda obligada a mantener el inmueble en buenas condicio...'
+DEBUG 2025-08-05 14:58:25,548 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:27,375 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula define las responsabilidades de mantenimiento y reparación entre las partes.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:58:27,406 ml_service 20084 27176 Validando cláusula con LLM: 'CUARTO: : LA INQUILINA se compromete a no hacer modificaciones en el inmueble si...'
+DEBUG 2025-08-05 14:58:27,407 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:29,199 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula establece una restricción razonable sobre los cambios que la inquilina puede realizar en el inmueble.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:58:29,229 ml_service 20084 27176 Validando cláusula con LLM: 'QUINTO: : LA INQUILINA queda obligada a pagar la suma de TREINTA MIL PESOS DOMIN...'
+DEBUG 2025-08-05 14:58:29,230 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:32,016 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula permite al propietario desalojar a la inquilina sin previo aviso por falta de pago, lo que podría considerarse abusivo e injusto.', 'suggested_fix': 'Se sugiere incluir un período de gracia razonable antes del desalojo y especificar las circunstancias en que se puede aplicar.', 'confidence': 0.9}
+INFO 2025-08-05 14:58:32,047 ml_service 20084 27176 Validando cláusula con LLM: 'SEXTO: : El presente contrato tendrá una vigencia de UN (1) año, pero podrá ser ...'
+DEBUG 2025-08-05 14:58:32,048 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:33,583 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula permite al propietario cancelar el contrato en cualquier momento sin compensación a la inquilina, lo que puede considerarse abusivo.', 'suggested_fix': 'Se sugiere agregar una cláusula que especifique las circunstancias en las que el propietario puede cancelar el contrato y establecer una compensación justa para la inquilina en caso de cancelación unilateral.', 'confidence': 0.9}
+INFO 2025-08-05 14:58:33,613 ml_service 20084 27176 Validando cláusula con LLM: 'SÉPTIMO: : En caso de renovación, el alquiler aumentará en un 25% sin necesidad ...'
+DEBUG 2025-08-05 14:58:33,614 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:36,321 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula impone un aumento de alquiler desproporcionado y unilateral sin previo aviso, lo que podría considerarse abusivo.', 'suggested_fix': 'El arrendador debe dar un previo aviso y justificar cualquier aumento de alquiler, de acuerdo con la legislación dominicana.', 'confidence': 0.9}
+INFO 2025-08-05 14:58:36,346 ml_service 20084 27176 Validando cláusula con LLM: 'OCTAVO: : LA INQUILINA deberá pagar todos los servicios, incluyendo agua y basur...'
+DEBUG 2025-08-05 14:58:36,346 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:37,979 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula impone al inquilino el pago de servicios sin tener en cuenta su consumo.', 'suggested_fix': 'El inquilino deberá pagar los servicios de agua y basura en proporción a su consumo o uso.', 'confidence': 0.9}
+INFO 2025-08-05 14:58:38,015 ml_service 20084 27176 Validando cláusula con LLM: 'NOVENO: : LA INQUILINA presenta como su FIADOR SOLIDARIO E INDIVISIBLE al señor ...'
+DEBUG 2025-08-05 14:58:38,015 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:39,546 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una estipulación común en contratos de arrendamiento donde se designa un fiador solidario.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:58:39,585 ml_service 20084 27176 Validando cláusula con LLM: 'DÉCIMO: : LA INQUILINA se obliga a entregar el inmueble al término del contrato,...'
+DEBUG 2025-08-05 14:58:39,586 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:42,849 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula impone una penalidad desproporcionada y fija al inquilino por entregar el inmueble después de la fecha establecida, lo que podría considerarse abusivo.', 'suggested_fix': 'Se sugiere establecer una penalización proporcional al daño real sufrido o al perjuicio causado por la demora en la entrega del inmueble.', 'confidence': 0.9}
+INFO 2025-08-05 14:58:42,868 ml_service 20084 27176 Validando cláusula con LLM: 'PRIMERO: : En caso de que LA INQUILINA rescinda el contrato antes de su vencimie...'
+DEBUG 2025-08-05 14:58:42,869 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:44,770 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula impone una penalidad desproporcionada y fija a la inquilina por rescindir el contrato antes de su vencimiento.', 'suggested_fix': 'La inquilina deberá pagar los alquileres vencidos y una penalidad justa y razonable por los costos de re-alquilar el local.', 'confidence': 0.9}
+INFO 2025-08-05 14:58:44,804 ml_service 20084 27176 Validando cláusula con LLM: 'SEGUNDO: : Todas las condiciones del presente contrato son modificables unilater...'
+DEBUG 2025-08-05 14:58:44,804 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:47,498 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula permite al Propietario modificar unilateralmente las condiciones del contrato, lo que puede ser desproporcionado e injusto para la otra parte.', 'suggested_fix': 'La cláusula debería requerir el consentimiento mutuo de ambas partes para realizar cualquier modificación a los términos del contrato.', 'confidence': 0.9}
+INFO 2025-08-05 14:58:47,523 ml_service 20084 27176 Validando cláusula con LLM: 'TERCERO: : Las partes renuncian expresamente a cualquier acción legal en caso de...'
+DEBUG 2025-08-05 14:58:47,524 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:49,076 ml_service 20084 27176 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula establece una renuncia a acciones legales en caso de disputa entre las partes.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 14:58:49,087 ml_service 20084 27176 Iniciando análisis LLM para 7 cláusulas
+DEBUG 2025-08-05 14:58:49,087 ml_service 20084 27176 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 14:58:52,226 ml_service 20084 27176 Análisis LLM recibido: {'resumen': 'Las cláusulas identificadas en el contrato pueden generar desequilibrio de poder a favor del propietario, poniendo en riesgo la estabilidad financiera y legal de la inquilina. Existen posibles escenarios de aumento unilateral de alquiler, cargos por servicios no utilizados, penalizaciones excesivas y modificaciones unilaterales de términos contractuales.', 'recomendaciones': ['Considerar la negociación de cláusulas que limiten el aumento de alquiler y establezcan criterios claros para su determinación.', 'Evaluar la posibilidad de incluir compensaciones en caso de cancelación anticipada por parte del propietario.', 'Buscar asesoría legal para revisar los términos y condiciones del contrato, asegurando un equilibrio en las responsabilidades y obligaciones de ambas partes.']}
+INFO 2025-08-05 14:58:53,160 basehttp 20084 27176 - Broken pipe from ('127.0.0.1', 62492)
+INFO 2025-08-05 14:59:28,320 basehttp 20084 10112 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 3494
+INFO 2025-08-05 14:59:28,981 basehttp 20084 8044 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 3494
+INFO 2025-08-05 14:59:30,706 basehttp 20084 8044 "OPTIONS /api/contracts/95f08aff-9674-481f-ba35-cbf3e76c6524/ HTTP/1.1" 200 0
+INFO 2025-08-05 14:59:30,706 basehttp 20084 10112 "OPTIONS /api/clauses/?contract=95f08aff-9674-481f-ba35-cbf3e76c6524 HTTP/1.1" 200 0
+INFO 2025-08-05 14:59:31,794 basehttp 20084 8044 "GET /api/clauses/?contract=95f08aff-9674-481f-ba35-cbf3e76c6524 HTTP/1.1" 200 10157
+INFO 2025-08-05 14:59:31,841 basehttp 20084 10112 "GET /api/contracts/95f08aff-9674-481f-ba35-cbf3e76c6524/ HTTP/1.1" 200 13016
+INFO 2025-08-05 14:59:32,876 basehttp 20084 10112 "GET /api/clauses/?contract=95f08aff-9674-481f-ba35-cbf3e76c6524 HTTP/1.1" 200 10157
+INFO 2025-08-05 19:32:39,810 basehttp 20084 13168 "OPTIONS /api/contracts/?page_size=100 HTTP/1.1" 200 0
+INFO 2025-08-05 19:32:39,816 basehttp 20084 26884 "OPTIONS /api/contracts/?page_size=5 HTTP/1.1" 200 0
+INFO 2025-08-05 19:32:41,750 basehttp 20084 13168 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 3494
+INFO 2025-08-05 19:32:41,752 basehttp 20084 26884 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 3494
+INFO 2025-08-05 19:32:44,712 basehttp 20084 13168 "OPTIONS /api/clauses/?contract=ba2b6dfa-d9b4-47c4-9a4c-5359e3b73ced HTTP/1.1" 200 0
+INFO 2025-08-05 19:32:44,712 basehttp 20084 26884 "OPTIONS /api/contracts/ba2b6dfa-d9b4-47c4-9a4c-5359e3b73ced/ HTTP/1.1" 200 0
+INFO 2025-08-05 19:32:45,933 basehttp 20084 26884 "GET /api/clauses/?contract=ba2b6dfa-d9b4-47c4-9a4c-5359e3b73ced HTTP/1.1" 200 12348
+INFO 2025-08-05 19:32:46,062 basehttp 20084 13168 "GET /api/contracts/ba2b6dfa-d9b4-47c4-9a4c-5359e3b73ced/ HTTP/1.1" 200 16728
+INFO 2025-08-05 19:32:47,292 basehttp 20084 13168 "GET /api/clauses/?contract=ba2b6dfa-d9b4-47c4-9a4c-5359e3b73ced HTTP/1.1" 200 12348
+INFO 2025-08-05 19:52:31,576 autoreload 27912 7256 Watching for file changes with StatReloader
+INFO 2025-08-05 19:52:55,487 basehttp 27912 9968 "OPTIONS /api/contract-types/ HTTP/1.1" 200 0
+INFO 2025-08-05 19:52:56,068 basehttp 27912 9968 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-08-05 19:53:38,715 basehttp 27912 9968 "OPTIONS /api/contracts/ HTTP/1.1" 200 0
+INFO 2025-08-05 19:53:39,159 ml_service 27912 9968 Iniciando extracción de cláusulas con LLM (prompt mejorado)
+DEBUG 2025-08-05 19:53:39,159 ml_service 27912 9968 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 19:53:47,661 ml_service 27912 9968 Análisis LLM recibido: {'clauses': [{'clause_number': 'PREÁMBULO', 'text': 'EL VENDEDOR es propietario del Vehículo descrito más abajo en el Artículo Primero del presente Contrato, y está interesado en vender dicho Vehículo a EL COMPRADOR.\nPOR CUANTO (2): EL COMPRADOR ha manifestado su interés en adquirir el Vehículo propiedad de EL VENDEDOR.'}, {'clause_number': 'ARTÍCULO PRIMERO', 'text': 'EL VENDEDOR, por medio de este Contrato, VENDE, CEDE Y TRASPASA, desde hoy y para siempre, sin impedimento alguno, libre de cargas y gravámenes y con todas las garantías de derecho, a favor de EL COMPRADOR, quien acepta, el Vehículo que se describe a continuación (en lo adelante, el “Vehículo”):\n“Un Vehículo de motor tipo SEDÁN PRIVADO, marca TOYOTA, modelo COROLLA, fabricado en el año 2018, color NEGRO, motor No. 4A9-56789, de 5 pasajeros, fuerza motriz GASOLINA, 4 cilindros.- Amparado por el Certificado de Propiedad de Vehículos de Motor No. 0123456789, expedido por la Dirección General de Impuestos Internos (DGII), inscrito bajo el No. de Registro y Placa A123456, Chasis ABCD12345678”.'}, {'clause_number': 'ARTÍCULO SEGUNDO', 'text': 'El precio acordado entre LAS PARTES para la venta del Vehículo asciende a la suma de QUINIENTOS MIL PESOS DOMINICANOS (RD$500,000.00), cantidad que ha sido pagada en su totalidad por EL COMPRADOR a EL VENDEDOR en el momento de suscribirse el presente Contrato. En consecuencia, EL VENDEDOR otorga en favor de EL COMPRADOR formal e irrevocable recibo de descargo total y definitivo, carta de pago y finiquito por el precio de venta convenido, así como la matrícula del Vehículo debidamente endosada, y cualquier otra documentación requerida por las autoridades para el traspaso. De igual manera, EL VENDEDOR autoriza al Director General de Impuestos Internos o a la Colecturía correspondiente a ejecutar la transferencia o traspaso en propiedad del Vehículo en favor de EL COMPRADOR, sin impedimento alguno, ni limitación.'}, {'clause_number': 'ARTÍCULO TERCERO', 'text': 'La primera parte autoriza a la segunda parte a efectuar el traspaso en su favor de la matrícula original antes indicada por ante las autoridades correspondientes (Dirección General de Impuestos Internos).'}]}
+INFO 2025-08-05 19:53:47,665 ml_service 27912 9968 Validando cláusula con LLM: 'EL VENDEDOR es propietario del Vehículo descrito más abajo en el Artículo Primer...'
+DEBUG 2025-08-05 19:53:47,668 ml_service 27912 9968 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 19:53:49,183 ml_service 27912 9968 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula describe el interés de ambas partes en un acuerdo de compraventa.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 19:53:49,204 ml_service 27912 9968 Validando cláusula con LLM: 'EL VENDEDOR, por medio de este Contrato, VENDE, CEDE Y TRASPASA, desde hoy y par...'
+DEBUG 2025-08-05 19:53:49,204 ml_service 27912 9968 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 19:53:51,121 ml_service 27912 9968 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una descripción legal de un traspaso de propiedad de un vehículo.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 19:53:51,160 ml_service 27912 9968 Validando cláusula con LLM: 'El precio acordado entre LAS PARTES para la venta del Vehículo asciende a la sum...'
+DEBUG 2025-08-05 19:53:51,160 ml_service 27912 9968 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 19:53:52,952 ml_service 27912 9968 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una disposición de traspaso de propiedad común en un contrato de compraventa.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 19:53:52,988 ml_service 27912 9968 Validando cláusula con LLM: 'La primera parte autoriza a la segunda parte a efectuar el traspaso en su favor ...'
+DEBUG 2025-08-05 19:53:52,989 ml_service 27912 9968 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 19:53:54,745 ml_service 27912 9968 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una estipulación común en contratos donde una parte transfiere un derecho o propiedad a otra.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 19:53:54,759 ml_service 27912 9968 No hay cláusulas para analizar con LLM
+INFO 2025-08-05 19:53:55,085 basehttp 27912 9968 - Broken pipe from ('127.0.0.1', 51925)
+INFO 2025-08-05 19:54:43,462 basehttp 27912 26056 "GET /api/clauses/?contract=ba2b6dfa-d9b4-47c4-9a4c-5359e3b73ced HTTP/1.1" 200 12348
+INFO 2025-08-05 19:54:43,594 basehttp 27912 13984 "GET /api/contracts/ba2b6dfa-d9b4-47c4-9a4c-5359e3b73ced/ HTTP/1.1" 200 16728
+INFO 2025-08-05 19:54:43,882 basehttp 27912 16496 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 3868
+INFO 2025-08-05 19:54:43,882 basehttp 27912 10724 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 3868
+INFO 2025-08-05 19:54:45,926 basehttp 27912 10724 "OPTIONS /api/clauses/?contract=79edf685-9e27-4211-a569-fec469ad0852 HTTP/1.1" 200 0
+INFO 2025-08-05 19:54:45,927 basehttp 27912 16496 "OPTIONS /api/contracts/79edf685-9e27-4211-a569-fec469ad0852/ HTTP/1.1" 200 0
+INFO 2025-08-05 19:54:46,371 basehttp 27912 16496 "GET /api/clauses/?contract=79edf685-9e27-4211-a569-fec469ad0852 HTTP/1.1" 200 4316
+INFO 2025-08-05 19:54:46,495 basehttp 27912 10724 "GET /api/contracts/79edf685-9e27-4211-a569-fec469ad0852/ HTTP/1.1" 200 8115
+INFO 2025-08-05 19:54:46,946 basehttp 27912 10724 "GET /api/clauses/?contract=79edf685-9e27-4211-a569-fec469ad0852 HTTP/1.1" 200 4316
+INFO 2025-08-05 19:56:59,535 ml_service 27912 10724 Iniciando extracción de cláusulas con LLM (prompt mejorado)
+DEBUG 2025-08-05 19:56:59,536 ml_service 27912 10724 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 19:57:11,410 ml_service 27912 10724 Análisis LLM recibido: {'clauses': [{'clause_number': 'ARTICULO PRIMERO', 'text': 'EL VENDEDOR, por medio de este Contrato, VENDE, CEDE Y TRASPASA, desde hoy y para siempre, a favor de EL COMPRADOR, quien acepta, el Vehículo que se describe a continuación:\n"Un Vehículo de motor tipo SUV, marca Nissan, modelo X-Trail, fabricado en el año 2020, color Rojo, motor No. XYZ123456789, de 7 pasajeros, fuerza motriz Diésel, 6 cilindros.- Amparado por el Certificado de Propiedad de Vehículos de Motor No. 789456123, expedido por la Dirección General de Impuestos Internos (DGII) en fecha 15 de Mayo del 2019, inscrito bajo el No. de Registro y Placa A123456, Chasis ABC789456123".'}, {'clause_number': 'ARTICULO SEGUNDO', 'text': 'El precio acordado entre LAS PARTES para la venta del Vehículo asciende a la suma de RD$500,000.00 (quinientos mil pesos dominicanos) con el ITBIS incluido, cantidad que ha sido pagada parcialmente por EL COMPRADOR a EL VENDEDOR en el momento de suscribirse el presente Contrato. Sin embargo, no se ha especificado un plazo ni condiciones claras para el pago restante. Por consiguiente, EL VENDEDOR no otorga en favor de EL COMPRADOR carta de pago ni finiquito por el precio de venta convenido. Además, el vehículo aún no ha sido registrado formalmente en DGII para su traspaso.'}, {'clause_number': 'ARTICULO TERCERO', 'text': 'La primera parte no garantiza la posibilidad de efectuar el traspaso en su favor de la matrícula original antes indicada, ya que el vehículo se encuentra en un proceso legal pendiente.'}]}
+INFO 2025-08-05 19:57:11,419 ml_service 27912 10724 Validando cláusula con LLM: 'EL VENDEDOR, por medio de este Contrato, VENDE, CEDE Y TRASPASA, desde hoy y par...'
+DEBUG 2025-08-05 19:57:11,420 ml_service 27912 10724 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 19:57:13,214 ml_service 27912 10724 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una transferencia de propiedad legal de un vehículo.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 19:57:13,254 ml_service 27912 10724 Validando cláusula con LLM: 'El precio acordado entre LAS PARTES para la venta del Vehículo asciende a la sum...'
+DEBUG 2025-08-05 19:57:13,255 ml_service 27912 10724 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 19:57:14,860 ml_service 27912 10724 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece los términos y condiciones del pago pendiente para la venta de un vehículo.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 19:57:14,915 ml_service 27912 10724 Validando cláusula con LLM: 'La primera parte no garantiza la posibilidad de efectuar el traspaso en su favor...'
+DEBUG 2025-08-05 19:57:14,915 ml_service 27912 10724 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 19:57:16,907 ml_service 27912 10724 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece una condición para el traspaso de la matrícula, relacionada con un proceso legal en curso.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 19:57:16,932 ml_service 27912 10724 No hay cláusulas para analizar con LLM
+INFO 2025-08-05 19:57:17,189 basehttp 27912 10724 - Broken pipe from ('127.0.0.1', 52029)
+INFO 2025-08-05 19:59:55,402 basehttp 27912 11212 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 4250
+INFO 2025-08-05 19:59:55,410 basehttp 27912 18152 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 4250
+INFO 2025-08-05 20:01:20,118 basehttp 27912 18152 "OPTIONS /api/contracts/6a6651c5-74b1-4dad-a3e6-6075c43730e5/ HTTP/1.1" 200 0
+INFO 2025-08-05 20:01:20,118 basehttp 27912 11212 "OPTIONS /api/clauses/?contract=6a6651c5-74b1-4dad-a3e6-6075c43730e5 HTTP/1.1" 200 0
+INFO 2025-08-05 20:01:20,495 basehttp 27912 18152 "GET /api/clauses/?contract=6a6651c5-74b1-4dad-a3e6-6075c43730e5 HTTP/1.1" 200 3110
+INFO 2025-08-05 20:01:20,619 basehttp 27912 11212 "GET /api/contracts/6a6651c5-74b1-4dad-a3e6-6075c43730e5/ HTTP/1.1" 200 5340
+INFO 2025-08-05 20:01:21,016 basehttp 27912 11212 "GET /api/clauses/?contract=6a6651c5-74b1-4dad-a3e6-6075c43730e5 HTTP/1.1" 200 3110
+INFO 2025-08-05 20:03:45,158 autoreload 16500 17960 Watching for file changes with StatReloader
+INFO 2025-08-05 21:39:29,521 basehttp 16500 15448 "OPTIONS /api/contracts/6a6651c5-74b1-4dad-a3e6-6075c43730e5/analyze/ HTTP/1.1" 200 0
+INFO 2025-08-05 21:39:30,609 ml_service 16500 2664 Iniciando extracción de cláusulas con LLM (prompt mejorado)
+DEBUG 2025-08-05 21:39:30,609 ml_service 16500 2664 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+INFO 2025-08-05 21:39:30,671 ml_service 16500 15448 Iniciando extracción de cláusulas con LLM (prompt mejorado)
+DEBUG 2025-08-05 21:39:30,671 ml_service 16500 15448 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:39:37,958 ml_service 16500 2664 Análisis LLM recibido: {'clauses': [{'clause_number': 'ARTICULO PRIMERO', 'text': 'EL VENDEDOR, por medio de este Contrato, VENDE, CEDE Y TRASPASA, desde hoy y para siempre, a favor de EL COMPRADOR, quien acepta, el Vehículo que se describe a continuación:\n"Un Vehículo de motor tipo SUV, marca Nissan, modelo X-Trail, fabricado en el año 2020, color Rojo, motor No. XYZ123456789, de 7 pasajeros, fuerza motriz Diésel, 6 cilindros.- Amparado por el Certificado de Propiedad de Vehículos de Motor No. 789456123, expedido por la Dirección General de Impuestos Internos (DGII) en fecha 15 de Mayo del 2019, inscrito bajo el No. de Registro y Placa A123456, Chasis ABC789456123".'}, {'clause_number': 'ARTICULO SEGUNDO', 'text': 'El precio acordado entre LAS PARTES para la venta del Vehículo asciende a la suma de RD$500,000.00 (quinientos mil pesos dominicanos) con el ITBIS incluido, cantidad que ha sido pagada parcialmente por EL COMPRADOR a EL VENDEDOR en el momento de suscribirse el presente Contrato. Sin embargo, no se ha especificado un plazo ni condiciones claras para el pago restante. Por consiguiente, EL VENDEDOR no otorga en favor de EL COMPRADOR carta de pago ni finiquito por el precio de venta convenido. Además, el vehículo aún no ha sido registrado formalmente en DGII para su traspaso.'}, {'clause_number': 'ARTICULO TERCERO', 'text': 'La primera parte no garantiza la posibilidad de efectuar el traspaso en su favor de la matrícula original antes indicada, ya que el vehículo se encuentra en un proceso legal pendiente.'}]}
+INFO 2025-08-05 21:39:37,969 ml_service 16500 2664 Validando cláusula con LLM: 'EL VENDEDOR, por medio de este Contrato, VENDE, CEDE Y TRASPASA, desde hoy y par...'
+DEBUG 2025-08-05 21:39:37,970 ml_service 16500 2664 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:39:38,103 ml_service 16500 15448 Análisis LLM recibido: {'clauses': [{'clause_number': 'ARTICULO PRIMERO', 'text': 'EL VENDEDOR, por medio de este Contrato, VENDE, CEDE Y TRASPASA, desde hoy y para siempre, a favor de EL COMPRADOR, quien acepta, el Vehículo que se describe a continuación:\n"Un Vehículo de motor tipo SUV, marca Nissan, modelo X-Trail, fabricado en el año 2020, color Rojo, motor No. XYZ123456789, de 7 pasajeros, fuerza motriz Diésel, 6 cilindros.- Amparado por el Certificado de Propiedad de Vehículos de Motor No. 789456123, expedido por la Dirección General de Impuestos Internos (DGII) en fecha 15 de Mayo del 2019, inscrito bajo el No. de Registro y Placa A123456, Chasis ABC789456123".'}, {'clause_number': 'ARTICULO SEGUNDO', 'text': 'El precio acordado entre LAS PARTES para la venta del Vehículo asciende a la suma de RD$500,000.00 (quinientos mil pesos dominicanos) con el ITBIS incluido, cantidad que ha sido pagada parcialmente por EL COMPRADOR a EL VENDEDOR en el momento de suscribirse el presente Contrato. Sin embargo, no se ha especificado un plazo ni condiciones claras para el pago restante. Por consiguiente, EL VENDEDOR no otorga en favor de EL COMPRADOR carta de pago ni finiquito por el precio de venta convenido. Además, el vehículo aún no ha sido registrado formalmente en DGII para su traspaso.'}, {'clause_number': 'ARTICULO TERCERO', 'text': 'LA PRIMERA PARTE no garantiza la posibilidad de efectuar el traspaso en su favor de la matrícula original antes indicada, ya que el vehículo se encuentra en un proceso legal pendiente.'}]}
+INFO 2025-08-05 21:39:38,106 ml_service 16500 15448 Validando cláusula con LLM: 'EL VENDEDOR, por medio de este Contrato, VENDE, CEDE Y TRASPASA, desde hoy y par...'
+DEBUG 2025-08-05 21:39:38,106 ml_service 16500 15448 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:39:39,941 ml_service 16500 2664 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una transferencia de propiedad legal de un vehículo.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:39:40,006 ml_service 16500 2664 Validando cláusula con LLM: 'El precio acordado entre LAS PARTES para la venta del Vehículo asciende a la sum...'
+DEBUG 2025-08-05 21:39:40,007 ml_service 16500 2664 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:39:40,290 ml_service 16500 15448 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una transferencia de propiedad legal de un vehículo.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:39:40,341 ml_service 16500 15448 Validando cláusula con LLM: 'El precio acordado entre LAS PARTES para la venta del Vehículo asciende a la sum...'
+DEBUG 2025-08-05 21:39:40,341 ml_service 16500 15448 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:39:43,830 ml_service 16500 2664 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece los términos y condiciones del pago pendiente para el vehículo, pero no parece ser abusiva.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:39:43,899 ml_service 16500 2664 Validando cláusula con LLM: 'La primera parte no garantiza la posibilidad de efectuar el traspaso en su favor...'
+DEBUG 2025-08-05 21:39:43,899 ml_service 16500 2664 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:39:45,492 ml_service 16500 15448 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece los términos del pago y la transferencia de propiedad de un vehículo, pero no parece ser abusiva.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:39:45,555 ml_service 16500 15448 Validando cláusula con LLM: 'LA PRIMERA PARTE no garantiza la posibilidad de efectuar el traspaso en su favor...'
+DEBUG 2025-08-05 21:39:45,556 ml_service 16500 15448 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:39:45,618 ml_service 16500 2664 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece condiciones para el traspaso de la matrícula de un vehículo en un proceso legal pendiente.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:39:45,640 ml_service 16500 2664 No hay cláusulas para analizar con LLM
+INFO 2025-08-05 21:39:45,957 basehttp 16500 2664 - Broken pipe from ('127.0.0.1', 54454)
+DEBUG 2025-08-05 21:39:47,269 ml_service 16500 15448 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece condiciones para el traspaso de la matrícula de un vehículo.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:39:47,295 ml_service 16500 15448 No hay cláusulas para analizar con LLM
+INFO 2025-08-05 21:39:47,613 basehttp 16500 15448 - Broken pipe from ('127.0.0.1', 54453)
+INFO 2025-08-05 21:40:22,678 basehttp 16500 2416 "GET /api/clauses/?contract=6a6651c5-74b1-4dad-a3e6-6075c43730e5 HTTP/1.1" 200 6177
+INFO 2025-08-05 21:40:22,833 basehttp 16500 29328 "GET /api/contracts/6a6651c5-74b1-4dad-a3e6-6075c43730e5/ HTTP/1.1" 200 8407
+INFO 2025-08-05 21:40:23,499 basehttp 16500 29328 "GET /api/clauses/?contract=6a6651c5-74b1-4dad-a3e6-6075c43730e5 HTTP/1.1" 200 6177
+INFO 2025-08-05 21:40:46,508 basehttp 16500 29328 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-08-05 21:41:33,787 ml_service 16500 29328 Iniciando extracción de cláusulas con LLM (prompt mejorado)
+DEBUG 2025-08-05 21:41:33,787 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+ERROR 2025-08-05 21:41:48,186 ml_service 16500 29328 Error en el análisis del LLM: Unterminated string starting at: line 52 column 24 (char 2852)
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 112, in _call_llm_api
+    analysis = json.loads(content)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 52 column 24 (char 2852)
+ERROR 2025-08-05 21:41:48,216 ml_service 16500 29328 No se pudieron extraer cláusulas con el LLM.
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 200, in _extract_clauses_with_llm
+    analysis = self._call_llm_api(prompt, system_message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\GitHub\Proyecto-grado-ICC\backend\ml_analysis\ml_service.py", line 112, in _call_llm_api
+    analysis = json.loads(content)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\envs\contract-analysis\Lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 52 column 24 (char 2852)
+INFO 2025-08-05 21:41:48,220 ml_service 16500 29328 Usando método de extracción regex como respaldo.
+INFO 2025-08-05 21:41:48,225 ml_service 16500 29328 Validando cláusula con LLM: 'SEGUNDO: : LA PROPIETARIA se reserva el derecho de ingresar a la propiedad sin p...'
+DEBUG 2025-08-05 21:41:48,226 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:41:50,024 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece el derecho de la propietaria a inspeccionar la propiedad sin previo aviso, lo cual es común en contratos de arrendamiento.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:41:50,048 ml_service 16500 29328 Validando cláusula con LLM: 'TERCERO: : EL INQUILINO queda obligado a pagar cualquier daño estructural o de m...'
+DEBUG 2025-08-05 21:41:50,048 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:41:52,516 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula transfiere toda la responsabilidad de daños estructurales al inquilino, sin importar la causa, lo que puede ser abusivo e injusto.', 'suggested_fix': 'El inquilino será responsable de los daños estructurales resultantes de su negligencia o mal uso intencional, mientras que el propietario asumirá la responsabilidad de los daños causados por fuerza mayor o por desgaste natural.', 'confidence': 0.9}
+INFO 2025-08-05 21:41:52,537 ml_service 16500 29328 Validando cláusula con LLM: 'CUARTO: : EL INQUILINO no podrá recibir visitas después de las 9:00 p.m., salvo ...'
+DEBUG 2025-08-05 21:41:52,538 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:41:54,283 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula establece una restricción razonable sobre las visitas en horas de la noche.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:41:54,316 ml_service 16500 29328 Validando cláusula con LLM: 'QUINTO: : EL INQUILINO queda obligado a pagar la suma de CUARENTA MIL PESOS DOMI...'
+DEBUG 2025-08-05 21:41:54,317 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:41:56,424 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula permite a la propietaria cambiar las cerraduras sin previo aviso por un retraso en el pago, lo cual es desproporcionado.', 'suggested_fix': 'Se sugiere que se otorgue un aviso previo razonable a el inquilino antes de realizar cualquier cambio en las cerraduras, y que se considere la gravedad y la duración del retraso en el pago.', 'confidence': 0.85}
+INFO 2025-08-05 21:41:56,456 ml_service 16500 29328 Validando cláusula con LLM: 'SEXTO: : El presente contrato tendrá una vigencia de UN (1) año, pero podrá ser ...'
+DEBUG 2025-08-05 21:41:56,457 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:41:59,366 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula permite a LA PROPIETARIA cancelar el contrato en cualquier momento sin dar motivo ni compensación, lo que podría ser considerado abusivo.', 'suggested_fix': 'Se sugiere incluir una cláusula de cancelación mutua con un preaviso razonable para garantizar la justicia en la relación contractual.', 'confidence': 0.9}
+INFO 2025-08-05 21:41:59,382 ml_service 16500 29328 Validando cláusula con LLM: 'SÉPTIMO: : En caso de renovación, el alquiler aumentará en un 30% automáticament...'
+DEBUG 2025-08-05 21:41:59,383 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:42:02,270 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula impone un aumento automático del alquiler sin previo aviso, lo que puede considerarse abusivo.', 'suggested_fix': 'Se sugiere que el aumento del alquiler en caso de renovación esté sujeto a un aviso previo y a una justificación razonable.', 'confidence': 0.9}
+INFO 2025-08-05 21:42:02,289 ml_service 16500 29328 Validando cláusula con LLM: 'OCTAVO: : EL INQUILINO será responsable de pagar cualquier multa o sanción que r...'
+DEBUG 2025-08-05 21:42:02,290 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:42:11,182 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula impone al inquilino la responsabilidad por multas que no necesariamente están relacionadas con sus acciones, lo que podría considerarse injusto.', 'suggested_fix': 'El inquilino debería ser responsable solo de las multas que resulten directamente de sus acciones u omisiones en el uso del local.', 'confidence': 0.85}
+INFO 2025-08-05 21:42:11,211 ml_service 16500 29328 Validando cláusula con LLM: 'NOVENO: : EL INQUILINO presenta como su FIADOR SOLIDARIO E INDIVISIBLE a la seño...'
+DEBUG 2025-08-05 21:42:11,212 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:42:13,155 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'Esta cláusula establece una garantía solidaria para el arrendatario, lo que es común y justo en un contrato de arrendamiento.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:42:13,189 ml_service 16500 29328 Validando cláusula con LLM: 'DÉCIMO: : EL INQUILINO se obliga a entregar el inmueble al término del contrato,...'
+DEBUG 2025-08-05 21:42:13,190 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:42:16,166 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'La cláusula impone una penalidad desproporcionada e onerosa al inquilino por entregar el inmueble después de la fecha establecida.', 'suggested_fix': 'El inquilino deberá entregar el inmueble a más tardar en la fecha establecida, de lo contrario, el arrendador podrá retener una suma razonable como compensación por los daños y perjuicios sufridos, debidamente justificados.', 'confidence': 0.9}
+INFO 2025-08-05 21:42:16,183 ml_service 16500 29328 Validando cláusula con LLM: 'PRIMERO: : En caso de que EL INQUILINO decida rescindir el contrato antes de su ...'
+DEBUG 2025-08-05 21:42:16,184 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:42:17,936 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula impone una penalidad desproporcionada y unilateral al inquilino por rescindir el contrato antes de su vencimiento.', 'suggested_fix': 'Se sugiere una penalización más justa y equilibrada, como un mes de alquiler o una indemnización acordada por ambas partes.', 'confidence': 0.9}
+INFO 2025-08-05 21:42:17,952 ml_service 16500 29328 Validando cláusula con LLM: 'SEGUNDO: : Todas las condiciones del presente contrato podrán ser modificadas en...'
+DEBUG 2025-08-05 21:42:17,953 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:42:20,110 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula permite a LA PROPIETARIA modificar unilateralmente y sin previo aviso las condiciones del contrato, lo que puede ser abusivo y desfavorable para una de las partes.', 'suggested_fix': 'Las partes deben acordar conjuntamente cualquier modificación al contrato, brindando a ambas partes la oportunidad de evaluar los cambios y negociar nuevos términos.', 'confidence': 0.9}
+INFO 2025-08-05 21:42:20,129 ml_service 16500 29328 Validando cláusula con LLM: 'TERCERO: : EL INQUILINO renuncia expresamente a cualquier reclamación legal o di...'
+DEBUG 2025-08-05 21:42:20,130 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:42:21,820 ml_service 16500 29328 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': True, 'explanation': 'Esta cláusula intenta renunciar a cualquier reclamación legal o disputa, lo que podría limitar injustamente los derechos del inquilino.', 'suggested_fix': 'Se debe eliminar o reescribir esta cláusula para garantizar que cualquier disputa se resuelva de manera justa y legal.', 'confidence': 0.9}
+INFO 2025-08-05 21:42:21,837 ml_service 16500 29328 Iniciando análisis LLM para 9 cláusulas
+DEBUG 2025-08-05 21:42:21,838 ml_service 16500 29328 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:42:26,027 ml_service 16500 29328 Análisis LLM recibido: {'resumen': 'Este contrato de arrendamiento contiene cláusulas potencialmente abusivas que transfieren una carga desproporcionada de responsabilidad y riesgo al inquilino. Se requiere el pago por daños estructurales sin importar la causa, multas sin necesidad de fallo condenatorio, renovación automática con aumento de alquiler, penalizaciones por retraso o incumplimiento, y renuncia a reclamaciones legales.', 'recomendaciones': ['Considerar la negociación de cláusulas abusivas o desproporcionadas antes de firmar el contrato.', 'Buscar asesoramiento legal independiente para comprender mejor los términos y riesgos del contrato.', 'Documentar el estado del inmueble antes de mudarse y durante la estancia, con fotografías y/o videos, para evitar disputas sobre daños estructurales.']}
+INFO 2025-08-05 21:42:26,906 basehttp 16500 29328 - Broken pipe from ('127.0.0.1', 54489)
+INFO 2025-08-05 21:42:52,654 basehttp 16500 2416 "OPTIONS /api/contracts/?page_size=100 HTTP/1.1" 200 0
+INFO 2025-08-05 21:42:52,657 basehttp 16500 27764 "OPTIONS /api/contracts/?page_size=5 HTTP/1.1" 200 0
+INFO 2025-08-05 21:42:54,342 basehttp 16500 2416 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 4637
+INFO 2025-08-05 21:42:55,048 basehttp 16500 27764 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 4637
+INFO 2025-08-05 21:42:56,201 basehttp 16500 27764 "OPTIONS /api/contracts/f2c21227-43a8-4208-ad3b-6122c1b43a68/ HTTP/1.1" 200 0
+INFO 2025-08-05 21:42:56,201 basehttp 16500 2416 "OPTIONS /api/clauses/?contract=f2c21227-43a8-4208-ad3b-6122c1b43a68 HTTP/1.1" 200 0
+INFO 2025-08-05 21:42:57,271 basehttp 16500 27764 "GET /api/clauses/?contract=f2c21227-43a8-4208-ad3b-6122c1b43a68 HTTP/1.1" 200 9809
+INFO 2025-08-05 21:42:57,311 basehttp 16500 2416 "GET /api/contracts/f2c21227-43a8-4208-ad3b-6122c1b43a68/ HTTP/1.1" 200 12810
+INFO 2025-08-05 21:42:58,290 basehttp 16500 2416 "GET /api/clauses/?contract=f2c21227-43a8-4208-ad3b-6122c1b43a68 HTTP/1.1" 200 9809
+INFO 2025-08-05 21:49:09,132 basehttp 16500 18848 "GET /api/contract-types/ HTTP/1.1" 200 1236
+INFO 2025-08-05 21:49:40,286 ml_service 16500 18848 Iniciando extracción de cláusulas con LLM (prompt mejorado)
+DEBUG 2025-08-05 21:49:40,287 ml_service 16500 18848 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:49:51,926 ml_service 16500 18848 Análisis LLM recibido: {'clauses': [{'clause_number': 'PREÁMBULO', 'text': 'EL VENDEDOR es propietario del Vehículo descrito más abajo en el Artículo Primero del presente Contrato, y está interesado en vender dicho Vehículo a EL COMPRADOR.\nPOR CUANTO (2): EL COMPRADOR ha manifestado su interés en adquirir el Vehículo propiedad de EL VENDEDOR.'}, {'clause_number': 'ARTÍCULO PRIMERO', 'text': 'EL VENDEDOR, por medio de este Contrato, VENDE, CEDE Y TRASPASA, desde hoy y para siempre, sin impedimento alguno, libre de cargas y gravámenes y con todas las garantías de derecho, a favor de EL COMPRADOR, quien acepta, el Vehículo que se describe a continuación (en lo adelante, el “Vehículo”):\n“Un Vehículo de motor tipo SUV, marca HONDA, modelo CR-V, fabricado en el año 2020, color BLANCO, motor No. HND12345678, de 5 pasajeros, fuerza motriz GASOLINA, 4 cilindros.- Amparado por el Certificado de Propiedad de Vehículos de Motor No. 9876543210, expedido por la Dirección General de Impuestos Internos (DGII), inscrito bajo el No. de Registro y Placa B987654, Chasis HNDC98765432”.'}, {'clause_number': 'ARTÍCULO SEGUNDO', 'text': 'El precio acordado entre LAS PARTES para la venta del Vehículo asciende a la suma de SETECIENTOS CINCUENTA MIL PESOS DOMINICANOS (RD$750,000.00), cantidad que ha sido pagada en su totalidad por EL COMPRADOR a EL VENDEDOR en el momento de suscribirse el presente Contrato. En consecuencia, EL VENDEDOR otorga en favor de EL COMPRADOR formal e irrevocable recibo de descargo total y definitivo, carta de pago y finiquito por el precio de venta convenido, así como la matrícula del Vehículo debidamente endosada, y cualquier otra documentación requerida por las autoridades para el traspaso. De igual manera, EL VENDEDOR autoriza al Director General de Impuestos Internos o a la Colecturía correspondiente a ejecutar la transferencia o traspaso en propiedad del Vehículo en favor de EL COMPRADOR, sin impedimento alguno, ni limitación.'}, {'clause_number': 'ARTÍCULO TERCERO', 'text': 'La primera parte autoriza a la segunda parte a efectuar el traspaso en su favor de la matrícula original antes indicada por ante las autoridades correspondientes (Dirección General de Impuestos Internos).'}]}
+INFO 2025-08-05 21:49:51,930 ml_service 16500 18848 Validando cláusula con LLM: 'EL VENDEDOR es propietario del Vehículo descrito más abajo en el Artículo Primer...'
+DEBUG 2025-08-05 21:49:51,933 ml_service 16500 18848 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:49:53,809 ml_service 16500 18848 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una declaración de intenciones de compraventa entre dos partes, sin elementos abusivos.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:49:53,861 ml_service 16500 18848 Validando cláusula con LLM: 'EL VENDEDOR, por medio de este Contrato, VENDE, CEDE Y TRASPASA, desde hoy y par...'
+DEBUG 2025-08-05 21:49:53,862 ml_service 16500 18848 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:49:54,795 ml_service 16500 18848 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula describe los términos de transferencia de propiedad de un vehículo específico.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:49:54,863 ml_service 16500 18848 Validando cláusula con LLM: 'El precio acordado entre LAS PARTES para la venta del Vehículo asciende a la sum...'
+DEBUG 2025-08-05 21:49:54,864 ml_service 16500 18848 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:49:56,034 ml_service 16500 18848 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula describe los términos de una transacción de venta legal y estándar.', 'suggested_fix': '', 'confidence': 0.95}
+INFO 2025-08-05 21:49:56,096 ml_service 16500 18848 Validando cláusula con LLM: 'La primera parte autoriza a la segunda parte a efectuar el traspaso en su favor ...'
+DEBUG 2025-08-05 21:49:56,097 ml_service 16500 18848 Enviando solicitud a LLM API. Modelo: mistralai/Mixtral-8x7B-Instruct-v0.1
+DEBUG 2025-08-05 21:49:58,451 ml_service 16500 18848 Análisis LLM recibido: {'is_valid_clause': True, 'is_abusive': False, 'explanation': 'La cláusula es una estipulación común en contratos donde una parte transfiere un activo o derecho a otra. No parece ser abusiva en sí misma.', 'suggested_fix': '', 'confidence': 0.9}
+INFO 2025-08-05 21:49:58,479 ml_service 16500 18848 No hay cláusulas para analizar con LLM
+INFO 2025-08-05 21:49:58,832 basehttp 16500 18848 - Broken pipe from ('127.0.0.1', 54746)
+INFO 2025-08-05 21:50:58,210 basehttp 16500 20956 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 5018
+INFO 2025-08-05 21:50:58,385 basehttp 16500 13376 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 5018
+INFO 2025-08-05 21:51:13,513 basehttp 16500 20956 "GET /api/contracts/?page_size=5 HTTP/1.1" 200 5018
+INFO 2025-08-05 21:51:13,726 basehttp 16500 13376 "GET /api/contracts/?page_size=100 HTTP/1.1" 200 5018
+INFO 2025-08-05 21:51:20,338 basehttp 16500 13376 "OPTIONS /api/contracts/6e93daed-9b42-4a66-bb7e-2634122e453d/ HTTP/1.1" 200 0
+INFO 2025-08-05 21:51:20,338 basehttp 16500 20956 "OPTIONS /api/clauses/?contract=6e93daed-9b42-4a66-bb7e-2634122e453d HTTP/1.1" 200 0
+INFO 2025-08-05 21:51:20,815 basehttp 16500 13376 "GET /api/clauses/?contract=6e93daed-9b42-4a66-bb7e-2634122e453d HTTP/1.1" 200 4375
+INFO 2025-08-05 21:51:20,909 basehttp 16500 20956 "GET /api/contracts/6e93daed-9b42-4a66-bb7e-2634122e453d/ HTTP/1.1" 200 8180
+INFO 2025-08-05 21:51:21,377 basehttp 16500 20956 "GET /api/clauses/?contract=6e93daed-9b42-4a66-bb7e-2634122e453d HTTP/1.1" 200 4375

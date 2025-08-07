@@ -130,7 +130,7 @@ export function ClauseCard({ clause }: ClauseCardProps) {
                       <div className="flex items-start gap-3">
                          <AlertTriangle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5"/>
                          <div>
-                           <p className="text-sm text-foreground font-medium">Razón de la Abusividad (según IA):</p>
+                           <p className="text-sm text-foreground font-medium">Sugerencias:</p>
                            <p className="text-sm text-destructive/80 bg-destructive/10 p-2 rounded-md font-mono">
                              {clause.gpt_analysis.suggested_fix}
                            </p>

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { contractsApi, contractTypesApi, clausesApi } from '@/lib/api'
+import { contractsApi, contractTypesApi, clausesApi } from '@/lib/authenticatedApi'
 import type { ContractFilters, CreateContractData } from '@/types/contracts'
 import { toast } from 'sonner'
 
@@ -48,9 +48,9 @@ export function useAnalyzeContract() {
   const queryClient = useQueryClient()
   
   return useMutation({
-    mutationFn: ({ id, forceReanalysis = false }: { id: string, forceReanalysis?: boolean }) => {
-      console.log('Starting contract analysis for:', id, 'forceReanalysis:', forceReanalysis)
-      return contractsApi.analyzeContract(id, forceReanalysis)
+    mutationFn: ({ id }: { id: string }) => {
+      console.log('Starting contract analysis for:', id)
+      return contractsApi.analyzeContract(id)
     },
     onSuccess: (data, variables) => {
       console.log('Analysis request successful:', data)

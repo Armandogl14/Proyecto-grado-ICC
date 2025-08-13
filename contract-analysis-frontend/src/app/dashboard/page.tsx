@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Header } from "@/components/layout/Header"
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute"
 import { useDashboardStats, useContracts } from "@/hooks/useContracts"
 import { formatDate } from "@/lib/utils"
 import { 
@@ -30,7 +30,6 @@ export default function DashboardPage() {
   if (isLoadingStats || isLoadingContracts) {
     return (
       <>
-        <Header />
         <div className="container mx-auto p-4 md:p-8 space-y-8">
           <div className="h-8 bg-muted/50 rounded w-1/4 animate-pulse"></div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -64,14 +63,14 @@ export default function DashboardPage() {
     },
     {
       title: "Completados",
-      value: stats?.completed || 0,
+      value: stats?.completed_contracts || 0,
       icon: CheckCircle,
       color: "text-green-500",
       bgColor: "bg-green-500/10"
     },
     {
       title: "Alto Riesgo",
-      value: stats?.high_risk || 0,
+      value: 0, // Temporalmente 0 hasta que el backend tenga esta información
       icon: ShieldAlert,
       color: "text-destructive",
       bgColor: "bg-destructive/10"
@@ -79,15 +78,14 @@ export default function DashboardPage() {
   ]
 
   const riskData = [
-    { name: 'Bajo', value: stats?.low_risk || 0, color: '#4ade80' }, // Pastel Green
-    { name: 'Medio', value: stats?.medium_risk || 0, color: '#facc15' }, // Pastel Yellow
-    { name: 'Alto', value: stats?.high_risk || 0, color: '#f87171' }, // Pastel Red
+    { name: 'Bajo', value: 0, color: '#4ade80' }, // Temporalmente 0
+    { name: 'Medio', value: 0, color: '#facc15' }, // Temporalmente 0  
+    { name: 'Alto', value: 0, color: '#f87171' }, // Temporalmente 0
   ]
   const totalRiskContracts = riskData.reduce((acc, item) => acc + item.value, 0)
 
   return (
-    <>
-      <Header />
+    <ProtectedRoute>
       <main className="container mx-auto p-4 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -218,6 +216,6 @@ export default function DashboardPage() {
           </div>
         </div>
       </main>
-    </>
+    </ProtectedRoute>
   )
 } 

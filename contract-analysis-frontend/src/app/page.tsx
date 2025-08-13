@@ -4,10 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { FileText, Shield, Zap, Brain, ArrowRight, Bot, BarChart, Sparkles } from "lucide-react"
 import Link from "next/link"
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute"
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-background text-foreground">
+    <ProtectedRoute>
+      <div className="min-h-screen w-full bg-background text-foreground">
       <div className="container mx-auto px-4 py-16">
 
         {/* --- Hero Section --- */}
@@ -137,7 +139,8 @@ export default function Home() {
           </Link>
         </div>
 
+        </div>
       </div>
-    </div>
+    </ProtectedRoute>
   )
 }

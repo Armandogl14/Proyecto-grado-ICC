@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute"
 import { RiskIndicator } from "@/components/contracts/RiskIndicator"
 import { useContracts, useContractTypes } from "@/hooks/useContracts"
 import { formatDate } from "@/lib/utils"
@@ -21,7 +22,6 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { Contract } from "@/types/contracts"
-import { Header } from '@/components/layout/Header'
 
 export default function ContractsPage() {
   const [filters, setFilters] = useState({
@@ -60,8 +60,7 @@ export default function ContractsPage() {
   }
 
   return (
-    <>
-      <Header />
+    <ProtectedRoute>
       <main className="container mx-auto p-4 md:p-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
@@ -116,7 +115,7 @@ export default function ContractsPage() {
                 onChange={(e) => handleFilterChange('contract_type', e.target.value ? parseInt(e.target.value) : undefined)}
               >
                 <option value="">{isLoadingTypes ? 'Cargando...' : 'Todos los tipos'}</option>
-                {contractTypesData?.results?.map((type) => (
+                {Array.isArray(contractTypesData) && contractTypesData.map((type) => (
                   <option key={type.id} value={type.id}>
                     {type.name}
                   </option>
@@ -222,6 +221,6 @@ export default function ContractsPage() {
           </div>
         )}
       </main>
-    </>
+    </ProtectedRoute>
   )
 } 

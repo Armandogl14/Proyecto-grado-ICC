@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { RiskIndicator } from "@/components/contracts/RiskIndicator"
 import { ClauseCard } from "@/components/contracts/ClauseCard"
+import { LegalAnalysisSection } from "@/components/contracts/LegalAnalysisSection"
 import { Header } from "@/components/layout/Header"
 import { 
   useRealTimeAnalysis, 
@@ -27,7 +28,8 @@ import {
   FileClock,
   BookText,
   ListOrdered,
-  Trash2 // Importar el icono de la papelera
+  Trash2, // Importar el icono de la papelera
+  Scale // Agregar icono para análisis legal
 } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation" // Importar useRouter
@@ -38,7 +40,7 @@ const Tabs = ({ children }: { children: React.ReactNode }) => <div className="fl
 const Tab = ({ children, onClick, isActive }: { children: React.ReactNode; onClick: () => void; isActive: boolean; }) => (
   <button
     onClick={onClick}
-    className={`px-4 py-2 -mb-px font-semibold border-b-2 transition-colors ${
+    className={`px-4 py-2 -mb-px font-semibold border-b-2 transition-colors flex items-center ${
       isActive
         ? 'border-primary text-primary'
         : 'border-transparent text-muted-foreground hover:text-foreground'
@@ -58,7 +60,7 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
   const [activeTab, setActiveTab] = React.useState('summary')
 
   const handleAnalyze = () => analyzeContractMutation.mutate({ id: params.id })
-  const handleReanalyze = () => analyzeContractMutation.mutate({ id: params.id, forceReanalysis: true })
+  const handleReanalyze = () => analyzeContractMutation.mutate({ id: params.id })
 
   const handleDelete = () => {
     if (window.confirm("¿Estás seguro de que deseas eliminar este contrato? Esta acción es irreversible.")) {
@@ -164,7 +166,7 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
 
         {/* --- Summary Card --- */}
         <Card className="bg-card/80 border-border/60 backdrop-blur-sm p-6 rounded-2xl mb-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center md:text-left">
                 <div className="flex flex-col items-center md:items-start gap-1">
                     <p className="text-sm text-muted-foreground font-medium">Nivel de Riesgo</p>
                     <RiskIndicator riskScore={contract.risk_score} size="md" />
@@ -187,6 +189,22 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
                         <ListOrdered /> {contract.total_clauses || 0}
                     </p>
                 </div>
+                <div className="flex flex-col items-center md:items-start gap-1">
+                    <p className="text-sm text-muted-foreground font-medium">Análisis Legal</p>
+                    <div className="flex items-center gap-2">
+                        {contract.legal_analysis ? (
+                            <div className="flex items-center gap-1 text-green-600">
+                                <Scale className="w-5 h-5" />
+                                <span className="text-sm font-semibold">Disponible</span>
+                            </div>
+                        ) : (
+                            <div className="flex items-center gap-1 text-muted-foreground">
+                                <Scale className="w-5 h-5" />
+                                <span className="text-sm font-semibold">No disponible</span>
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
         </Card>
 
@@ -195,6 +213,10 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
           <Tabs>
               <Tab onClick={() => setActiveTab('summary')} isActive={activeTab === 'summary'}>Resumen Ejecutivo</Tab>
               <Tab onClick={() => setActiveTab('clauses')} isActive={activeTab === 'clauses'}>Análisis de Cláusulas</Tab>
+              <Tab onClick={() => setActiveTab('legal')} isActive={activeTab === 'legal'}>
+                <Scale className="w-4 h-4 mr-2" />
+                Análisis Legal
+              </Tab>
               <Tab onClick={() => setActiveTab('text')} isActive={activeTab === 'text'}>Texto Original</Tab>
           </Tabs>
         </div>
@@ -217,12 +239,29 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
                         <div className="text-center py-10 text-muted-foreground flex items-center justify-center gap-2">
                             <Loader2 className="w-5 h-5 animate-spin" /> Cargando cláusulas...
                         </div>
-                    ) : (
-                        clausesData?.results?.map((clause) => (
+                    ) : clausesData && clausesData.length > 0 ? (
+                        clausesData.map((clause) => (
                             <ClauseCard key={clause.id} clause={clause} />
                         ))
+                    ) : (
+                        <Card className="bg-card/80 border-border/60 p-8 rounded-2xl text-center">
+                            <FileText className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
+                            <h3 className="text-lg font-semibold text-foreground mb-2">No hay cláusulas disponibles</h3>
+                            <p className="text-muted-foreground">
+                                {contract.status === 'pending' 
+                                    ? 'Inicia el análisis para ver las cláusulas detectadas.' 
+                                    : 'No se encontraron cláusulas en este contrato.'}
+                            </p>
+                        </Card>
                     )}
                 </div>
+            )}
+
+            {activeTab === 'legal' && (
+                <LegalAnalysisSection 
+                    legalAnalysis={contract.legal_analysis || null} 
+                    isLoading={isLoadingContract}
+                />
             )}
             
             {activeTab === 'text' && (

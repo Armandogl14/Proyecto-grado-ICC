@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { CreateContractForm } from "@/components/contracts/CreateContractForm"
-import { Header } from "@/components/layout/Header"
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute"
 import { ArrowLeft } from "lucide-react"
 
 export default function NewContractPage() {
@@ -13,8 +13,7 @@ export default function NewContractPage() {
   }
 
   return (
-    <>
-      <Header />
+    <ProtectedRoute>
       <main className="container mx-auto p-4 md:p-8">
         <div className="mb-8">
             <button
@@ -31,6 +30,6 @@ export default function NewContractPage() {
         </div>
         <CreateContractForm onSuccess={handleSuccess} />
       </main>
-    </>
+    </ProtectedRoute>
   )
 } 

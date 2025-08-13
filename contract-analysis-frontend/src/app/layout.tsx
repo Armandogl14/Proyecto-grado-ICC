@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from 'sonner'
 import { QueryProvider } from "@/providers/QueryProvider";
-import { AuthWrapper } from "@/components/auth/AuthWrapper";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { Header } from "@/components/layout/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +22,12 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${inter.className} bg-slate-900 text-slate-100`}>
         <QueryProvider>
-          <AuthWrapper>
-            {children}
-          </AuthWrapper>
+          <AuthProvider>
+            <Header />
+            <main className="min-h-screen">
+              {children}
+            </main>
+          </AuthProvider>
         </QueryProvider>
         <Toaster richColors theme="dark" />
       </body>

@@ -32,6 +32,20 @@ export interface Clause {
   risk_score: number
 }
 
+// Nuevos tipos para análisis legal
+export interface LegalAnalysis {
+  id: string
+  executive_summary: {
+    "La naturaleza jurídica del contrato": string
+    "Los principales riesgos legales identificados": string
+    "El nivel de cumplimiento normativo": string
+    "Otros puntos importantes": string
+  }
+  affected_laws: string[]
+  created_at: string
+  updated_at: string
+}
+
 export interface Contract {
   id: string
   title: string
@@ -48,6 +62,7 @@ export interface Contract {
   processing_time: number
   executive_summary: string
   recommendations: string
+  legal_analysis?: LegalAnalysis | null  // Nueva propiedad
 }
 
 export interface ContractFilters {

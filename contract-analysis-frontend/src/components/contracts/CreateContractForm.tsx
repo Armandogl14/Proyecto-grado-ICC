@@ -139,7 +139,7 @@ export function CreateContractForm({ onSuccess, className = "" }: CreateContract
               <option value="">
                 {isLoadingTypes ? 'Cargando tipos...' : 'Seleccione un tipo'}
               </option>
-              {contractTypesData?.results?.map((type) => (
+              {Array.isArray(contractTypesData) && contractTypesData.map((type) => (
                   <option key={type.id} value={type.id}>
                     {type.name}
                   </option>

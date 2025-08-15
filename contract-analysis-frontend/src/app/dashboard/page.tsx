@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute"
+import { Header } from "@/components/layout/Header"
 import { useDashboardStats, useContracts } from "@/hooks/useContracts"
 import { formatDate } from "@/lib/utils"
 import { 
@@ -29,7 +30,8 @@ export default function DashboardPage() {
   // Skeleton Loader
   if (isLoadingStats || isLoadingContracts) {
     return (
-      <>
+      <ProtectedRoute>
+        <Header />
         <div className="container mx-auto p-4 md:p-8 space-y-8">
           <div className="h-8 bg-muted/50 rounded w-1/4 animate-pulse"></div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -42,7 +44,7 @@ export default function DashboardPage() {
             <div className="md:col-span-2 h-80 bg-card/80 rounded-2xl animate-pulse"></div>
           </div>
         </div>
-      </>
+      </ProtectedRoute>
     )
   }
 
@@ -86,6 +88,7 @@ export default function DashboardPage() {
 
   return (
     <ProtectedRoute>
+      <Header />
       <main className="container mx-auto p-4 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

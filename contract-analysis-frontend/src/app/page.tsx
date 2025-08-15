@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button"
 import { FileText, Shield, Zap, Brain, ArrowRight, Bot, BarChart, Sparkles } from "lucide-react"
 import Link from "next/link"
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute"
+import { Header } from "@/components/layout/Header"
 
 export default function Home() {
   return (
     <ProtectedRoute>
+      <Header />
       <div className="min-h-screen w-full bg-background text-foreground">
       <div className="container mx-auto px-4 py-16">
 

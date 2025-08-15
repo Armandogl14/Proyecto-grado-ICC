@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button"
 import { useAuth } from "@/contexts/AuthContext"
 import { LayoutDashboard, LogOut, User, FilePlus, Sparkles, Settings, ChevronDown } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
+import { usePathname } from "next/navigation"
 
 export function Header() {
   const { user, logout, isAuthenticated } = useAuth()
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
 
   // Cerrar menú cuando se hace clic fuera
   useEffect(() => {
@@ -40,12 +42,14 @@ export function Header() {
             <>
               {/* Navegación Principal */}
               <div className="hidden md:flex items-center gap-2">
-                <Link href="/dashboard">
-                  <Button variant="ghost" size="sm" className="flex items-center gap-2 text-foreground hover:bg-secondary">
-                    <LayoutDashboard className="h-4 w-4" />
-                    Dashboard
-                  </Button>
-                </Link>
+                {pathname !== '/dashboard' && (
+                  <Link href="/dashboard">
+                    <Button variant="ghost" size="sm" className="flex items-center gap-2 text-foreground hover:bg-secondary">
+                      <LayoutDashboard className="h-4 w-4" />
+                      Dashboard
+                    </Button>
+                  </Link>
+                )}
                 
                 <Link href="/contracts">
                   <Button variant="ghost" size="sm" className="flex items-center gap-2 text-foreground hover:bg-secondary">
@@ -56,14 +60,16 @@ export function Header() {
               </div>
 
               {/* Botón Nuevo Análisis */}
-              <Link href="/contracts/new">
-                 <Button size="sm" className="group relative inline-flex h-9 items-center justify-center overflow-hidden rounded-md bg-primary font-medium text-primary-foreground transition-all duration-300 ease-in-out hover:bg-primary/90">
-                   <span className="relative z-10 flex items-center gap-2">
-                    <FilePlus className="h-4 w-4" />
-                    <span className="hidden sm:inline">Nuevo Análisis</span>
-                   </span>
-                </Button>
-              </Link>
+              {pathname !== '/contracts/new' && (
+                <Link href="/contracts/new">
+                   <Button size="sm" className="group relative inline-flex h-9 items-center justify-center overflow-hidden rounded-md bg-primary font-medium text-primary-foreground transition-all duration-300 ease-in-out hover:bg-primary/90">
+                     <span className="relative z-10 flex items-center gap-2">
+                      <FilePlus className="h-4 w-4" />
+                      <span className="hidden sm:inline">Nuevo Análisis</span>
+                     </span>
+                  </Button>
+                </Link>
+              )}
 
               {/* Menú de Usuario */}
               <div className="relative" ref={menuRef}>
@@ -94,12 +100,14 @@ export function Header() {
                         </div>
                       </Link>
                       
-                      <Link href="/dashboard" onClick={() => setIsUserMenuOpen(false)}>
-                        <div className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-secondary cursor-pointer md:hidden">
-                          <LayoutDashboard className="h-4 w-4" />
-                          Dashboard
-                        </div>
-                      </Link>
+                      {pathname !== '/dashboard' && (
+                        <Link href="/dashboard" onClick={() => setIsUserMenuOpen(false)}>
+                          <div className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-secondary cursor-pointer md:hidden">
+                            <LayoutDashboard className="h-4 w-4" />
+                            Dashboard
+                          </div>
+                        </Link>
+                      )}
                       
                       <button 
                         onClick={handleLogout}

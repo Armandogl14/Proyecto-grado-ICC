@@ -174,6 +174,20 @@ export const clausesApi = {
   async getClausesByContract(contractId: string): Promise<Clause[]> {
     const url = `${API_BASE_URL}/api/contracts/${contractId}/clauses/`
     const response = await authenticatedFetch(url)
-    return response.json()
+    const data = await response.json()
+    
+    // Si el backend devuelve un objeto con results, extraer el array
+    if (data && typeof data === 'object' && Array.isArray(data.results)) {
+      return data.results
+    }
+    
+    // Si ya es un array, devolverlo directamente
+    if (Array.isArray(data)) {
+      return data
+    }
+    
+    // Fallback: devolver array vacío
+    console.warn('Clauses response is not in expected format:', data)
+    return []
   },
 }

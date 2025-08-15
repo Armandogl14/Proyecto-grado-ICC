@@ -4,7 +4,6 @@ import "./globals.css";
 import { Toaster } from 'sonner'
 import { QueryProvider } from "@/providers/QueryProvider";
 import { AuthProvider } from "@/contexts/AuthContext";
-import { Header } from "@/components/layout/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +22,6 @@ export default function RootLayout({
       <body className={`${inter.className} bg-slate-900 text-slate-100`}>
         <QueryProvider>
           <AuthProvider>
-            <Header />
             <main className="min-h-screen">
               {children}
             </main>

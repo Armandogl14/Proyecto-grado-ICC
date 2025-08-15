@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { RiskIndicator } from "@/components/contracts/RiskIndicator"
 import { ClauseCard } from "@/components/contracts/ClauseCard"
 import { LegalAnalysisSection } from "@/components/contracts/LegalAnalysisSection"
-import { Header } from "@/components/layout/Header"
 import { 
   useRealTimeAnalysis, 
   useAnalyzeContract, 
@@ -75,39 +74,33 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
   // --- Render Skeletons ---
   if (isLoadingContract) {
     return (
-      <>
-        <Header />
-        <div className="container mx-auto p-4 md:p-8 animate-pulse">
-            <div className="h-6 w-1/4 bg-muted/50 rounded mb-4"></div>
-            <div className="h-10 w-1/2 bg-muted/50 rounded mb-2"></div>
-            <div className="h-6 w-1/3 bg-muted/50 rounded mb-8"></div>
-            <div className="h-40 bg-card/80 rounded-2xl"></div>
-        </div>
-      </>
+      <div className="container mx-auto p-4 md:p-8 animate-pulse">
+          <div className="h-6 w-1/4 bg-muted/50 rounded mb-4"></div>
+          <div className="h-10 w-1/2 bg-muted/50 rounded mb-2"></div>
+          <div className="h-6 w-1/3 bg-muted/50 rounded mb-8"></div>
+          <div className="h-40 bg-card/80 rounded-2xl"></div>
+      </div>
     )
   }
 
   // --- Render Error or Not Found ---
   if (contractError || !contract) {
     return (
-      <>
-        <Header />
-        <div className="container mx-auto p-4 md:p-8 text-center">
-            <AlertTriangle className="w-16 h-16 text-destructive/50 mx-auto mb-4" />
-            <h1 className="text-2xl font-bold text-foreground mb-4">
-            {contractError ? "Error al cargar el contrato" : "Contrato no encontrado"}
-            </h1>
-            <p className="text-muted-foreground mb-6">
-            {contractError?.message || "No pudimos encontrar el contrato que buscas."}
-            </p>
-            <Link href="/dashboard">
-                <Button variant="outline" className="border-border hover:bg-secondary">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Volver al Dashboard
-                </Button>
-            </Link>
-        </div>
-      </>
+      <div className="container mx-auto p-4 md:p-8 text-center">
+          <AlertTriangle className="w-16 h-16 text-destructive/50 mx-auto mb-4" />
+          <h1 className="text-2xl font-bold text-foreground mb-4">
+          {contractError ? "Error al cargar el contrato" : "Contrato no encontrado"}
+          </h1>
+          <p className="text-muted-foreground mb-6">
+          {contractError?.message || "No pudimos encontrar el contrato que buscas."}
+          </p>
+          <Link href="/dashboard">
+              <Button variant="outline" className="border-border hover:bg-secondary">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Volver al Dashboard
+              </Button>
+          </Link>
+      </div>
     )
   }
 
@@ -121,10 +114,8 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
   }
 
   return (
-    <>
-      <Header />
-      <main className="container mx-auto p-4 md:p-8">
-        {/* --- Page Header --- */}
+    <main className="container mx-auto p-4 md:p-8">
+      {/* --- Page Header --- */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
             <div>
                 <Link href="/dashboard" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-2 text-sm">
@@ -275,6 +266,5 @@ export default function ContractDetailPage({ params }: { params: { id: string } 
             )}
         </div>
       </main>
-    </>
   )
 } 

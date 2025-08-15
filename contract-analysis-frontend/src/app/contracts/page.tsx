@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute"
+import { Header } from "@/components/layout/Header"
 import { RiskIndicator } from "@/components/contracts/RiskIndicator"
 import { useContracts, useContractTypes } from "@/hooks/useContracts"
 import { formatDate } from "@/lib/utils"
@@ -61,6 +62,7 @@ export default function ContractsPage() {
 
   return (
     <ProtectedRoute>
+      <Header />
       <main className="container mx-auto p-4 md:p-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">

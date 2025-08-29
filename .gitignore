@@ -1,1 +1,4 @@
 backend/.env
+.venv/
+.conda/
+backend/backend/_pycache_/

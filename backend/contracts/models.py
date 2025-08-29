@@ -195,4 +195,26 @@ class AnalysisResult(models.Model):
         verbose_name_plural = "Resultados de Análisis"
     
     def __str__(self):
-        return f"Análisis de {self.contract.title}" 
+        return f"Análisis de {self.contract.title}"
+
+
+class LegalAnalysis(models.Model):
+    """Análisis legal detallado generado por LLM"""
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    contract = models.OneToOneField(Contract, on_delete=models.CASCADE, related_name='legal_analysis')
+    
+    # Campos principales del análisis LLM
+    executive_summary = models.JSONField(help_text="Resumen ejecutivo del análisis legal")
+    affected_laws = models.JSONField(help_text="Leyes y regulaciones afectadas")
+    
+    # Metadatos
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = "Análisis Legal"
+        verbose_name_plural = "Análisis Legales"
+        
+    def __str__(self):
+        return f"Análisis Legal - {self.contract.title}" 

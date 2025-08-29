@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Contract, ContractType, Clause, Entity, AnalysisResult
+from .models import Contract, ContractType, Clause, Entity, AnalysisResult, LegalAnalysis
 
 
 class ClauseAnalysisSerializer(serializers.Serializer):
@@ -100,11 +100,24 @@ class ContractListSerializer(serializers.ModelSerializer):
         ]
 
 
+class LegalAnalysisSerializer(serializers.ModelSerializer):
+    """Serializer para análisis legal detallado"""
+    
+    class Meta:
+        model = LegalAnalysis
+        fields = [
+            'id', 'executive_summary', 'affected_laws',
+            'created_at', 'updated_at'
+        ]
+        read_only_fields = ['id', 'created_at', 'updated_at']
+
+
 class ContractDetailSerializer(serializers.ModelSerializer):
     """Serializer para detalle completo del contrato"""
     contract_type = ContractTypeSerializer(read_only=True)
     clauses = ClauseSerializer(many=True, read_only=True)
     analysis_result = AnalysisResultSerializer(read_only=True)
+    legal_analysis = LegalAnalysisSerializer(read_only=True)
     uploaded_by_username = serializers.CharField(source='uploaded_by.username', read_only=True)
     
     class Meta:
@@ -114,7 +127,7 @@ class ContractDetailSerializer(serializers.ModelSerializer):
             'uploaded_by_username', 'status', 'created_at',
             'updated_at', 'analyzed_at', 'total_clauses',
             'abusive_clauses_count', 'risk_score', 'risk_level',
-            'clauses', 'analysis_result'
+            'clauses', 'analysis_result', 'legal_analysis'
         ]
 
 
@@ -142,11 +155,12 @@ class ContractSerializer(serializers.ModelSerializer):
         write_only=True
     )
     analysis_result = ContractAnalysisSerializer(read_only=True)
+    legal_analysis = LegalAnalysisSerializer(read_only=True)
 
     class Meta:
         model = Contract
         fields = '__all__'
-        read_only_fields = ('created_at', 'updated_at', 'status', 'analysis_result')
+        read_only_fields = ('created_at', 'updated_at', 'status', 'analysis_result', 'legal_analysis')
 
 
 class ContractAnalysisSerializer(serializers.Serializer):

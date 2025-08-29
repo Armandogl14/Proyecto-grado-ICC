@@ -9,7 +9,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q
 # from celery import shared_task  # Commented out to avoid Redis dependency
 
-from .models import Contract, ContractType, Clause, AnalysisResult
+from .models import Contract, ContractType, Clause, AnalysisResult, LegalAnalysis
 from .serializers import (
     ContractListSerializer, ContractDetailSerializer, ContractCreateSerializer,
     ContractTypeSerializer, ClauseSerializer, ContractAnalysisSerializer,
@@ -37,7 +37,9 @@ class ContractViewSet(viewsets.ModelViewSet):
     filterset_fields = ['status', 'contract_type', 'risk_score']
     
     def get_queryset(self):
-        """Filtrar contratos por usuario"""
+        """Filtra contratos por usuario autenticado. Admins ven todos."""
+        if self.request.user.is_staff:
+            return Contract.objects.all()
         return Contract.objects.filter(uploaded_by=self.request.user)
     
     def get_serializer_class(self):
@@ -50,7 +52,7 @@ class ContractViewSet(viewsets.ModelViewSet):
             return ContractDetailSerializer
     
     def perform_create(self, serializer):
-        """Asignar usuario al crear contrato"""
+        """Asigna el usuario autenticado al crear el contrato."""
         contract = serializer.save(uploaded_by=self.request.user)
         
         # Iniciar análisis automáticamente si es texto (modo síncrono para desarrollo)
@@ -196,6 +198,8 @@ class ContractViewSet(viewsets.ModelViewSet):
             contract.clauses.all().delete()  # Borra cláusulas y entidades en cascada
             if hasattr(contract, 'analysis_result'):
                 contract.analysis_result.delete()
+            if hasattr(contract, 'legal_analysis'):
+                contract.legal_analysis.delete()
 
             # Reiniciar campos del contrato y marcar como 'analizando'
             contract.status = 'analyzing'
@@ -259,6 +263,34 @@ class ContractViewSet(viewsets.ModelViewSet):
             contract.status = 'completed'
             contract.analyzed_at = timezone.now()
             contract.save()
+            
+            # Crear o actualizar AnalysisResult
+            analysis_result_obj, created = AnalysisResult.objects.get_or_create(
+                contract=contract,
+                defaults={
+                    'processing_time': analysis_result.get('processing_time', 0),
+                    'model_version': '1.0',
+                    'executive_summary': analysis_result.get('executive_summary', ''),
+                    'recommendations': analysis_result.get('recommendations', ''),
+                    'ml_model_accuracy': None,
+                    'features_extracted': {}
+                }
+            )
+            
+            # Crear o actualizar LegalAnalysis
+            legal_analysis_obj, created = LegalAnalysis.objects.get_or_create(
+                contract=contract,
+                defaults={
+                    'executive_summary': analysis_result.get('legal_executive_summary', {}),
+                    'affected_laws': analysis_result.get('legal_affected_laws', [])
+                }
+            )
+            
+            # Si ya existía, actualizar los campos
+            if not created:
+                legal_analysis_obj.executive_summary = analysis_result.get('legal_executive_summary', {})
+                legal_analysis_obj.affected_laws = analysis_result.get('legal_affected_laws', [])
+                legal_analysis_obj.save()
                 
         except Exception as e:
             import traceback
@@ -267,6 +299,21 @@ class ContractViewSet(viewsets.ModelViewSet):
             error_msg = f"Error en análisis síncrono: {e}\n{traceback.format_exc()}"
             print(error_msg)
             logger.error(error_msg)
+
+    @action(detail=True, methods=['get'])
+    def clauses(self, request, pk=None):
+        """Endpoint para obtener las cláusulas de un contrato específico"""
+        contract = self.get_object()
+        clauses = contract.clauses.all()
+        
+        # Usar el serializer de cláusulas
+        from .serializers import ClauseSerializer
+        serializer = ClauseSerializer(clauses, many=True)
+        
+        return Response({
+            'count': clauses.count(),
+            'results': serializer.data
+        })
 
 
 class ClauseViewSet(viewsets.ReadOnlyModelViewSet):
@@ -277,10 +324,10 @@ class ClauseViewSet(viewsets.ReadOnlyModelViewSet):
     filterset_fields = ['is_abusive', 'clause_type']
     
     def get_queryset(self):
-        """Filtrar cláusulas por contratos del usuario"""
-        return Clause.objects.filter(
-            contract__uploaded_by=self.request.user
-        )
+        """Filtra cláusulas por contratos del usuario autenticado. Admins ven todas."""
+        if self.request.user.is_staff:
+            return Clause.objects.all()
+        return Clause.objects.filter(contract__uploaded_by=self.request.user)
     
     @action(detail=False, methods=['get'])
     def abusive_patterns(self, request):

@@ -25,13 +25,14 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     
     # API Routes
-    path('', include('contracts.urls')),
+    path('api/', include('users.urls')),  # Rutas de usuarios y autenticación
+    path('', include('contracts.urls')),  # Rutas de contratos
     
     # API Documentation
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     
-    # Authentication
+    # Authentication (mantener para admin)
     path('api/auth/', include('rest_framework.urls')),
 ]
 
